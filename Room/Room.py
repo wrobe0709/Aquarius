@@ -1,21 +1,27 @@
 """Room docstring"""
-class CurrentRoom(object):
-    """CurrentRoom Class"""
+class Room(object):
+    """Room Class"""
     def __init__(self):
         self.name = ''
-        self.description = ''
+        self.short_description = ''
+        self.long_description = ''
         self.north = ''
         self.south = ''
         self.east = ''
         self.west = ''
+        self.visited = False
     
     def set_name(self, name):
         """Sets the name of a room"""
         self.name = name
-    
-    def set_description(self, description):
+
+    def set_long_description(self, long_description):
         """Sets the description of a room"""
-        self.description = description
+        self.long_description = long_description
+    
+    def set_short_description(self, short_description):
+        """Sets the description of a room"""
+        self.short_description = short_description
     
     def set_north(self, north):
         """Sets the north neighbor of a room"""
@@ -32,16 +38,32 @@ class CurrentRoom(object):
     def set_west(self, west):
         """Sets the north neighbor of a room"""
         self.west = west
-    
+
+    def get_north(self):
+        """Gets the north neighbor of a room"""
+        return self.north
+
+    def get_south(self):
+        """Gets the south neighbor of a room"""
+        return self.south
+
+    def get_east(self):
+        """Gets the east neighbor of a room"""
+        return self.east
+
+    def get_west(self):
+        """Gets the west neighbor of a room"""
+        return self.west
+
     def get_name(self):
         """Gets the name of a room"""
         return self.name
     
-    def get_description(self):
-        """Gets the description of a room"""
-        return self.description
+    def get_short_description(self):
+        """Gets the short description of a room"""
+        return self.short_description
 
-class Neighbor(CurrentRoom):
+class Neighbor(Room):
     """Neighbor Class"""
     def __init__(self):
         super(Neighbor, self).__init__()       
