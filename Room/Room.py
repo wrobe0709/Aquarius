@@ -10,6 +10,8 @@ class Room(object):
         self.east = ''
         self.west = ''
         self.visited = False
+        self.features = {}
+        self.items = {}
     
     def set_name(self, name):
         """Sets the name of a room"""
@@ -38,7 +40,19 @@ class Room(object):
     def set_west(self, west):
         """Sets the north neighbor of a room"""
         self.west = west
+    
+    def set_visited(self, visited):
+        """Sets the room as visited"""
+        self.visited = visited
 
+    def add_feature(self, feature):
+        """Adds a feature to the room"""
+        self.features[feature.get_name()] = feature
+
+    def add_item(self, item):
+        """Adds an item to the room"""
+        self.items[item.get_name()] = item
+    
     def get_north(self):
         """Gets the north neighbor of a room"""
         return self.north
@@ -58,10 +72,22 @@ class Room(object):
     def get_name(self):
         """Gets the name of a room"""
         return self.name
+
+    def get_long_description(self):
+        """Gets the long description of a room"""
+        return self.long_description
     
     def get_short_description(self):
         """Gets the short description of a room"""
         return self.short_description
+
+    def get_visited(self):
+        """Gets if a room is visited"""
+        return self.visited
+
+    def get_features(self):
+        """Gets if a room is visited"""
+        return self.features
 
 class Neighbor(Room):
     """Neighbor Class"""
