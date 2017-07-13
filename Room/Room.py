@@ -52,6 +52,10 @@ class Room(object):
     def add_item(self, item):
         """Adds an item to the room"""
         self.items[item.get_name()] = item
+
+    def remove_item(self, item):
+        """Removes an item to the room"""
+        del self.items[item]
     
     def get_north(self):
         """Gets the north neighbor of a room"""
@@ -88,6 +92,10 @@ class Room(object):
     def get_features(self):
         """Gets if a room is visited"""
         return self.features
+
+    def get_items(self):
+        """Gets items in a room"""
+        return self.items
 
 class Neighbor(Room):
     """Neighbor Class"""
