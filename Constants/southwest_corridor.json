@@ -1,0 +1,19 @@
+ {
+    "long_description": "long description of the southwest corridor",
+    "short_description": "short description of the southwest corridor",
+    "north":"Barrel Room",
+    "south":"None",
+    "east":"Dungeon Entrance",
+    "west":"None",
+    "features":{
+        "Chair":{
+            "name":"Chair",
+            "description":"the description of a chair"
+        },
+        "Mirror":{
+            "name":"Mirror",
+            "description":"the description of a mirror"
+        }
+    },
+    "items":{}
+}

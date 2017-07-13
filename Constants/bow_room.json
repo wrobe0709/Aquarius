@@ -1,0 +1,24 @@
+{
+    "long_description": "long description of the bow room",
+    "short_description": "short description of the bow room",
+    "north":"Gear Room",
+    "south":"None",
+    "east":"None",
+    "west":"None",
+    "features":{
+        "Chair":{
+            "name":"Chair",
+            "description":"the description of a chair"
+        },
+        "Mirror":{
+            "name":"Mirror",
+            "description":"the description of a mirror"
+        }
+    },
+    "items":{
+        "Bow":{
+            "name":"Bow",
+            "description":"Shoots an arrow"
+        }
+    }
+}

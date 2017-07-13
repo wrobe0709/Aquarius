@@ -1,0 +1,24 @@
+{
+    "long_description": "long description of the barrel room",
+    "short_description": "short description of the barrel room",
+    "north":"Diamond Room",
+    "south":"Southwest Corridor",
+    "east":"Armory",
+    "west":"None",
+    "features":{
+        "Chair":{
+            "name":"Chair",
+            "description":"the description of a chair"
+        },
+        "Mirror":{
+            "name":"Mirror",
+            "description":"the description of a mirror"
+        }
+    },
+    "items":{
+        "Rune":{
+            "name":"Rune",
+            "description":"Upgrades the hero\"s sword"
+        }
+    }
+}

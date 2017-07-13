@@ -1,0 +1,19 @@
+{
+    "long_description": "long description of the shadow corridor",
+    "short_description": "short description of the shadow corridor",
+    "north":"None",
+    "south":"Gear Room",
+    "east":"Northeast Corridor",
+    "west":"Northwest Corridor",
+    "features":{
+        "Chair":{
+            "name":"Chair",
+            "description":"the description of a chair"
+        },
+        "Mirror":{
+            "name":"Mirror",
+            "description":"the description of a mirror"
+        }
+    },
+    "items":{}
+}

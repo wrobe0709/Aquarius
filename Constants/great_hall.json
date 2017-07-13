@@ -1,0 +1,19 @@
+ {
+    "long_description": "long description of the great hall",
+    "short_description": "short description of the great hall",
+    "north":"Torch Corridor",
+    "south":"Southwest Corridor",
+    "east":"None",
+    "west":"None",
+    "features":{
+        "Chair":{
+            "name":"Chair",
+            "description":"the description of a chair"
+        },
+        "Mirror":{
+            "name":"Mirror",
+            "description":"the description of a mirror"
+        }
+    },
+    "items":{}
+}

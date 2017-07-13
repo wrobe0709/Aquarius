@@ -1,0 +1,19 @@
+ {
+    "long_description": "long description of the diamond room",
+    "short_description": "short description of the diamond room",
+    "north":"Northwest Corridor",
+    "south":"Barrel Room",
+    "east":"Gear Room",
+    "west":"None",
+    "features":{
+        "Chair":{
+            "name":"Chair",
+            "description":"the description of a chair"
+        },
+        "Mirror":{
+            "name":"Mirror",
+            "description":"the description of a mirror"
+        }
+    },
+    "items":{}
+}

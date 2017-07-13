@@ -1,0 +1,19 @@
+{
+    "long_description": "long description of the end room",
+    "short_description": "short description of the end room",
+    "north":"Armory",
+    "south":"None",
+    "east":"None",
+    "west":"None",
+    "features":{
+        "Chair":{
+            "name":"Chair",
+            "description":"the description of a chair"
+        },
+        "Mirror":{
+            "name":"Mirror",
+            "description":"the description of a mirror"
+        }
+    },
+    "items":{}
+}
