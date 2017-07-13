@@ -1,0 +1,24 @@
+{
+    "long_description": "long description of the northwest corridor",
+    "short_description": "short description of the northwest corridor",
+    "north":"None",
+    "south":"Diamond Room",
+    "east":"Shadow Corridor",
+    "west":"None",
+    "features":{
+        "Chair":{
+            "name":"Chair",
+            "description":"the description of a chair"
+        },
+        "Mirror":{
+            "name":"Mirror",
+            "description":"the description of a mirror"
+        }
+    },
+    "items":{
+        "Shield":{
+            "name":"Shield",
+            "description":"Protects the character"
+        }
+    }
+}

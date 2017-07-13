@@ -1,0 +1,24 @@
+{
+    "long_description": "long description of the dungeon entrance",
+    "short_description": "short description of the dungeon entrance",
+    "north":"None",
+    "south":"None",
+    "east":"Southeast Corridor",
+    "west":"Southwest Corridor",
+    "features":{
+        "Chair":{
+            "name":"Chair",
+            "description":"the description of a chair"
+        },
+        "Mirror":{
+            "name":"Mirror",
+            "description":"the description of a mirror"
+        }
+    },
+    "items":{
+        "Torch":{
+            "name":"Torch",
+            "description":"Illuminates Areas"
+        }
+    }
+}

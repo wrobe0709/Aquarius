@@ -1,0 +1,24 @@
+{
+    "long_description": "long description of the alcove",
+    "short_description": "short description of the alcove",
+    "north":"None",
+    "south":"None",
+    "east":"None",
+    "west":"Southeast Corridor",
+    "features":{
+        "Chair":{
+            "name":"Chair",
+            "description":"the description of a chair"
+        },
+        "Mirror":{
+            "name":"Mirror",
+            "description":"the description of a mirror"
+        }
+    },
+    "items":{
+        "Sword":{
+            "name":"Sword",
+            "description":"Used for fighting"
+        }
+    }
+}

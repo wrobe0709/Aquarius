@@ -1,0 +1,19 @@
+{
+    "long_description": "long description of the torch corridor",
+    "short_description": "short description of the torch corridor",
+    "north":"Northeast Corridor",
+    "south":"Great Hall",
+    "east":"Gaseous Room",
+    "west":"None",
+    "features":{
+        "Chair":{
+            "name":"Chair",
+            "description":"the description of a chair"
+        },
+        "Mirror":{
+            "name":"Mirror",
+            "description":"the description of a mirror"
+        }
+    },
+    "items":{}
+}

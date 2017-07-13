@@ -1,0 +1,24 @@
+ {
+    "long_description": "long description of the gaseous room",
+    "short_description": "short description of the gaseous room",
+    "north":"None",
+    "south":"None",
+    "east":"None",
+    "west":"Torch Corridor",
+    "features":{
+        "Chair":{
+            "name":"Chair",
+            "description":"the description of a chair"
+        },
+        "Mirror":{
+            "name":"Mirror",
+            "description":"the description of a mirror"
+        }
+    },
+    "items":{
+        "End Room Key":{
+            "name":"End Room Key",
+            "description":"Unlocks End Room from Armory"
+        }
+    }
+}

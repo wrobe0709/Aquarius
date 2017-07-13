@@ -1,0 +1,19 @@
+{
+    "long_description": "long description of the southeast corridor",
+    "short_description": "short description of the southeast corridor",
+    "north":"Great Hall",
+    "south":"None",
+    "east":"Alcove",
+    "west":"Dungeon Entrance",
+    "features":{
+        "Chair":{
+            "name":"Chair",
+            "description":"the description of a chair"
+        },
+        "Mirror":{
+            "name":"Mirror",
+            "description":"the description of a mirror"
+        }
+    },
+    "items":{}
+}

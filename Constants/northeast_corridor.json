@@ -1,0 +1,24 @@
+ {
+    "long_description": "long description of the northeast corridor",
+    "short_description": "short description of the northeast corridor",
+    "north":"None",
+    "south":"Torch Corridor",
+    "east":"None",
+    "west":"Shadow Corridor",
+    "features":{
+        "Chair":{
+            "name":"Chair",
+            "description":"the description of a chair"
+        },
+        "Mirror":{
+            "name":"Mirror",
+            "description":"the description of a mirror"
+        }
+    },
+    "items":{
+        "Helmet":{
+            "name":"Helmet",
+            "description":"Protects the character"
+        }
+    }
+}
