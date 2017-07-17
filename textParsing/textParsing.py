@@ -29,7 +29,7 @@ def userInput():
 
 #This function will take the commandList produced by userInput, it will
 #then
-def handleCommands(commandList, character):
+def handleCommands(commandList, character, game_map):
     #Iterate through the commands and look for keywords to execute commands
     #based on the keywords from the commandList
 
@@ -45,13 +45,29 @@ def handleCommands(commandList, character):
         #handle location movement commands
         elif commandList[word] == 'go':
             if commandList[word+1] == 'north':
-                print "Moving to the northern room."
+                usr_choice = getattr(game_map[character.current_room.get_name()], commandList[word+1])
+                if usr_choice in game_map:
+                    character.set_current_room(game_map[usr_choice])
+                else:
+                    print "There is no way..."
             elif commandList[word+1] == 'south':
-                print "Moving to the southern room."
+                usr_choice = getattr(game_map[character.current_room.get_name()], commandList[word+1])
+                if usr_choice in game_map:
+                    character.set_current_room(game_map[usr_choice])
+                else:
+                    print "There is no way..."
             elif commandList[word+1] == 'east':
-                print "Moving to the eastern room."
+                usr_choice = getattr(game_map[character.current_room.get_name()], commandList[word+1])
+                if usr_choice in game_map:
+                    character.set_current_room(game_map[usr_choice])
+                else:
+                    print "There is no way..."
             elif commandList[word+1] == 'west':
-                print "Moving to the western room."
+                usr_choice = getattr(game_map[character.current_room.get_name()], commandList[word+1])
+                if usr_choice in game_map:
+                    character.set_current_room(game_map[usr_choice])
+                else:
+                    print "There is no way..."
         #handle item manipulation
         elif commandList[word] == 'examine':
             examineItem(character)
