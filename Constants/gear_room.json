@@ -1,0 +1,19 @@
+ {
+    "long_description": "long description of the gear room",
+    "short_description": "short description of the gear room",
+    "north":"Shadow Corridor",
+    "south":"Bow Room",
+    "east":"None",
+    "west":"Diamond Room",
+    "features":{
+        "Chair":{
+            "name":"Chair",
+            "description":"the description of a chair"
+        },
+        "Mirror":{
+            "name":"Mirror",
+            "description":"the description of a mirror"
+        }
+    },
+    "items":{}
+}

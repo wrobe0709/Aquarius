@@ -56,7 +56,7 @@ class Room(object):
     def remove_item(self, item):
         """Removes an item to the room"""
         del self.items[item]
-
+    
     def get_north(self):
         """Gets the north neighbor of a room"""
         return self.north
