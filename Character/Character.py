@@ -5,11 +5,11 @@ class Character(object):
         self.name = ''
         self.current_room = ''
         self.inventory = {}
-    
+
     def set_name(self, name):
         """Sets the name of a character"""
         self.name = name
-    
+
     def set_current_room(self, current_room):
         """Sets the description of a room"""
         print "\nEntering", current_room.get_name(), "..."
@@ -33,7 +33,7 @@ class Character(object):
     def get_name(self):
         """Gets the name of a character"""
         return self.name
-    
+
     def get_current_room(self):
         """Gets the current room"""
         return self.current_room
