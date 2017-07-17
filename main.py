@@ -4,6 +4,7 @@ import Character.Character as Character
 import Feature.Feature as Feature
 import Item.Item as Item
 import constants
+from textParsing.textParsing import *
 
 def create_map():
     """Creates map for Aquarius Game"""
@@ -51,7 +52,8 @@ def main():
 
     # Keep track of user input
     usr_input = ''
-
+    #original while loop below
+    '''
     while usr_input != 'q':
         usr_input = raw_input('> ')
         if usr_input != 'q':
@@ -61,7 +63,14 @@ def main():
                 current_room = character.get_current_room()
             else:
                 print "There is no way..."
-        
+    '''
+    newCommand = userInput()
+    while newCommand != 'quit':
+        handleCommands(newCommand, character)
+        newCommand = userInput()
+
+
+
 
 if __name__ == '__main__':
     main()

@@ -3,23 +3,21 @@
 #from other commands and pass through information as needed
 import sys
 import csv
-import commands
+from commands import *
 
 #Used for testing user input, update once
 #integrated with the player object
 def userInput():
     #change this prompt to be situational
-    print "Imagine that you've read about the currently entered room."
     print "What do you want to do?"
-    userCommand = raw_input()
-    print len(userCommand)
+    userCommand = raw_input('> ')
+    #print len(userCommand)
     #Separate and store the words in a list
     commandList = userCommand.split(" ")
-    print len(commandList)
-    while (len(commandList) < 1) or (len(commandList) > 4):
+    #print len(commandList)
+    while (len(commandList) < 1) or (len(commandList) > 2):
          print'''
-         Your command input was improper, please use 4 or fewer commands,
-         and at least one valid command.
+         Your command input was improper, please use 1 - 2 valid commands.
          Type 'help' to see a list of viable commands. Please try again.
          '''
          userCommand = raw_input()
@@ -31,7 +29,7 @@ def userInput():
 
 #This function will take the commandList produced by userInput, it will
 #then
-def handleCommands(commandList):
+def handleCommands(commandList, character):
     #Iterate through the commands and look for keywords to execute commands
     #based on the keywords from the commandList
 
@@ -43,7 +41,7 @@ def handleCommands(commandList):
             print "Which game would you like to load?"
         #next handle observing the room
         elif commandList[word] == 'look':
-            print "The longform evaluation of the room will be here."
+            examineRoom(character)
         #handle location movement commands
         elif commandList[word] == 'go':
             if commandList[word+1] == 'north':
@@ -56,26 +54,22 @@ def handleCommands(commandList):
                 print "Moving to the western room."
         #handle item manipulation
         elif commandList[word] == 'examine':
-            print "You drawn near the <object> for closer evaluation..."
+            examineItem(character)
         elif commandList[word] == 'pickup':
-            print "You acquired the <object> from the <room>."
+            grabItem(character)
+        elif commandList[word] == 'take':
+            grabItem(character)
+        elif commandList[word] == 'grab':
+            grabItem(character)
         elif commandList[word] == 'help':
             displayHelp()
         elif commandList[word] == 'inventory':
-            print "Inventory as follows: "
-            #displayInventory(player)
+            displayInventory(character)
         elif commandList[word] == 'attack':
             print "You take your weapon and slay the monster."
         elif commandList[word] == 'drop':
             print "You have dropped the <object>"
         elif commandList[word] == 'use':
             print "You used <object>"
-
-
-
-
-
-
-#testing below
-newCommand = userInput()
-handleCommands(newCommand)
+        elif commandList[word] == 'quit':
+            return 'quit'
