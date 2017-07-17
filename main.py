@@ -51,7 +51,7 @@ def main():
     character.set_current_room(current_room)
 
     # Keep track of user input
-    usr_input = ''
+    # usr_input = ''
     #original while loop below
     '''
     while usr_input != 'q':
@@ -66,7 +66,7 @@ def main():
     '''
     newCommand = userInput()
     while newCommand != 'quit':
-        handleCommands(newCommand, character)
+        handleCommands(newCommand, character, game_map)
         newCommand = userInput()
 
 
