@@ -103,9 +103,16 @@ def drop_item(character):
     print "What item from your inventory would you like to drop?"
     item = raw_input('> ')
     if item in character.get_inventroy():
-        print "Dropping " + str(item) + "."
+        print "Dropping " + item + "."
         #add in function for character.remove_item
         current_room = character.get_current_room()
         current_room.add_item(item)
     else:
         print "That doesn't appear to be in your inventory."
+
+def changeRoom(character, game_map, direction):
+    usr_choice = getattr(game_map[character.current_room.get_name()], direction)
+    if usr_choice in game_map:
+        character.set_current_room(game_map[usr_choice])
+    else:
+        print "There is no way..."

@@ -46,7 +46,7 @@ def handleCommands(commandList, character, game_map):
         #next handle observing the room
         elif commandList[word] == 'look':
             if len(commandList) == 1:
-                print ' ' + character.get_current_room().get_long_description()
+                examine_room(character)
             elif commandList[word+1] == 'at':
                 object_key = ''
                 for item_word in commandList[2:]:
@@ -65,32 +65,16 @@ def handleCommands(commandList, character, game_map):
         #handle location movement commands
         elif commandList[word] == 'go':
             if commandList[word+1] == 'north':
-                usr_choice = getattr(game_map[character.current_room.get_name()], commandList[word+1])
-                if usr_choice in game_map:
-                    character.set_current_room(game_map[usr_choice])
-                else:
-                    print "There is no way..."
+                changeRoom(character, game_map, 'north')
             elif commandList[word+1] == 'south':
-                usr_choice = getattr(game_map[character.current_room.get_name()], commandList[word+1])
-                if usr_choice in game_map:
-                    character.set_current_room(game_map[usr_choice])
-                else:
-                    print "There is no way..."
+                changeRoom(character, game_map, 'south')
             elif commandList[word+1] == 'east':
-                usr_choice = getattr(game_map[character.current_room.get_name()], commandList[word+1])
-                if usr_choice in game_map:
-                    character.set_current_room(game_map[usr_choice])
-                else:
-                    print "There is no way..."
+                changeRoom(character, game_map, 'east')
             elif commandList[word+1] == 'west':
-                usr_choice = getattr(game_map[character.current_room.get_name()], commandList[word+1])
-                if usr_choice in game_map:
-                    character.set_current_room(game_map[usr_choice])
-                else:
-                    print "There is no way..."
+                changeRoom(character, game_map, 'west')
         #handle item manipulation
-        elif commandList[word] == 'examine':
-            look_at_item(character)
+        #elif commandList[word] == 'examine':
+            #look_at_item(character)
         elif commandList[word] == 'pickup':
             grab_item(character)
         elif commandList[word] == 'take':
@@ -104,7 +88,7 @@ def handleCommands(commandList, character, game_map):
         elif commandList[word] == 'attack':
             print "You take your weapon and slay the monster."
         elif commandList[word] == 'drop':
-            print "You have dropped the <object>"
+            drop_item(character)
         elif commandList[word] == 'use':
             print "You used <object>"
         elif commandList[word] == 'quit':
