@@ -46,7 +46,7 @@ def handleCommands(commandList, character, game_map):
         #next handle observing the room
         elif commandList[word] == 'look':
             if len(commandList) == 1:
-                print ' ' + character.get_current_room().get_long_description()
+                examine_room(character)
             elif commandList[word+1] == 'at':
                 object_key = ''
                 for item_word in commandList[2:]:
@@ -73,8 +73,8 @@ def handleCommands(commandList, character, game_map):
             elif commandList[word+1] == 'west':
                 changeRoom(character, game_map, 'west')
         #handle item manipulation
-        elif commandList[word] == 'examine':
-            look_at_item(character)
+        #elif commandList[word] == 'examine':
+            #look_at_item(character)
         elif commandList[word] == 'pickup':
             grab_item(character)
         elif commandList[word] == 'take':
@@ -88,7 +88,7 @@ def handleCommands(commandList, character, game_map):
         elif commandList[word] == 'attack':
             print "You take your weapon and slay the monster."
         elif commandList[word] == 'drop':
-            print "You have dropped the <object>"
+            drop_item(character)
         elif commandList[word] == 'use':
             print "You used <object>"
         elif commandList[word] == 'quit':
