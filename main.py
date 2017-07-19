@@ -50,20 +50,7 @@ def main():
     character.set_name(character_name)
     character.set_current_room(current_room)
 
-    # Keep track of user input
-    # usr_input = ''
-    #original while loop below
-    '''
-    while usr_input != 'q':
-        usr_input = raw_input('> ')
-        if usr_input != 'q':
-            usr_choice = getattr(game_map[current_room.get_name()], usr_input)
-            if usr_choice in game_map:
-                character.set_current_room(game_map[usr_choice])
-                current_room = character.get_current_room()
-            else:
-                print "There is no way..."
-    '''
+    #handle commands
     newCommand = userInput()
     while newCommand != 'quit':
         handleCommands(newCommand, character, game_map)

@@ -109,3 +109,10 @@ def drop_item(character):
         current_room.add_item(item)
     else:
         print "That doesn't appear to be in your inventory."
+
+def changeRoom(character, game_map, direction):
+    usr_choice = getattr(game_map[character.current_room.get_name()], direction)
+    if usr_choice in game_map:
+        character.set_current_room(game_map[usr_choice])
+    else:
+        print "There is no way..."
