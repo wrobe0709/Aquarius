@@ -11,7 +11,8 @@ import Item.Item as Item
 
 
 #prints out the list of available commands to the user
-def displayHelp():
+def display_help():
+    """Display help menu"""
     print '''
             **********************************************************
                                     HELP MENU
@@ -46,49 +47,65 @@ def displayHelp():
             '''
 #This function will return the short description of the character's current room
 #and the items within it
-def examineRoom(character):
-    currentRoom = character.get_current_room()
-    print currentRoom.get_short_description()
-    print currentRoom.get_items()
+def examine_room(character):
+    """Examine a room"""
+    current_room = character.get_current_room()
+    print current_room.get_short_description()
+    print current_room.get_items()
 
 #This function will return the description of the passed through item
-def examineItem(character):
-    currentRoom = character.get_current_room()
-    print "Please enter an item that you would like to examine in the room."
-    print "Please note that it's currently case sensitive for items."
-    item = raw_input('> ')
-    currentRoomItems = currentRoom.get_items()
-    if item in currentRoomItems:
-        print currentRoomItems[item].get_description()
+def look_at_item(character, item):
+    """Look at an item"""
+    current_room = character.get_current_room()
+    current_room_items = current_room.get_items()
+    if current_room_items[item]:
+        print ' ' + current_room_items[item].get_description()
+        if not current_room_items[item].get_looked_at():
+            current_room_items[item].set_looked_at(True)
+    else:
+        print "That item doesn't appear to be in this room."
+
+#This function will return the description of the passed through feature
+def look_at_feature(character, feature):
+    """Look at a feature"""
+    current_room = character.get_current_room()
+    current_room_features = current_room.get_features()
+    if current_room_features[feature]:
+        print ' ' + current_room_features[feature].get_description()
+        if not current_room_features[feature].get_looked_at():
+            current_room_features[feature].set_looked_at(True)
     else:
         print "That item doesn't appear to be in this room."
 
 #this function will iterate through and display the player's inventory
-def displayInventory(character):
+def display_inventory(character):
+    """Display a player's inventory"""
     print "Inventory as follows: "
     print character.get_inventroy()
 
 #This function will add an item to the player's inventory and remove it from the
 #game world
-def grabItem(character):
+def grab_item(character):
+    """Adds an item to a player's inventory"""
     print "What item would you like to add to your inventory?"
     item = raw_input('> ')
-    currentRoom = character.get_current_room()
-    currentRoomItems = currentRoom.get_items()
-    if item in currentRoomItems:
+    current_room = character.get_current_room()
+    current_room_items = current_room.get_items()
+    if item in current_room_items:
         character.add_to_inventory(item)
-        currentRoom.remove_item(item)
+        current_room.remove_item(item)
         #print character.get_inventroy()
     else:
         print "That item doesn't appear to be in this room."
 
-def dropItem(character):
+def drop_item(character):
+    """Removes an item from """
     print "What item from your inventory would you like to drop?"
     item = raw_input('> ')
     if item in character.get_inventroy():
         print "Dropping " + str(item) + "."
         #add in function for character.remove_item
-        currentRoom = character.get_current_room()
-        currentRoom.add_item(item)
+        current_room = character.get_current_room()
+        current_room.add_item(item)
     else:
         print "That doesn't appear to be in your inventory."

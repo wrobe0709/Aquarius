@@ -9,20 +9,24 @@ from commands import *
 #integrated with the player object
 def userInput():
     #change this prompt to be situational
-    print "What do you want to do?"
+    # print "What do you want to do?"
     userCommand = raw_input('> ')
     #print len(userCommand)
     #Separate and store the words in a list
     commandList = userCommand.split(" ")
     #print len(commandList)
     while (len(commandList) < 1) or (len(commandList) > 2):
-         print'''
-         Your command input was improper, please use 1 - 2 valid commands.
-         Type 'help' to see a list of viable commands. Please try again.
-         '''
-         userCommand = raw_input()
-         #Separate and store the words in a list
-         commandList = userCommand.split(" ")
+        # Allow for 3 commands with 'look at'
+        if commandList[0] == 'look' and commandList[1] == 'at':
+            break
+        else:
+            print'''
+            Your command input was improper, please use 1 - 2 valid commands.
+            Type 'help' to see a list of viable commands. Please try again.
+            '''
+            userCommand = raw_input()
+            #Separate and store the words in a list
+            commandList = userCommand.split(" ")
 
     return commandList
 
@@ -41,7 +45,23 @@ def handleCommands(commandList, character, game_map):
             print "Which game would you like to load?"
         #next handle observing the room
         elif commandList[word] == 'look':
-            examineRoom(character)
+            if len(commandList) == 1:
+                print ' ' + character.get_current_room().get_long_description()
+            elif commandList[word+1] == 'at':
+                object_key = ''
+                for item_word in commandList[2:]:
+                        object_key += item_word + ' '
+                object_key = object_key[:-1].title()
+                # check if is an item
+                if object_key in character.get_current_room().get_items():
+                    look_at_item(character, object_key)
+                # check it is a feature
+                elif object_key in character.get_current_room().get_features():
+                    look_at_feature(character, object_key)
+                else:
+                    print "That does not appear to be a feature or object in this room"
+            else:
+                print "You can either 'look' or 'look at <feature or object>'"
         #handle location movement commands
         elif commandList[word] == 'go':
             if commandList[word+1] == 'north':
@@ -70,17 +90,17 @@ def handleCommands(commandList, character, game_map):
                     print "There is no way..."
         #handle item manipulation
         elif commandList[word] == 'examine':
-            examineItem(character)
+            look_at_item(character)
         elif commandList[word] == 'pickup':
-            grabItem(character)
+            grab_item(character)
         elif commandList[word] == 'take':
-            grabItem(character)
+            grab_item(character)
         elif commandList[word] == 'grab':
-            grabItem(character)
+            grab_item(character)
         elif commandList[word] == 'help':
-            displayHelp()
+            display_help()
         elif commandList[word] == 'inventory':
-            displayInventory(character)
+            display_inventory(character)
         elif commandList[word] == 'attack':
             print "You take your weapon and slay the monster."
         elif commandList[word] == 'drop':
