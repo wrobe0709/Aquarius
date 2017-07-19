@@ -19,6 +19,10 @@ def userInput():
         # Allow for 3 commands with 'look at'
         if commandList[0] == 'look' and commandList[1] == 'at':
             break
+        elif commandList[0] == 'take':
+            break
+        elif commandList[0] == 'drop':
+            break
         else:
             print'''
             Your command input was improper, please use 1 - 2 valid commands.
@@ -65,22 +69,46 @@ def handleCommands(commandList, character, game_map):
         #handle location movement commands
         elif commandList[word] == 'go':
             if commandList[word+1] == 'north':
-                changeRoom(character, game_map, 'north')
+                change_room(character, game_map, 'north')
             elif commandList[word+1] == 'south':
-                changeRoom(character, game_map, 'south')
+                change_room(character, game_map, 'south')
             elif commandList[word+1] == 'east':
-                changeRoom(character, game_map, 'east')
+                change_room(character, game_map, 'east')
             elif commandList[word+1] == 'west':
-                changeRoom(character, game_map, 'west')
+                change_room(character, game_map, 'west')
         #handle item manipulation
         #elif commandList[word] == 'examine':
             #look_at_item(character)
         elif commandList[word] == 'pickup':
-            grab_item(character)
+            if len(commandList) == 1:
+                print 'You must specify an item to take with you'
+            else:
+                item_key = ''
+                for item_word in commandList[1:]:
+                    item_key += item_word + ' '
+                item_key = item_key[:-1].title()
+                if item_key in character.get_current_room().get_items():
+                    take_item(character, item_key)
         elif commandList[word] == 'take':
-            grab_item(character)
+            if len(commandList) == 1:
+                print 'You must specify an item to take with you'
+            else:
+                item_key = ''
+                for item_word in commandList[1:]:
+                    item_key += item_word + ' '
+                item_key = item_key[:-1].title()
+                if item_key in character.get_current_room().get_items():
+                    take_item(character, item_key, character.get_current_room().get_items()[item_key])
         elif commandList[word] == 'grab':
-            grab_item(character)
+            if len(commandList) == 1:
+                print 'You must specify an item to take with you'
+            else:
+                item_key = ''
+                for item_word in commandList[1:]:
+                    item_key += item_word + ' '
+                item_key = item_key[:-1].title()
+                if item_key in character.get_current_room().get_items():
+                    take_item(character, item_key)
         elif commandList[word] == 'help':
             display_help()
         elif commandList[word] == 'inventory':
@@ -88,7 +116,17 @@ def handleCommands(commandList, character, game_map):
         elif commandList[word] == 'attack':
             print "You take your weapon and slay the monster."
         elif commandList[word] == 'drop':
-            drop_item(character)
+            if len(commandList) == 1:
+                print 'You must specify an item to drop'
+            else:
+                item_key = ''
+                for item_word in commandList[1:]:
+                    item_key += item_word + ' '
+                item_key = item_key[:-1].title()
+                if item_key in character.get_inventory():
+                    drop_item(character, item_key)
+                else:
+                    print 'That item is not in your inventory'
         elif commandList[word] == 'use':
             print "You used <object>"
         elif commandList[word] == 'quit':

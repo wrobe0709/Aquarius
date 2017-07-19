@@ -80,37 +80,32 @@ def look_at_feature(character, feature):
 #this function will iterate through and display the player's inventory
 def display_inventory(character):
     """Display a player's inventory"""
-    print "Inventory as follows: "
-    print character.get_inventroy()
+    if character.get_inventory() == {}:
+        print 'Inventory is empty'
+    else:
+        print character.get_inventory()
 
 #This function will add an item to the player's inventory and remove it from the
 #game world
-def grab_item(character):
+def take_item(character, item_key, item):
     """Adds an item to a player's inventory"""
-    print "What item would you like to add to your inventory?"
-    item = raw_input('> ')
     current_room = character.get_current_room()
     current_room_items = current_room.get_items()
-    if item in current_room_items:
-        character.add_to_inventory(item)
-        current_room.remove_item(item)
-        #print character.get_inventroy()
+    # Add the item to inventory and remove it from the room
+    if current_room_items[item_key]:
+        character.add_to_inventory(item_key, item)
+        current_room.remove_item(item_key)
     else:
         print "That item doesn't appear to be in this room."
 
-def drop_item(character):
-    """Removes an item from """
-    print "What item from your inventory would you like to drop?"
-    item = raw_input('> ')
-    if item in character.get_inventroy():
-        print "Dropping " + item + "."
-        #add in function for character.remove_item
-        current_room = character.get_current_room()
-        current_room.add_item(item)
-    else:
-        print "That doesn't appear to be in your inventory."
+def drop_item(character, item_key):
+    """Removes an item from inventory and leaves it in a room"""
+    current_room = character.get_current_room()
+    current_room.add_item(character.get_inventory()[item_key])
+    character.remove_from_inventory(item_key)
 
-def changeRoom(character, game_map, direction):
+def change_room(character, game_map, direction):
+    """Changes a player's room"""
     usr_choice = getattr(game_map[character.current_room.get_name()], direction)
     if usr_choice in game_map:
         character.set_current_room(game_map[usr_choice])
