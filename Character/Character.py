@@ -26,9 +26,13 @@ class Character(object):
             print "     " + current_room.items[item].get_name() + ": ", current_room.items[item].get_description()
         self.current_room = current_room
 
-    def add_to_inventory(self, item):
+    def add_to_inventory(self, item_key, item):
         """Adds an item to inventory"""
-        self.inventory[item] = True
+        self.inventory[item_key] = item
+
+    def remove_from_inventory(self, item):
+        """Removes an item to the room"""
+        del self.inventory[item]
 
     def get_name(self):
         """Gets the name of a character"""
@@ -38,6 +42,6 @@ class Character(object):
         """Gets the current room"""
         return self.current_room
 
-    def get_inventroy(self):
+    def get_inventory(self):
         """Gets the character's inventroy"""
         return self.inventory
