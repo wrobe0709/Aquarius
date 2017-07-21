@@ -1,18 +1,18 @@
  {
-    "long_description": "long description of the gear room",
-    "short_description": "short description of the gear room",
+    "long_description": "This room appears to rotate or move everytime you pick up an item and makes a loud rumbling noise.  There are weapon racks that line the walls and rusty weapons on the floor.  The room tapers south where it becomes dark but no visible exit this way.",
+    "short_description": "Rotating room filled with weapons and an additional exit.",
     "north":"Shadow Corridor",
     "south":"Bow Room",
     "east":"None",
     "west":"Diamond Room",
     "features":{
-        "Chair":{
-            "name":"Chair",
-            "description":"the description of a chair"
+        "Puzzle":{
+            "name":"Puzzle",
+            "description":"This puzzle, more difficult than the others, bypasses a necessary item."
         },
-        "Mirror":{
-            "name":"Mirror",
-            "description":"the description of a mirror"
+        "Passageway":{
+            "name":"Passageway",
+            "description":"This passageway only opens if you all items up until this point."
         }
     },
     "items":{}

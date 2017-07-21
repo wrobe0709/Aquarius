@@ -1,6 +1,6 @@
  {
-    "long_description": "long description of the diamond room",
-    "short_description": "short description of the diamond room",
+    "long_description": "There are twinkling sparkles of light all across the dim room.  It seems there is something not illuminated here at the moment but once has been.  There does not appear to be a lantern in this room to uncover what's in the darkness.",
+    "short_description": "This is diamond illuminated room.  There is a method to bring light to the room.  There is a switch and chair in this room.",
     "north":"Northwest Corridor",
     "south":"Barrel Room",
     "east":"Gear Room",
@@ -8,12 +8,22 @@
     "features":{
         "Chair":{
             "name":"Chair",
-            "description":"the description of a chair"
+            "description":"This chair can be used if the room has light from the diamonds."
         },
-        "Mirror":{
-            "name":"Mirror",
-            "description":"the description of a mirror"
+        "Switch":{
+            "name":"Switch",
+            "description":"This is a switch on the wall, which may reveal a passageway."
+        }
+        ,
+        "Diamonds":{
+            "name":"Diamonds",
+            "description":"If hero has lit all lanterns up until this point, then these diamonds have now begun to illuminate the room with light."
         }
     },
-    "items":{}
+    "items":{
+        "Rune":{
+            "name":"Rune",
+            "description":"Upgrades the hero\"s sword"
+        }
+    }
 }

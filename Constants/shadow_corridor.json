@@ -1,18 +1,23 @@
 {
-    "long_description": "long description of the shadow corridor",
-    "short_description": "short description of the shadow corridor",
+    "long_description": "Upon entering there are a dozen statues standing and kneeling in this room, each creating several shadows across the room as faint light filters in from all corners of the ceiling.  In between the 2 statues in the center are a black tome and a red tome, stood up on it's own on the floor. ",
+    "short_description": "Room covered in shadows and statues, containing a black and red tome.",
     "north":"None",
     "south":"Gear Room",
     "east":"Northeast Corridor",
     "west":"Northwest Corridor",
     "features":{
-        "Chair":{
-            "name":"Chair",
-            "description":"the description of a chair"
+        "Black_Tome":{
+            "name":"Black_Tome",
+            "description":"This black tome changes something for the hero."
         },
-        "Mirror":{
-            "name":"Mirror",
-            "description":"the description of a mirror"
+        "Red_Tome":{
+            "name":"Red_Tome",
+            "description":"This red tome presents something to the hero."
+        }
+        ,
+        "Monster":{
+            "name":"Monster",
+            "description":"If red tome has been interacted with, these monsters appear and begin to attack you."
         }
     },
     "items":{}

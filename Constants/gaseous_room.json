@@ -1,22 +1,22 @@
  {
-    "long_description": "long description of the gaseous room",
-    "short_description": "short description of the gaseous room",
+    "long_description": "The haze in this circular room is starting to clear as you hear a hissing sound.  Atop a few tables along the north wall are a clutter of bottles of liquid and connected glass piping.  You can now visibly see a locked glass display case that contains a key.  There appears to be a puzzle or maze of some sort admidst the clutter, perhaps this will help open the display case.",
+    "short_description": "Poisonous gas has been cleared by use of the blue-flamed arrow.  There is a display case that holds a key.",
     "north":"None",
     "south":"None",
     "east":"None",
     "west":"Torch Corridor",
     "features":{
-        "Chair":{
-            "name":"Chair",
-            "description":"the description of a chair"
+        "Puzzle":{
+            "name":"Puzzle",
+            "description":"This puzzle must be solved in order to gain access to display case."
         },
-        "Mirror":{
-            "name":"Mirror",
-            "description":"the description of a mirror"
+        "Display_Case":{
+            "name":"Display_Case",
+            "description":"This display case contains an item."
         }
     },
     "items":{
-        "End Room Key":{
+        "End_Room_Key":{
             "name":"End Room Key",
             "description":"Unlocks End Room from Armory"
         }

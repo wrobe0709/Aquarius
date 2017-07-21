@@ -1,23 +1,23 @@
  {
-    "long_description": "long description of the northeast corridor",
-    "short_description": "short description of the northeast corridor",
+    "long_description": "This dark, narrow, L-Shaped corridor is covered in dust and cobwebs on the ceilings and floor.  There are several piles of skeletons along the walls.  There seems to be a shiny object underneath the pile on the east most end, but will require some digging.",
+    "short_description": "Corridor with piles of skeletons, containing a shiny object beneath them.  There is also a lantern in the middle of the hall.",
     "north":"None",
     "south":"Torch Corridor",
     "east":"None",
     "west":"Shadow Corridor",
     "features":{
-        "Chair":{
-            "name":"Chair",
-            "description":"the description of a chair"
+        "Lantern":{
+            "name":"Lantern",
+            "description":"This can be lit with hero's torch."
         },
-        "Mirror":{
-            "name":"Mirror",
-            "description":"the description of a mirror"
+        "Skeleton_Pile":{
+            "name":"Skeleton_Pile",
+            "description":"This pile of skeletons appears to have a shiny object lying beneath it."
         }
     },
     "items":{
-        "Helmet":{
-            "name":"Helmet",
+        "Shield":{
+            "name":"Shield",
             "description":"Protects the character"
         }
     }

@@ -1,18 +1,18 @@
 {
-    "long_description": "long description of the end room",
-    "short_description": "short description of the end room",
+    "long_description": "You've reached the room with the BOSS!  You must defeat him!",
+    "short_description": "The room with the Boss that needs to be defeated.",
     "north":"Armory",
     "south":"None",
     "east":"None",
     "west":"None",
     "features":{
-        "Chair":{
-            "name":"Chair",
-            "description":"the description of a chair"
+        "Wizard":{
+            "name":"Wizard",
+            "description":"If the Boss is defeated, this special Wizard appears before hero and restores dungeon into a palace full of people."
         },
-        "Mirror":{
-            "name":"Mirror",
-            "description":"the description of a mirror"
+        "Boss":{
+            "name":"Boss",
+            "description":"The main enemy that must be defeated."
         }
     },
     "items":{}
