@@ -1,18 +1,22 @@
 {
-    "long_description": "long description of the southeast corridor",
-    "short_description": "short description of the southeast corridor",
+    "long_description": "At first glance there is a short hall in which there is an observable skylight above the ceiling; the moon is visible.  The closer you walk towards the end of the hall to the far east end it gradually seems to get darker.  At the end of the short hall when you turn the corner to a longer hall, the walls are covered in mold spotted draperies.  In between two sections of drapes on the right wall, there is a switch.  At the end of this longer hall looks like there is a staircase that leads down to a lower level.",
+    "short_description": "L-shaped hallway with ceiling skylight in first portion.  In the second portion there is a switch on the wall and a staircase leading downstairs.",
     "north":"Great Hall",
     "south":"None",
     "east":"Alcove",
     "west":"Dungeon Entrance",
     "features":{
-        "Chair":{
-            "name":"Chair",
-            "description":"the description of a chair"
+        "Staircase":{
+            "name":"Staircase",
+            "description":"This staircase leads downstairs to the Great Hall."
         },
-        "Mirror":{
-            "name":"Mirror",
-            "description":"the description of a mirror"
+        "Switch":{
+            "name":"Switch",
+            "description":"This switch on the wall may reveal a hidden section of the room."
+        },
+        "Ceiling_Skylight":{
+            "name":"Ceiling_Skylight",
+            "description":"This ceiling skylight gradually becomes darker as the hero progresses."
         }
     },
     "items":{}

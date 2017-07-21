@@ -1,18 +1,18 @@
  {
-    "long_description": "long description of the southwest corridor",
-    "short_description": "short description of the southwest corridor",
+    "long_description": "You are now in a narrow pillared hall.  It is dim and decrepit.  There is a crack in the ceiling towards the far west end, allowing water to trickle down to a pool on the floor.  At the end of the hall is an overfilled bookshelf containing one oddly shaped book.",
+    "short_description": "Pillared hall with a pool of water on the floor & oddly shaped book on a bookshelf.",
     "north":"Barrel Room",
     "south":"None",
     "east":"Dungeon Entrance",
     "west":"None",
     "features":{
-        "Chair":{
-            "name":"Chair",
-            "description":"the description of a chair"
+        "Leak":{
+            "name":"Leak",
+            "description":"This is a pool of water on the floor."
         },
-        "Mirror":{
-            "name":"Mirror",
-            "description":"the description of a mirror"
+        "Odd_Book":{
+            "name":"Odd_Book",
+            "description":"This is an oddly shaped book.  If the hero interacts with it, it may reveal a passageway."
         }
     },
     "items":{}

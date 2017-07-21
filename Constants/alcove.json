@@ -1,18 +1,18 @@
 {
-    "long_description": "long description of the alcove",
-    "short_description": "short description of the alcove",
+    "long_description": "You've uncovered the Alcove.  It is dark but there are carvings on the wall of various shapes, such as skulls, bones, shields and flames.  Along the recess there is a display case that contains something.  On the right corner there is an unlit lantern.",
+    "short_description": "Recess in the wall with a lantern and a display case with something inside.",
     "north":"None",
     "south":"None",
     "east":"None",
     "west":"Southeast Corridor",
     "features":{
-        "Chair":{
-            "name":"Chair",
-            "description":"the description of a chair"
+        "Lantern":{
+            "name":"Lantern",
+            "description":"This can be lit with hero's torch.  It may reveal an item when lit."
         },
-        "Mirror":{
-            "name":"Mirror",
-            "description":"the description of a mirror"
+        "Puzzle":{
+            "name":"Puzzle",
+            "description":"This puzzle must be solved in order to gain access to an item."
         }
     },
     "items":{

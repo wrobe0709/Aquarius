@@ -1,18 +1,22 @@
 {
-    "long_description": "long description of the armory",
-    "short_description": "short description of the armory",
+    "long_description": "This chamber served as an armory and also an area to store weapons.  There are shields, swords, armor, weapons along the wall.  But wait!  You are being ATTACKED by a suit of armor!",
+    "short_description": "Room with suit of armor that has come to life, along with doorway that leads to End Room.",
     "north":"None",
     "south":"End Room",
     "east":"None",
     "west":"Barrel Room",
     "features":{
-        "Chair":{
-            "name":"Chair",
-            "description":"the description of a chair"
+        "Door":{
+            "name":"Door",
+            "description":"This large door has an ominous inscription on it.  It tells the hero that a key is a required item."
         },
-        "Mirror":{
-            "name":"Mirror",
-            "description":"the description of a mirror"
+        "Weapons":{
+            "name":"Weapons",
+            "description":"These appear to be broken, rusted weapons; swords, shields, helmets."
+        },
+        "Keyhole":{
+            "name":"Keyhole",
+            "description":"This keyhole requires a key."
         }
     },
     "items":{

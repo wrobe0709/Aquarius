@@ -1,18 +1,22 @@
  {
-    "long_description": "long description of the great hall",
-    "short_description": "short description of the great hall",
+    "long_description": "As you enter, you are confronted with hundreds of reflections of yourself.  There are hundreds of worn down mirrors lining both the left and right walls.  The mirrors reside in arches between marble pilasters.  In particular there is a distict mirror that is smaller than the rest of them towards the north end of the hall where it looks a little darker.  There is immediate danger in the air and you have to make sure you are equipped with the right weapon, otherwise you will not make it past this room.",
+    "short_description": "Hall of mirrors that display equipped items.  There is one distict small mirror and monsters.",
     "north":"Torch Corridor",
     "south":"Southeast Corridor",
     "east":"None",
     "west":"None",
     "features":{
-        "Chair":{
+        "Mirrors":{
             "name":"Chair",
-            "description":"the description of a chair"
+            "description":"These mirrors may show hero items if interacted with."
         },
-        "Mirror":{
-            "name":"Mirror",
-            "description":"the description of a mirror"
+        "Small_Mirror":{
+            "name":"Small_Mirror",
+            "description":"This mirror in particular may reveal what's to come."
+        },
+        "Monsters":{
+            "name":"Monsters",
+            "description":"If the hero does not have a particular item, these monsters will attack."
         }
     },
     "items":{}

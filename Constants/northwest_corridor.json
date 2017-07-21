@@ -1,23 +1,23 @@
 {
-    "long_description": "long description of the northwest corridor",
-    "short_description": "short description of the northwest corridor",
+    "long_description": "This dark, narrow, L-Shaped corridor is covered in several metal plates along the walls.  There are a few niches in the wall which each contain a clay urn placed on the floor.  There is a horrendous overwhelming stench.  In the far northwest corner, there lies a single skeleton dressed in aged clothing and rusted armor.  On his head is a rusted, yet sturdy helmet.",
+    "short_description": "This is the hallway containing a lantern and clothed skeleton that has something on it's head.",
     "north":"None",
     "south":"Diamond Room",
     "east":"Shadow Corridor",
     "west":"None",
     "features":{
-        "Chair":{
-            "name":"Chair",
-            "description":"the description of a chair"
+        "Lantern":{
+            "name":"Lantern",
+            "description":"This can be lit with hero's torch."
         },
-        "Mirror":{
-            "name":"Mirror",
-            "description":"the description of a mirror"
+        "Skeleton":{
+            "name":"Skeleton",
+            "description":"This skeleton has something on it's head, looks like a helmet."
         }
     },
     "items":{
-        "Shield":{
-            "name":"Shield",
+        "Helmet":{
+            "name":"Helmet",
             "description":"Protects the character"
         }
     }
