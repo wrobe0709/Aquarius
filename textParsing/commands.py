@@ -107,7 +107,9 @@ def drop_item(character, item_key):
 def change_room(character, game_map, direction):
     """Changes a player's room"""
     usr_choice = getattr(game_map[character.current_room.get_name()], direction)
-    if usr_choice in game_map:
+    if (usr_choice in game_map and (usr_choice.get_locked_status()!= "false")):
         character.set_current_room(game_map[usr_choice])
+    elif usr_choice.get_locked_status() == "true":
+        print "That way seems to be locked at the moment...perhaps there is a way to open it..."
     else:
         print "There is no way..."

@@ -9,6 +9,7 @@ class Room(object):
         self.south = ''
         self.east = ''
         self.west = ''
+        self.locked = ''
         self.visited = False
         self.features = {}
         self.items = {}
@@ -41,6 +42,10 @@ class Room(object):
         """Sets the north neighbor of a room"""
         self.west = west
 
+    def set_locked(self, locked):
+        """Sets the locked status of the room"""
+        self.locked = locked
+
     def set_visited(self, visited):
         """Sets the room as visited"""
         self.visited = visited
@@ -56,7 +61,7 @@ class Room(object):
     def remove_item(self, item):
         """Removes an item to the room"""
         del self.items[item]
-    
+
     def get_north(self):
         """Gets the north neighbor of a room"""
         return self.north
@@ -72,6 +77,10 @@ class Room(object):
     def get_west(self):
         """Gets the west neighbor of a room"""
         return self.west
+
+    def get_locked_status(self):
+        """Returns the locked state of the room"""
+        return self.locked
 
     def get_name(self):
         """Gets the name of a room"""

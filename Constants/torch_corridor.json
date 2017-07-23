@@ -5,6 +5,7 @@
     "south":"Great Hall",
     "east":"Gaseous Room",
     "west":"None",
+    "locked": "false",
     "features":{
         "Torches":{
             "name":"Torches",

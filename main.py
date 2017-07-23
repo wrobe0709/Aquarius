@@ -20,6 +20,7 @@ def create_map():
         room_hash[room].set_south(constants.ROOMS[room]['south'])
         room_hash[room].set_east(constants.ROOMS[room]['east'])
         room_hash[room].set_west(constants.ROOMS[room]['west'])
+        room_hash[room].set_locked(constants.ROOMS[room]['locked'])
 
         # Set features in the room
         for feature in constants.ROOMS[room]['features']:
