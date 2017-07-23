@@ -5,6 +5,7 @@
     "south":"Bow Room",
     "east":"None",
     "west":"Diamond Room",
+    "locked": "false",
     "features":{
         "Puzzle":{
             "name":"Puzzle",

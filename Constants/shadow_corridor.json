@@ -5,6 +5,7 @@
     "south":"Gear Room",
     "east":"Northeast Corridor",
     "west":"Northwest Corridor",
+    "locked": "false",
     "features":{
         "Black_Tome":{
             "name":"Black_Tome",

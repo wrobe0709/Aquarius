@@ -5,6 +5,7 @@
     "south":"Southeast Corridor",
     "east":"None",
     "west":"None",
+    "locked": "false",
     "features":{
         "Mirrors":{
             "name":"Chair",
