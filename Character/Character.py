@@ -4,6 +4,7 @@ class Character(object):
     def __init__(self):
         self.name = ''
         self.current_room = ''
+        self.potential_room = ''
         self.inventory = {}
 
     def set_name(self, name):
@@ -26,6 +27,10 @@ class Character(object):
             print "     " + current_room.items[item].get_name() + ": ", current_room.items[item].get_description()
         self.current_room = current_room
 
+    def set_potential_room(self, potential_room):
+        '''Sets a potential room to check for locked features'''
+        self.potential_room = potential_room
+
     def add_to_inventory(self, item_key, item):
         """Adds an item to inventory"""
         self.inventory[item_key] = item
@@ -41,6 +46,10 @@ class Character(object):
     def get_current_room(self):
         """Gets the current room"""
         return self.current_room
+
+    def get_potential_room(self):
+        '''Returns potential room'''
+        return self.potential_room
 
     def get_inventory(self):
         """Gets the character's inventroy"""

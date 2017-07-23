@@ -104,12 +104,22 @@ def drop_item(character, item_key):
     current_room.add_item(character.get_inventory()[item_key])
     character.remove_from_inventory(item_key)
 
+#this will probably need some revision...
 def change_room(character, game_map, direction):
     """Changes a player's room"""
     usr_choice = getattr(game_map[character.current_room.get_name()], direction)
-    if (usr_choice in game_map and (usr_choice.get_locked_status()!= "false")):
-        character.set_current_room(game_map[usr_choice])
-    elif usr_choice.get_locked_status() == "true":
-        print "That way seems to be locked at the moment...perhaps there is a way to open it..."
+    current_room = character.get_current_room()
+    #make sure it's a valid choice within the game map
+    if usr_choice in game_map:
+        character.set_potential_room(game_map[usr_choice])
+        potential_room = character.get_potential_room()
+        #make sure the path isn't locked
+        if potential_room.get_locked_status() == 'false':
+            character.set_current_room(game_map[usr_choice])
+        elif potential_room.get_locked_status() == 'true':
+            print "That way seems to be locked at the moment...perhaps there is a way to open it..."
+            
     else:
         print "There is no way..."
+
+#prints out the room description
