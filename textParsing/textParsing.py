@@ -45,8 +45,10 @@ def handleCommands(commandList, character, game_map):
         #first handle file saving & loading
         if commandList[word] == 'save':
             print "Saving game."
+            save_game(character)
         elif commandList[word] == 'load':
             print "Which game would you like to load?"
+            load_game(character, game_map)
         #next handle observing the room
         elif commandList[word] == 'look':
             if len(commandList) == 1:

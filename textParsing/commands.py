@@ -3,6 +3,7 @@
 #from other commands and pass through information as needed
 import sys
 import csv
+import fileinput
 import Room.Room as Room
 import Character.Character as Character
 import Feature.Feature as Feature
@@ -111,3 +112,33 @@ def change_room(character, game_map, direction):
         character.set_current_room(game_map[usr_choice])
     else:
         print "There is no way..."
+
+def save_game(character):
+    #Will have to update this later when we figure out what what is to be saved in text file
+
+    """Writes character name, current room & inventory list to textfile"""
+    character_name = character.get_name()
+    current_room = character.get_current_room().get_name()
+    inventory = character.get_inventory()
+
+    with open("output.txt", "w") as text_file:
+        text_file.write(character_name + ',')
+        text_file.write(current_room + ',')
+        text_file.write(','.join(str(i) for i in inventory))
+
+def load_game(character, game_map):
+    #Will have to update this later when we figure out what what is to be saved in text file
+
+    """Loads character name, current room & inventory list from textfile"""
+    with open("output.txt") as text_file:
+        line = text_file.read()
+        textList = line.split(',')
+        #1st in list is character name
+        character.set_name(textList[:1])
+        #2nd in list is current room
+        character.set_current_room(game_map[textList[1]])
+        #3rd - on in list is inventory items
+        for item in textList[2:]:
+            character.add_to_inventory(item, item)
+        #print(textList)
+
