@@ -5,6 +5,7 @@
     "south":"End Room",
     "east":"None",
     "west":"Barrel Room",
+    "locked": "false",
     "features":{
         "Door":{
             "name":"Door",

@@ -5,6 +5,7 @@
     "south":"Barrel Room",
     "east":"Gear Room",
     "west":"None",
+    "locked": "false",
     "features":{
         "Chair":{
             "name":"Chair",

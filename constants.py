@@ -12,10 +12,11 @@ def get_room_json(room):
         room_dict['south'] = room_data['south']
         room_dict['east'] = room_data['east']
         room_dict['west'] = room_data['west']
+        room_dict['locked'] = room_data['locked']
         room_dict['features'] = room_data['features']
         room_dict['items'] = room_data['items']
         return room_dict
-        
+
 ROOMS = {
     'Dungeon Entrance': get_room_json('dungeon_entrance'),
     'Southeast Corridor': get_room_json('southeast_corridor'),

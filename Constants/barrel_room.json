@@ -5,6 +5,13 @@
     "south":"Southwest Corridor",
     "east":"Armory",
     "west":"None",
+    "locked": "false",
+    "enemies": {
+        "lvl_1":{
+          "name": "unknown_lvl_1",
+          "description": "tbd"
+        }
+    },
     "features":{
         "Barrel_1":{
             "name":"Barrel_1",

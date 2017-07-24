@@ -5,14 +5,15 @@
     "south":"None",
     "east":"None",
     "west":"Southeast Corridor",
+    "locked": "false",
     "features":{
         "Lantern":{
             "name":"Lantern",
             "description":"This can be lit with hero's torch.  It may reveal an item when lit."
         },
-        "Puzzle":{
-            "name":"Puzzle",
-            "description":"This puzzle must be solved in order to gain access to an item."
+        "DisplayCase":{
+            "name":"DisplayCase",
+            "description":"There's a riddle on the case edge, and within there is a sword."
         }
     },
     "items":{

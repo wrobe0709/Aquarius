@@ -5,6 +5,7 @@
     "south":"None",
     "east":"Alcove",
     "west":"Dungeon Entrance",
+    "locked": "false",
     "features":{
         "Staircase":{
             "name":"Staircase",
