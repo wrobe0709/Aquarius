@@ -5,6 +5,7 @@
     "south":"None",
     "east":"Alcove",
     "west":"Dungeon Entrance",
+    "locked": "false",
     "features":{
         "Staircase":{
             "name":"Staircase",
@@ -14,8 +15,8 @@
             "name":"Switch",
             "description":"This switch on the wall may reveal a hidden section of the room."
         },
-        "Ceiling_Skylight":{
-            "name":"Ceiling_Skylight",
+        "Ceiling Skylight":{
+            "name":"Ceiling Skylight",
             "description":"This ceiling skylight gradually becomes darker as the hero progresses."
         }
     },

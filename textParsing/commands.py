@@ -51,8 +51,13 @@ def display_help():
 def examine_room(character):
     """Examine a room"""
     current_room = character.get_current_room()
-    print current_room.get_short_description()
-    print current_room.get_items()
+    print current_room.get_short_description() + "\n"
+    print "The room contains the following features"
+    for feature in current_room.features:
+        print "     " + current_room.features[feature].get_name() + ": ", current_room.features[feature].get_description()
+    print "The room contains the following item"
+    for item in current_room.items:
+        print "     " + current_room.items[item].get_name() + ": ", current_room.items[item].get_description()
 
 #This function will return the description of the passed through item
 def look_at_item(character, item):
@@ -84,7 +89,8 @@ def display_inventory(character):
     if character.get_inventory() == {}:
         print 'Inventory is empty'
     else:
-        print character.get_inventory()
+        for item in character.get_inventory():
+            print "     " + character.get_inventory()[item].get_name() + ": ", character.get_inventory()[item].get_description()
 
 #This function will add an item to the player's inventory and remove it from the
 #game world
@@ -105,13 +111,24 @@ def drop_item(character, item_key):
     current_room.add_item(character.get_inventory()[item_key])
     character.remove_from_inventory(item_key)
 
+#this will probably need some revision...
 def change_room(character, game_map, direction):
     """Changes a player's room"""
     usr_choice = getattr(game_map[character.current_room.get_name()], direction)
+    current_room = character.get_current_room()
+    #make sure it's a valid choice within the game map
     if usr_choice in game_map:
-        character.set_current_room(game_map[usr_choice])
+        character.set_potential_room(game_map[usr_choice])
+        potential_room = character.get_potential_room()
+        #make sure the path isn't locked
+        if potential_room.get_locked_status() == 'false':
+            character.set_current_room(game_map[usr_choice])
+        elif potential_room.get_locked_status() == 'true':
+            print "That way seems to be locked at the moment...perhaps there is a way to open it..."
+            
     else:
         print "There is no way..."
+
 
 def save_game(character):
     #Will have to update this later when we figure out what what is to be saved in text file
@@ -141,4 +158,5 @@ def load_game(character, game_map):
         for item in textList[2:]:
             character.add_to_inventory(item, item)
         #print(textList)
+
 

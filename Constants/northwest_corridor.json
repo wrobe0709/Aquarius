@@ -5,6 +5,7 @@
     "south":"Diamond Room",
     "east":"Shadow Corridor",
     "west":"None",
+    "locked": "false",
     "features":{
         "Lantern":{
             "name":"Lantern",

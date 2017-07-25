@@ -4,7 +4,7 @@ import Character.Character as Character
 import Feature.Feature as Feature
 import Item.Item as Item
 import constants
-from textParsing.textParsing import *
+from TextParsing.TextParsing import *
 
 def create_map():
     """Creates map for Aquarius Game"""
@@ -20,6 +20,7 @@ def create_map():
         room_hash[room].set_south(constants.ROOMS[room]['south'])
         room_hash[room].set_east(constants.ROOMS[room]['east'])
         room_hash[room].set_west(constants.ROOMS[room]['west'])
+        room_hash[room].set_locked(constants.ROOMS[room]['locked'])
 
         # Set features in the room
         for feature in constants.ROOMS[room]['features']:
@@ -51,10 +52,10 @@ def main():
     character.set_current_room(current_room)
 
     #handle commands
-    newCommand = userInput()
-    while newCommand != 'quit':
-        handleCommands(newCommand, character, game_map)
-        newCommand = userInput()
+    new_command = user_input()
+    while new_command != 'quit':
+        handle_commands(new_command, character, game_map)
+        new_command = user_input()
 
 
 

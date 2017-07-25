@@ -5,6 +5,7 @@
     "south":"None",
     "east":"None",
     "west":"None",
+    "locked": "true",
     "features":{
         "Wizard":{
             "name":"Wizard",

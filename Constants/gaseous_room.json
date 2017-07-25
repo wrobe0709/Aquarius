@@ -5,6 +5,7 @@
     "south":"None",
     "east":"None",
     "west":"Torch Corridor",
+    "locked": "true",
     "features":{
         "Puzzle":{
             "name":"Puzzle",

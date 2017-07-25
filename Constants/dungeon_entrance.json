@@ -5,6 +5,7 @@
     "south":"None",
     "east":"Southeast Corridor",
     "west":"Southwest Corridor",
+    "locked": "false",
     "features":{
         "Lantern":{
             "name":"Lantern",

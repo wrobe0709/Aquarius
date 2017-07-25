@@ -5,6 +5,7 @@
     "south":"Torch Corridor",
     "east":"None",
     "west":"Shadow Corridor",
+    "locked": "false",
     "features":{
         "Lantern":{
             "name":"Lantern",
