@@ -5,18 +5,19 @@ import fileinput
 
 #Function loads the data from text file
 #For now can only handle loading one saved game.  May add filename as parameter if needed.
-def loadGame():
+def load_game():
+	"""Loads game"""
 	with open("output.txt") as text_file:
-	    line = text_file.read()
-	    textList = line.split(',')
+		line = text_file.read()
+		text_list = line.split(',')
 
 	    #FOR TESTING ONLY
-	    #print(textList)
+	    #print(text_list)
 
 #For testing only
 '''
 def main():
-	loadGame()
+	load_game()
 
 if __name__ == "__main__":
     main()

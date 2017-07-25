@@ -4,7 +4,7 @@ import Character.Character as Character
 import Feature.Feature as Feature
 import Item.Item as Item
 import constants
-from TextParsing.TextParsing import *
+from TextParsing.textParsing import *
 
 def create_map():
     """Creates map for Aquarius Game"""
