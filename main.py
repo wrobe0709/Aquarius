@@ -4,7 +4,7 @@ import Character.Character as Character
 import Feature.Feature as Feature
 import Item.Item as Item
 import constants
-from textParsing.textParsing import *
+from TextParsing.TextParsing import *
 
 def create_map():
     """Creates map for Aquarius Game"""
@@ -52,10 +52,10 @@ def main():
     character.set_current_room(current_room)
 
     #handle commands
-    newCommand = userInput()
-    while newCommand != 'quit':
-        handleCommands(newCommand, character, game_map)
-        newCommand = userInput()
+    new_command = user_input()
+    while new_command != 'quit':
+        handle_commands(new_command, character, game_map)
+        new_command = user_input()
 
 
 
