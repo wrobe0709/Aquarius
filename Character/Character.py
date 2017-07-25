@@ -13,12 +13,12 @@ class Character(object):
 
     def set_current_room(self, current_room):
         """Sets the description of a room"""
-        print "\nEntering", current_room.get_name(), "..."
+        print "\nEntering", current_room.get_name(), "...\n"
         if current_room.visited is False:
             current_room.set_visited(True)
-            print current_room.get_long_description()
+            print current_room.get_long_description(), "\n"
         else:
-            print current_room.get_short_description()
+            print current_room.get_short_description(), "\n"
         print "The room contains the following features"
         for feature in current_room.features:
             print "     " + current_room.features[feature].get_name() + ": ", current_room.features[feature].get_description()

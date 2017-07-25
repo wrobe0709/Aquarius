@@ -50,8 +50,13 @@ def display_help():
 def examine_room(character):
     """Examine a room"""
     current_room = character.get_current_room()
-    print current_room.get_short_description()
-    print current_room.get_items()
+    print current_room.get_short_description() + "\n"
+    print "The room contains the following features"
+    for feature in current_room.features:
+        print "     " + current_room.features[feature].get_name() + ": ", current_room.features[feature].get_description()
+    print "The room contains the following item"
+    for item in current_room.items:
+        print "     " + current_room.items[item].get_name() + ": ", current_room.items[item].get_description()
 
 #This function will return the description of the passed through item
 def look_at_item(character, item):
@@ -83,7 +88,8 @@ def display_inventory(character):
     if character.get_inventory() == {}:
         print 'Inventory is empty'
     else:
-        print character.get_inventory()
+        for item in character.get_inventory():
+            print "     " + character.get_inventory()[item].get_name() + ": ", character.get_inventory()[item].get_description()
 
 #This function will add an item to the player's inventory and remove it from the
 #game world
