@@ -20,13 +20,12 @@ def handle_commands(command_list, character, game_map):
     """Handles commands"""
     #Iterate through the commands and look for keywords to execute commands
     #based on the keywords from the command_list
-
     for word in range(len(command_list)):
         #first handle file saving & loading
-        if command_list[word] == 'save':
+        if command_list[word] == 'savegame':
             print "Saving game."
             save_game(character)
-        elif command_list[word] == 'load':
+        elif command_list[word] == 'loadgame':
             print "Which game would you like to load?"
             load_game(character, game_map)
         #next handle observing the room
