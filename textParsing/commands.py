@@ -136,7 +136,6 @@ def save_game(character):
     character_name = character.get_name()
     current_room = character.get_current_room().get_name()
     inventory = character.get_inventory()
-    print "writing file"
     with open("output.txt", "w") as text_file:
         text_file.write(character_name + ',')
         text_file.write(current_room + ',')
