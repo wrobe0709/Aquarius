@@ -25,9 +25,6 @@ def handle_commands(command_list, character, game_map):
         if command_list[word] == 'savegame':
             print "Saving game."
             save_game(character, game_map)
-        elif command_list[word] == 'loadgame':
-            print "Which game would you like to load?"
-            load_game(character, game_map)
         #next handle observing the room
         elif command_list[word] == 'look':
             if len(command_list) == 1:
@@ -60,6 +57,14 @@ def handle_commands(command_list, character, game_map):
                 change_room(character, game_map, 'east')
             elif command_list[word+1] == 'west':
                 change_room(character, game_map, 'west')
+        elif command_list[word] == 'north':
+            change_room(character, game_map, 'north')
+        elif command_list[word] == 'south':
+            change_room(character, game_map, 'south')
+        elif command_list[word] == 'east':
+            change_room(character, game_map, 'east')
+        elif command_list[word] == 'west':
+            change_room(character, game_map, 'west')
         #handle item manipulation
         #elif command_list[word] == 'examine':
             #look_at_item(character)
