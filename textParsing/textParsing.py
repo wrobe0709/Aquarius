@@ -24,7 +24,7 @@ def handle_commands(command_list, character, game_map):
         #first handle file saving & loading
         if command_list[word] == 'savegame':
             print "Saving game."
-            save_game(character)
+            save_game(character, game_map)
         elif command_list[word] == 'loadgame':
             print "Which game would you like to load?"
             load_game(character, game_map)
