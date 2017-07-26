@@ -116,7 +116,6 @@ def drop_item(character, item_key):
 def change_room(character, game_map, direction):
     """Changes a player's room"""
     usr_choice = getattr(game_map[character.current_room.get_name()], direction)
-    current_room = character.get_current_room()
     #make sure it's a valid choice within the game map
     if usr_choice in game_map:
         character.set_potential_room(game_map[usr_choice])
@@ -129,18 +128,6 @@ def change_room(character, game_map, direction):
             
     else:
         print "There is no way..."
-
-
-def old_save_game(character):
-    #Will have to update this later when we figure out what what is to be saved in text file
-    """Writes character name, current room & inventory list to textfile"""
-    character_name = character.get_name()
-    current_room = character.get_current_room().get_name()
-    inventory = character.get_inventory()
-    with open("output.txt", "w") as text_file:
-        text_file.write(character_name + ',')
-        text_file.write(current_room + ',')
-        text_file.write(','.join(str(i) for i in inventory))
 
 def save_game(character, game_map):
     """Save a game to JSON"""
@@ -158,11 +145,17 @@ def save_game(character, game_map):
         room_name = game_map[room].get_name()
         json_game_map[room_name] = {}
         for item in game_map[room].get_items():
-            json_game_map[room_name][item] = ''
+            json_game_map[room_name][item] = {
+                'Name': game_map[room].get_items()[item].get_name(),
+                'Description': game_map[room].get_items()[item].get_description()
+            }
 
     # Add items to inventory
     for item in inventory:
-        json_inventory[item] = ''
+        json_inventory[item] = {
+            'Name': inventory[item].get_name(),
+            'Description': inventory[item].get_description()
+        }
 
     # Create game state object to save
     game_state = {
@@ -176,51 +169,11 @@ def save_game(character, game_map):
     with open('saved_game.json', 'w') as out:
         json.dump(game_state, out)
 
-def old_load_game(character, game_map):
-    #Will have to update this later when we figure out what what is to be saved in text file
-    """Loads character name, current room & inventory list from textfile"""
-    with open("output.txt") as text_file:
-        line = text_file.read()
-        text_list = line.split(',')
-        #1st in list is character name
-        character.set_name(text_list[:1])
-        #2nd in list is current room
-        character.set_current_room(game_map[text_list[1]])
-        #3rd - on in list is inventory items
-        for item in text_list[2:]:
-            character.add_to_inventory(item, item)
-        #print(text_list)
-
-def load_game(character):
+def load_game():
     """Loads data"""
     with open("saved_game.json") as saved_game_file:
         game_data = json.load(saved_game_file)
-    print game_data
-
-def load_character_name(character):
-    """Loads character name from textfile"""
-    with open("output.txt") as text_file:
-        line = text_file.read()
-        text_list = line.split(',')
-        #1st in list is character name
-        character.set_name(text_list[:1])
-
-def load_character_current_room(character, game_map):
-    """Loads character current room from textfile"""
-    with open("output.txt") as text_file:
-        line = text_file.read()
-        text_list = line.split(',')
-        #2nd in list is current room
-        character.set_current_room(game_map[text_list[1]])
-
-def load_items(character):
-    """Loads items from textfile"""
-    with open("output.txt") as text_file:
-        line = text_file.read()
-        text_list = line.split(',')
-        #3rd - on in list is inventory items
-        for item in text_list[2:]:
-            character.add_to_inventory(item, '')
+    return game_data
 
 
 

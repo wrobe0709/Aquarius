@@ -4,9 +4,9 @@ import Character.Character as Character
 import Feature.Feature as Feature
 import Item.Item as Item
 import constants
-from TextParsing.textParsing import *
+from TextParsing.textParsing import handle_commands, user_input, load_game
 
-def create_map(loaded_game, character):
+def create_map(json_game_map):
     """Creates map for Aquarius Game"""
     room_hash = {}
 
@@ -29,29 +29,23 @@ def create_map(loaded_game, character):
             new_feature.set_description(constants.ROOMS[room]['features'][feature]['description'])
             room_hash[room].add_feature(new_feature)
 
-        if not loaded_game:
+        # If it is not a loaded game
+        if not json_game_map:
             # Set items in the room
             for item in constants.ROOMS[room]['items']:
                 new_item = Item.Item()
                 new_item.set_name(constants.ROOMS[room]['items'][item]['name'])
                 new_item.set_description(constants.ROOMS[room]['items'][item]['description'])
                 room_hash[room].add_item(new_item)
+        # If it is a loaded game
         else:
             # Set items in the room
-            for item in constants.ROOMS[room]['items']:
-                # If the item is not in the player's inventory then add it to the room as normal
-                if item not in character.get_inventory():
-                    new_item = Item.Item()
-                    new_item.set_name(constants.ROOMS[room]['items'][item]['name'])
-                    new_item.set_description(constants.ROOMS[room]['items'][item]['description'])
-                    room_hash[room].add_item(new_item)
-                # Otherwise create the item object and add it to inventory
-                else:
-                    new_item = Item.Item()
-                    new_item.set_name(constants.ROOMS[room]['items'][item]['name'])
-                    new_item.set_description(constants.ROOMS[room]['items'][item]['description'])
-                    character.add_to_inventory(item, new_item)
-
+            for item in json_game_map[room]:
+                new_item = Item.Item()
+                new_item.set_name(json_game_map[room][item]['Name'])
+                new_item.set_description(json_game_map[room][item]['Description'])
+                room_hash[room].add_item(new_item)
+   
     return room_hash
 
 def main():
@@ -69,7 +63,7 @@ def main():
     if game_start == '1':
         # Initialize character and map
         character = Character.Character()
-        game_map = create_map(False, character)
+        game_map = create_map(None)
         
         # Setup the starting room
         current_room = game_map['Dungeon Entrance']
@@ -82,30 +76,21 @@ def main():
     elif game_start == '2':
         # Initialize character and map
         character = Character.Character()
-        load_game(character)
+        saved_game_data = load_game()
+        game_map = create_map(saved_game_data['json_game_map'])
 
-        # # Load items first so game map can be build correctly
-        # load_items(character)
-        # game_map = create_map(True, character)
+        # Set current room and character name based on saved JSON
+        current_room = game_map[saved_game_data['current_room']]
+        character_name = saved_game_data['character_name']
+        character.set_name(character_name)
+        character.set_current_room(current_room)
 
-        # # Load character name and current room
-        # load_character_name(character)
-        # load_character_current_room(character, game_map)
-        # print character.get_name()
-        
-        
-        
-        # print "loading a fake game with:"
-        # print " start room = great_hall"
-        # print " name = Thomas"
-        # # Setup the starting room
-        # current_room = game_map['Great Hall']
-        
-        # # Setup character
-        # character = Character.Character()
-        # character_name = 'Thomas'
-        # character.set_name(character_name)
-        # character.set_current_room(current_room)
+        # Add correct items to inventory
+        for item in saved_game_data['json_inventory']:
+            new_item = Item.Item()
+            new_item.set_name(saved_game_data['json_inventory'][item]['Name'])
+            new_item.set_description(saved_game_data['json_inventory'][item]['Description'])
+            character.add_to_inventory(item, new_item)
 
     #handle commands
     new_command = user_input()
