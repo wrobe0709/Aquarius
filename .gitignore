@@ -1,2 +1,4 @@
 *.pyc
 .pylintrc
+output.txt
+saved_game.json

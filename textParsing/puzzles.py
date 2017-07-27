@@ -13,19 +13,19 @@ def swordCasePuzzle():
     Attack like ___ and be still as the ___.
     ****************************************************
     '''
-    userCommand = raw_input('> ')
-    commandList = userCommand.split(" ")
+    user_command = raw_input('> ')
+    command_list = user_command.split(" ")
     #iterate through and make sure the user selected the
     #proper words and in order
-    for word in range(len(commandList)):
-        if commandList[word] == 'wind':
-            if commandList[word+1] == 'wood':
-                if commandList[word+2] == 'fire':
-                    if commandList[word+3] == 'mountain':
+    for word in range(len(command_list)):
+        if command_list[word] == 'wind':
+            if command_list[word+1] == 'wood':
+                if command_list[word+2] == 'fire':
+                    if command_list[word+3] == 'mountain':
                         print "Your knowledge of The Art of War has proven True."
                         print "The sword case opens slowly...revealing a mighty sword."
                         #add something that interacts with the room feature (case)
-        elif commandList[0] != 'wind':
+        elif command_list[0] != 'wind':
             print "Hmm that doesn't seem to be right, perhaps Sun Tzu would know..."
 
 #This puzzle will have a prompt and a picture, if the player correctly guesses what
@@ -85,8 +85,8 @@ def keyPuzzle():
                        '"VHVHHHAHHHHMMV:"'
     '''
     print "For ___ thou art, and unto ___ shalt thou return."
-    userCommand = raw_input('> ')
-    if userCommand == 'dust':
+    user_command = raw_input('> ')
+    if user_command == 'dust':
         print "But you are not dust, you still draw breath, and thus, have a chance..."
         print "The chest opens and reveals a key."
         #something here to interact with the chest's feature and unlock's it
@@ -109,8 +109,8 @@ def gearRoomPuzzle():
     \/ |_| \/    |_|
     Should you interact with it?
     '''
-    userCommand = raw_input('> ')
-    if userCommand == 'yes':
+    user_command = raw_input('> ')
+    if user_command == 'yes':
         print '''
         You move the gears and it reveals...
         ,---------------------------------------.---------.
@@ -138,8 +138,8 @@ def gearRoomPuzzle():
         Use keywords up, down, left, or right. Do not include commas.
         Keep it lower case, it must be exactly correct. 
         '''
-        userCommand = raw_input('> ')
-        if userCommand == 'up left down right down left up right up left up right down right down left up left down right up right down left':
+        user_command = raw_input('> ')
+        if user_command == 'up left down right down left up right up left up right down right down left up left down right up right down left':
             print "The gears in the room move and reveal the bow room!"
         else:
             print "The gears grind to a halt in the room. Nothing more happens."

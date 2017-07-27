@@ -3,10 +3,12 @@
 #from other commands and pass through information as needed
 import sys
 import csv
+import fileinput
 import Room.Room as Room
 import Character.Character as Character
 import Feature.Feature as Feature
 import Item.Item as Item
+import json
 
 
 
@@ -50,8 +52,13 @@ def display_help():
 def examine_room(character):
     """Examine a room"""
     current_room = character.get_current_room()
-    print current_room.get_short_description()
-    print current_room.get_items()
+    print current_room.get_short_description() + "\n"
+    print "The room contains the following features"
+    for feature in current_room.features:
+        print "     " + current_room.features[feature].get_name() + ": ", current_room.features[feature].get_description()
+    print "The room contains the following item"
+    for item in current_room.items:
+        print "     " + current_room.items[item].get_name() + ": ", current_room.items[item].get_description()
 
 #This function will return the description of the passed through item
 def look_at_item(character, item):
@@ -83,7 +90,8 @@ def display_inventory(character):
     if character.get_inventory() == {}:
         print 'Inventory is empty'
     else:
-        print character.get_inventory()
+        for item in character.get_inventory():
+            print "     " + character.get_inventory()[item].get_name() + ": ", character.get_inventory()[item].get_description()
 
 #This function will add an item to the player's inventory and remove it from the
 #game world
@@ -108,7 +116,6 @@ def drop_item(character, item_key):
 def change_room(character, game_map, direction):
     """Changes a player's room"""
     usr_choice = getattr(game_map[character.current_room.get_name()], direction)
-    current_room = character.get_current_room()
     #make sure it's a valid choice within the game map
     if usr_choice in game_map:
         character.set_potential_room(game_map[usr_choice])
@@ -121,6 +128,7 @@ def change_room(character, game_map, direction):
 
     else:
         print "There is no way..."
+
 
 #interacts with features in a given room
 def use_feature(character, feature):
@@ -141,3 +149,51 @@ def use_feature(character, feature):
             print "You've already used that feature."
     else:
         print "That feature does not appear to be in this room."
+def save_game(character, game_map):
+    """Save a game to JSON"""
+    # Get character info
+    character_name = character.get_name()
+    current_room = character.get_current_room().get_name()
+    inventory = character.get_inventory()
+
+    # Initialize json to save map and inventory
+    json_game_map = {}
+    json_inventory = {}
+
+    # Add correct items to rooms
+    for room in game_map:
+        room_name = game_map[room].get_name()
+        json_game_map[room_name] = {}
+        for item in game_map[room].get_items():
+            json_game_map[room_name][item] = {
+                'Name': game_map[room].get_items()[item].get_name(),
+                'Description': game_map[room].get_items()[item].get_description()
+            }
+
+    # Add items to inventory
+    for item in inventory:
+        json_inventory[item] = {
+            'Name': inventory[item].get_name(),
+            'Description': inventory[item].get_description()
+        }
+
+    # Create game state object to save
+    game_state = {
+        "character_name": character_name,
+        "current_room": current_room,
+        "json_inventory": json_inventory,
+        "json_game_map": json_game_map
+    }
+
+    # Save the game to a JSON file
+    with open('saved_game.json', 'w') as out:
+        json.dump(game_state, out)
+
+def load_game():
+    """Loads data"""
+    with open("saved_game.json") as saved_game_file:
+        game_data = json.load(saved_game_file)
+    return game_data
+
+
+
