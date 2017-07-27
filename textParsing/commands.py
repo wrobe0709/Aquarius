@@ -9,7 +9,7 @@ import Character.Character as Character
 import Feature.Feature as Feature
 import Item.Item as Item
 import json
-
+from puzzles import *
 
 
 #prints out the list of available commands to the user
@@ -131,24 +131,42 @@ def change_room(character, game_map, direction):
 
 
 #interacts with features in a given room
+#Need to add in a way to handle whether or not the feature has been used before
 def use_feature(character, feature):
     current_room = character.get_current_room()
     if feature in current_room.get_features():
-        if feature.get_interacted_with() == False:
-            feature.set_interacted_with(True)
-            #now make special cases based on specific features
-            if feature == 'Closet':
-                print "You found some arrows, these might be of use later...(place them into your inventory)"
-                character.add_item(Arrow)
-            elif feature == 'Lantern':
-                if 'Torch' in character.get_inventory():
-                    print "You light the lantern with your torch."
-                else:
-                    print "This looks like it could be lit with a torch."
-        else:
-            print "You've already used that feature."
+        #Go through and handle the various differing features
+        if feature == 'Closet':
+            print "You found some arrows, these might be of use later...(place them into your inventory)"
+        elif feature == 'Lantern':
+            if 'Torch' in character.get_inventory():
+                print "You light the lantern with your torch."
+            else:
+                print "This looks like it could be lit with a torch."
+        elif feature == 'Staircase':
+            print "You descend the staircase."
+        elif feature == 'Skylight':
+            print "You stare up at the skylight and see light from the moon gently lighting the room."
+        elif feature == 'Display Case':
+            swordCasePuzzle()
+            if take_item(character, 'Sword', character.get_current_room().get_items()['Sword']):
+                print "You took the sword out of the case! Now you're starting to look like a real hero!"
+        elif feature == 'Mirrors':
+            print "You look at yourself in a mirror and check out your inventory: "
+            display_inventory(character)
+        elif feature == 'Small Mirror':
+            print "You look into the mirror and see yourself battling a great and mighty beast!"
+            print "Is this a sign of things yet to come?"
+        elif feature == 'Torches':
+            print "The torches are all light and burning bright...you feel drawn towards the blue one..."
+        elif feature == 'Blue Torch':
+            gaseous_room_entry(character)
+        elif feature == 'Puzzle Case':
+            keyPuzzle()
+
     else:
         print "That feature does not appear to be in this room."
+
 def save_game(character, game_map):
     """Save a game to JSON"""
     # Get character info
@@ -194,6 +212,3 @@ def load_game():
     with open("saved_game.json") as saved_game_file:
         game_data = json.load(saved_game_file)
     return game_data
-
-
-

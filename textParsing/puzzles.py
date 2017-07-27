@@ -136,7 +136,7 @@ def gearRoomPuzzle():
         `------------------------'    `-------------------'
         How can you get to the x...?
         Use keywords up, down, left, or right. Do not include commas.
-        Keep it lower case, it must be exactly correct. 
+        Keep it lower case, it must be exactly correct.
         '''
         user_command = raw_input('> ')
         if user_command == 'up left down right down left up right up left up right down right down left up left down right up right down left':
@@ -145,6 +145,20 @@ def gearRoomPuzzle():
             print "The gears grind to a halt in the room. Nothing more happens."
     else:
         print "You decide not to bother with the gear."
+
+def gaseous_room_entry(character):
+    if 'Bow' in character.get_inventory():
+        print """You take out your bow and draw an arrow. You approach the lit blue torch and
+        light your arrow. Drawing the string back you face the entrance to the gaseous room
+        and loose your arrow! It's blue flame flys into the gaseous room and a brilliant flash
+        of light englufs the room and corridor! As your eyes adjust you notice that the gas is gone
+        and it's safe to enter in."""
+        #need a way to make it so that the gaseous room is able to be entered.
+    else:
+        print """This flame's proximity to the gaseous room would probably be useful if there was a way
+        to light it and shoot it in there..."""
+
+
 
 
 #testing purposes

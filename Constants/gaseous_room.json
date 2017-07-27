@@ -11,13 +11,13 @@
             "name":"Puzzle",
             "description":"This puzzle must be solved in order to gain access to display case."
         },
-        "Display_Case":{
-            "name":"Display_Case",
+        "Puzzle Case":{
+            "name":"Puzzle Case",
             "description":"This display case contains an item."
         }
     },
     "items":{
-        "End_Room_Key":{
+        "Key":{
             "name":"End Room Key",
             "description":"Unlocks End Room from Armory"
         }
