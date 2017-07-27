@@ -6,18 +6,20 @@
     "east":"None",
     "west":"None",
     "locked": "false",
+    "enemies": {
+        "lvl_1":{
+          "Monsters": "unknown_lvl_1",
+          "description": "If the hero does not have a particular item, these monsters will attack"
+        }
+    },
     "features":{
         "Mirrors":{
-            "name":"Chair",
+            "name":"Mirrors",
             "description":"These mirrors may show hero items if interacted with."
         },
-        "Small_Mirror":{
-            "name":"Small_Mirror",
+        "Small Mirror":{
+            "name":"Small Mirror",
             "description":"This mirror in particular may reveal what's to come."
-        },
-        "Monsters":{
-            "name":"Monsters",
-            "description":"If the hero does not have a particular item, these monsters will attack."
         }
     },
     "items":{}

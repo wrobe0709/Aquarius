@@ -1,6 +1,6 @@
 {
     "long_description": "As you enter, the walls are symmetrically covered with torches.  The room smells of smoke and there are ash piles on the floor.  When you hang a right at the corner towards the east end, there is a torch that looks different from all the rest; the material is more of a blue color rather than brown.",
-    "short_description": "all of torches with a distinct blue torch on east end.",
+    "short_description": "All of torches are light including a distinct blue torch on the east end.",
     "north":"Northeast Corridor",
     "south":"Great Hall",
     "east":"Gaseous Room",
@@ -11,8 +11,8 @@
             "name":"Torches",
             "description":"These torches line the walls."
         },
-        "Blue_Torch":{
-            "name":"Blue_Torch",
+        "Blue Torch":{
+            "name":"Blue Torch",
             "description":"This torch, a different color from the rest, can be lit by hero."
         }
     },

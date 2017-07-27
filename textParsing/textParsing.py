@@ -117,12 +117,15 @@ def handle_commands(command_list, character, game_map):
                 else:
                     print 'That item is not in your inventory'
 
-        elif commandList[word] == 'use':
-            if len(commandList) == 1:
+        elif command_list[word] == 'use':
+            if len(command_list) == 1:
                 print "You must specify a feature to use/interact with."
             else:
-                feature_key = commandList[1].title()
+                feature_key = ''
+                for feature_word in command_list[1:]:
+                    feature_key += feature_word + ' '
+                feature_key = feature_key[:-1].title()
                 use_feature(character, feature_key)
 
-        elif commandList[word] == 'quit':
+        elif command_list[word] == 'quit':
             return 'quit'
