@@ -11,8 +11,8 @@
             "name":"Lantern",
             "description":"This can be lit with hero's torch.  It may reveal an item when lit."
         },
-        "DisplayCase":{
-            "name":"DisplayCase",
+        "Display Case":{
+            "name":"Display Case",
             "description":"There's a riddle on the case edge, and within there is a sword."
         }
     },

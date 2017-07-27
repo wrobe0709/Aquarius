@@ -5,6 +5,7 @@ class Feature(object):
         self.name = ''
         self.description = ''
         self.looked_at = False
+        self.interacted_with = False
 
     def set_name(self, name):
         """Sets the name of an feature"""
@@ -15,8 +16,12 @@ class Feature(object):
         self.description = description
 
     def set_looked_at(self, looked_at):
-        """Sets the looked_at status of an item"""
+        """Sets the looked_at status of a feature"""
         self.looked_at = looked_at
+
+    def set_interacted_with(self, interacted_with):
+        '''Sets the interacted_with status of a feature'''
+        self.interacted_with = interacted_with
 
     def get_name(self):
         """Gets the name of an feature"""
@@ -27,5 +32,9 @@ class Feature(object):
         return self.description
 
     def get_looked_at(self):
-        """Gets the looked_at status of an item"""
+        """Gets the looked_at status of a feature"""
         return self.looked_at
+
+    def get_interacted_with(self):
+        '''Returns the interacted_with status of a feature'''
+        return self.interacted_with

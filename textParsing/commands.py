@@ -125,10 +125,30 @@ def change_room(character, game_map, direction):
             character.set_current_room(game_map[usr_choice])
         elif potential_room.get_locked_status() == 'true':
             print "That way seems to be locked at the moment...perhaps there is a way to open it..."
-            
+
     else:
         print "There is no way..."
 
+
+#interacts with features in a given room
+def use_feature(character, feature):
+    current_room = character.get_current_room()
+    if feature in current_room.get_features():
+        if feature.get_interacted_with() == False:
+            feature.set_interacted_with(True)
+            #now make special cases based on specific features
+            if feature == 'Closet':
+                print "You found some arrows, these might be of use later...(place them into your inventory)"
+                character.add_item(Arrow)
+            elif feature == 'Lantern':
+                if 'Torch' in character.get_inventory():
+                    print "You light the lantern with your torch."
+                else:
+                    print "This looks like it could be lit with a torch."
+        else:
+            print "You've already used that feature."
+    else:
+        print "That feature does not appear to be in this room."
 def save_game(character, game_map):
     """Save a game to JSON"""
     # Get character info
