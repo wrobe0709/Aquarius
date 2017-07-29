@@ -11,8 +11,8 @@
             "name":"Leak",
             "description":"This is a pool of water on the floor."
         },
-        "Odd_Book":{
-            "name":"Odd_Book",
+        "Odd Book":{
+            "name":"Odd Book",
             "description":"This is an oddly shaped book.  If the hero interacts with it, it may reveal a passageway."
         }
     },

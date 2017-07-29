@@ -7,8 +7,8 @@
     "west":"None",
     "locked": "false",
     "enemies": {
-        "lvl_1":{
-          "Monsters": "unknown_lvl_1",
+        "Level 1":{
+          "Monsters": "Unknown Level 1",
           "description": "If the hero does not have a particular item, these monsters will attack"
         }
     },

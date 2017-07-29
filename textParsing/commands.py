@@ -1,21 +1,14 @@
-#This file will be used to handle parsing command line
-#user input. It will then call on appropriate functions
-#from other commands and pass through information as needed
-import sys
-import csv
-import fileinput
+import json
 import Room.Room as Room
 import Character.Character as Character
 import Feature.Feature as Feature
 import Item.Item as Item
-import json
 from puzzles import *
 
-
-#prints out the list of available commands to the user
 def display_help():
     """Display help menu"""
     print '''
+
             **********************************************************
                                     HELP MENU
                                 Viable Commands:
@@ -47,8 +40,7 @@ def display_help():
             under - used with look (look under <object>)
             **********************************************************
             '''
-#This function will return the short description of the character's current room
-#and the items within it
+
 def examine_room(character):
     """Examine a room"""
     current_room = character.get_current_room()
@@ -58,9 +50,9 @@ def examine_room(character):
         print "     " + current_room.features[feature].get_name() + ": ", current_room.features[feature].get_description()
     print "The room contains the following item"
     for item in current_room.items:
-        print "     " + current_room.items[item].get_name() + ": ", current_room.items[item].get_description()
+        if not current_room.items[item].get_hidden():
+            print "     " + current_room.items[item].get_name() + ": ", current_room.items[item].get_description()
 
-#This function will return the description of the passed through item
 def look_at_item(character, item):
     """Look at an item"""
     current_room = character.get_current_room()
@@ -72,7 +64,6 @@ def look_at_item(character, item):
     else:
         print "That item doesn't appear to be in this room."
 
-#This function will return the description of the passed through feature
 def look_at_feature(character, feature):
     """Look at a feature"""
     current_room = character.get_current_room()
@@ -84,7 +75,6 @@ def look_at_feature(character, feature):
     else:
         print "That item doesn't appear to be in this room."
 
-#this function will iterate through and display the player's inventory
 def display_inventory(character):
     """Display a player's inventory"""
     if character.get_inventory() == {}:
@@ -93,8 +83,6 @@ def display_inventory(character):
         for item in character.get_inventory():
             print "     " + character.get_inventory()[item].get_name() + ": ", character.get_inventory()[item].get_description()
 
-#This function will add an item to the player's inventory and remove it from the
-#game world
 def take_item(character, item_key, item):
     """Adds an item to a player's inventory"""
     current_room = character.get_current_room()
@@ -112,7 +100,6 @@ def drop_item(character, item_key):
     current_room.add_item(character.get_inventory()[item_key])
     character.remove_from_inventory(item_key)
 
-#this will probably need some revision...
 def change_room(character, game_map, direction):
     """Changes a player's room"""
     usr_choice = getattr(game_map[character.current_room.get_name()], direction)
@@ -129,43 +116,91 @@ def change_room(character, game_map, direction):
     else:
         print "There is no way..."
 
-
-#interacts with features in a given room
-#Need to add in a way to handle whether or not the feature has been used before
-def use_feature(character, feature):
+# Need to add in a way to handle whether or not the feature has been used before
+def use_feature(character, object_key):
+    """Uses a feature"""
     current_room = character.get_current_room()
-    if feature in current_room.get_features():
-        #Go through and handle the various differing features
-        if feature == 'Closet':
-            print "You found some arrows, these might be of use later...(place them into your inventory)"
-        elif feature == 'Lantern':
+    if object_key in current_room.get_features():
+        # Go through and handle the various differing features
+        if object_key == 'Closet':
+            if "Arrows" in current_room.get_items():
+                current_room.get_items()['Arrows'].set_hidden(False)
+                print "You see some arrows, these might be of use later..."
+            else:
+                print "The closet is empty"
+        elif object_key == 'Lantern':
             if 'Torch' in character.get_inventory():
                 print "You light the lantern with your torch."
             else:
                 print "This looks like it could be lit with a torch."
-        elif feature == 'Staircase':
+        elif object_key == 'Staircase':
             print "You descend the staircase."
-        elif feature == 'Skylight':
+        elif object_key == 'Skylight':
             print "You stare up at the skylight and see light from the moon gently lighting the room."
-        elif feature == 'Display Case':
+        elif object_key == 'Display Case':
             swordCasePuzzle()
             if take_item(character, 'Sword', character.get_current_room().get_items()['Sword']):
                 print "You took the sword out of the case! Now you're starting to look like a real hero!"
-        elif feature == 'Mirrors':
+        elif object_key == 'Mirrors':
             print "You look at yourself in a mirror and check out your inventory: "
             display_inventory(character)
-        elif feature == 'Small Mirror':
+        elif object_key == 'Small Mirror':
             print "You look into the mirror and see yourself battling a great and mighty beast!"
             print "Is this a sign of things yet to come?"
-        elif feature == 'Torches':
+        elif object_key == 'Torches':
             print "The torches are all light and burning bright...you feel drawn towards the blue one..."
-        elif feature == 'Blue Torch':
+        elif object_key == 'Blue Torch':
             gaseous_room_entry(character)
-        elif feature == 'Puzzle Case':
+        elif object_key == 'Puzzle Case':
             keyPuzzle()
-
+        elif object_key == 'Door':
+            print "You use the door"
+        elif object_key == 'Weapons':
+            print "You use the weapons"
+        elif object_key == 'Keyhole':
+            print "You use the keyhole"
+        elif object_key == 'Barrel 1':
+            print "You use barrel 1"
+        elif object_key == 'Barrel 2':
+            print "You use barrel 2"
+        elif object_key == 'Quiver':
+            print "You use quiver"
+        elif object_key == 'Chair':
+            print "You use chair"
+        elif object_key == 'Switch':
+            print "You use switch"
+        elif object_key == 'Diamonds':
+            print "You use diamonds"
+        elif object_key == 'Wizard':
+            print "You use wizard"
+        elif object_key == 'Boss':
+            print "You use boss"
+        elif object_key == 'Puzzle':
+            print "You use puzzle"
+        elif object_key == 'Puzzle Case':
+            print "You use puzzle case"
+        elif object_key == 'Passageway':
+            print "You use passageway"
+        elif object_key == 'Skeleton Pile':
+            print "You use skeleton pile"
+        elif object_key == 'Skeleton':
+            print "You use skeleton"
+        elif object_key == 'Black Tome':
+            print "You use black tome"
+        elif object_key == 'Red Tome':
+            print "You use red tome"
+        elif object_key == 'Monster':
+            print "You use monster"
+        elif object_key == 'Ceiling Skylight':
+            print "You use ceiling skylight"
+        elif object_key == 'Leak':
+            print "You use leak"
+        elif object_key == 'Odd Book':
+            print "You use odd book"
+    elif object_key in character.get_inventory():
+        print "use the", object_key 
     else:
-        print "That feature does not appear to be in this room."
+        print "That feature does not appear to be in this room or is not in inventory"
 
 def save_game(character, game_map):
     """Save a game to JSON"""

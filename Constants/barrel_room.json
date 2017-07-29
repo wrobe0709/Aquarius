@@ -7,18 +7,18 @@
     "west":"None",
     "locked": "false",
     "enemies": {
-        "lvl_1":{
-          "name": "unknown_lvl_1",
+        "Level 1":{
+          "name": "Unknown Level 1",
           "description": "tbd"
         }
     },
     "features":{
-        "Barrel_1":{
-            "name":"Barrel_1",
+        "Barrel 1":{
+            "name":"Barrel 1",
             "description":"If smashed, hero gains item."
         },
-        "Barrel_2":{
-            "name":"Barrel_2",
+        "Barrel 2":{
+            "name":"Barrel 2",
             "description":"If smashed, hero gains item."
         }
     },

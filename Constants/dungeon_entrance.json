@@ -19,7 +19,13 @@
     "items":{
         "Torch":{
             "name":"Torch",
-            "description":"Illuminates Areas"
+            "description":"Illuminates Areas",
+            "hidden": "false"
+        },
+        "Arrows":{
+            "name":"Arrows",
+            "description":"Used for shooting",
+            "hidden": "true"
         }
     }
 }

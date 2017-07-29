@@ -24,7 +24,8 @@ class Character(object):
             print "     " + current_room.features[feature].get_name() + ": ", current_room.features[feature].get_description()
         print "The room contains the following items"
         for item in current_room.items:
-            print "     " + current_room.items[item].get_name() + ": ", current_room.items[item].get_description()
+            if not current_room.items[item].get_hidden():
+                print "     " + current_room.items[item].get_name() + ": ", current_room.items[item].get_description()
         self.current_room = current_room
 
     def set_potential_room(self, potential_room):
