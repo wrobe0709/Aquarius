@@ -19,8 +19,7 @@
     "items":{
         "Torch":{
             "name":"Torch",
-            "description":"Illuminates Areas",
-            "hidden": "false"
+            "description":"Illuminates Areas"
         },
         "Arrows":{
             "name":"Arrows",
