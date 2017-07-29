@@ -11,9 +11,9 @@
             "name":"Lantern",
             "description":"This can be lit with hero's torch."
         },
-        "Bow":{
-            "name":"Bow",
-            "description":"This bow can be used with arrows."
+        "Quiver":{
+            "name":"Quiver",
+            "description":"This quiver can be used to hold arrows."
         }
     },
     "items":{

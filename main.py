@@ -36,6 +36,9 @@ def create_map(json_game_map):
                 new_item = Item.Item()
                 new_item.set_name(constants.ROOMS[room]['items'][item]['name'])
                 new_item.set_description(constants.ROOMS[room]['items'][item]['description'])
+                if "hidden" in constants.ROOMS[room]['items'][item]:
+                    if constants.ROOMS[room]['items'][item]["hidden"] == "true":
+                        new_item.set_hidden(True)
                 room_hash[room].add_item(new_item)
         # If it is a loaded game
         else:

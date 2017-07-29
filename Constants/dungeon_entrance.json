@@ -20,6 +20,11 @@
         "Torch":{
             "name":"Torch",
             "description":"Illuminates Areas"
+        },
+        "Arrows":{
+            "name":"Arrows",
+            "description":"Used for shooting",
+            "hidden": "true"
         }
     }
 }

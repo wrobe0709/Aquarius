@@ -1,8 +1,6 @@
 #This file will be used to handle parsing command line
 #user input. It will then call on appropriate functions
 #from other commands and pass through information as needed
-import sys
-import csv
 from commands import *
 
 #Used for testing user input, update once
@@ -32,7 +30,7 @@ def handle_commands(command_list, character, game_map):
             elif command_list[word+1] == 'at':
                 object_key = ''
                 for item_word in command_list[2:]:
-                        object_key += item_word + ' '
+                    object_key += item_word + ' '
                 object_key = object_key[:-1].title()
                 # check if is an item
                 if object_key in character.get_current_room().get_items():
@@ -57,13 +55,13 @@ def handle_commands(command_list, character, game_map):
                 change_room(character, game_map, 'east')
             elif command_list[word+1] == 'west':
                 change_room(character, game_map, 'west')
-        elif command_list[word] == 'north':
+        elif command_list[word] == 'north' and command_list[word-1] != 'go':
             change_room(character, game_map, 'north')
-        elif command_list[word] == 'south':
+        elif command_list[word] == 'south' and command_list[word-1] != 'go':
             change_room(character, game_map, 'south')
-        elif command_list[word] == 'east':
+        elif command_list[word] == 'east' and command_list[word-1] != 'go':
             change_room(character, game_map, 'east')
-        elif command_list[word] == 'west':
+        elif command_list[word] == 'west' and command_list[word-1] != 'go':
             change_room(character, game_map, 'west')
         #handle item manipulation
         #elif command_list[word] == 'examine':
@@ -78,6 +76,8 @@ def handle_commands(command_list, character, game_map):
                 item_key = item_key[:-1].title()
                 if item_key in character.get_current_room().get_items():
                     take_item(character, item_key, character.get_current_room().get_items()[item_key])
+                else:
+                    print "You can't pick that up"
         elif command_list[word] == 'take':
             if len(command_list) == 1:
                 print 'You must specify an item to take with you'
@@ -88,6 +88,8 @@ def handle_commands(command_list, character, game_map):
                 item_key = item_key[:-1].title()
                 if item_key in character.get_current_room().get_items():
                     take_item(character, item_key, character.get_current_room().get_items()[item_key])
+                else:
+                    print "You can't take that"
         elif command_list[word] == 'grab':
             if len(command_list) == 1:
                 print 'You must specify an item to take with you'
@@ -98,6 +100,8 @@ def handle_commands(command_list, character, game_map):
                 item_key = item_key[:-1].title()
                 if item_key in character.get_current_room().get_items():
                     take_item(character, item_key, character.get_current_room().get_items()[item_key])
+                else:
+                    print "You can't grab that"
         elif command_list[word] == 'help':
             display_help()
         elif command_list[word] == 'inventory':
@@ -116,16 +120,22 @@ def handle_commands(command_list, character, game_map):
                     drop_item(character, item_key)
                 else:
                     print 'That item is not in your inventory'
-
         elif command_list[word] == 'use':
             if len(command_list) == 1:
                 print "You must specify a feature to use/interact with."
             else:
-                feature_key = ''
-                for feature_word in command_list[1:]:
-                    feature_key += feature_word + ' '
-                feature_key = feature_key[:-1].title()
-                use_feature(character, feature_key)
+                object_key = ''
+                for item_word in command_list[1:]:
+                    object_key += item_word + ' '
+                object_key = object_key[:-1].title()
+                # check if is an item
+                if object_key in character.get_inventory():
+                    use_feature(character, object_key)
+                # check it is a feature
+                elif object_key in character.get_current_room().get_features():
+                    use_feature(character, object_key)
+                else:
+                    print "That does not appear to be a feature or in your inventory"
 
         elif command_list[word] == 'quit':
             return 'quit'

@@ -11,8 +11,8 @@
             "name":"Lantern",
             "description":"This can be lit with hero's torch."
         },
-        "Skeleton_Pile":{
-            "name":"Skeleton_Pile",
+        "Skeleton Pile":{
+            "name":"Skeleton Pile",
             "description":"This pile of skeletons appears to have a shiny object lying beneath it."
         }
     },

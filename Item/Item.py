@@ -5,6 +5,7 @@ class Item(object):
         self.name = ''
         self.description = ''
         self.looked_at = False
+        self.hidden = False
 
     def set_name(self, name):
         """Sets the name of an item"""
@@ -18,6 +19,10 @@ class Item(object):
         """Sets the looked_at status of an item"""
         self.looked_at = looked_at
 
+    def set_hidden(self, hidden):
+        """Sets the hidden status of an item"""
+        self.hidden = hidden
+
     def get_name(self):
         """Gets the name of an item"""
         return self.name
@@ -29,3 +34,7 @@ class Item(object):
     def get_looked_at(self):
         """Gets the looked_at status of an item"""
         return self.looked_at
+
+    def get_hidden(self):
+        """Gets the hidden status of an item"""
+        return self.hidden

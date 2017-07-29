@@ -7,12 +7,12 @@
     "west":"Northwest Corridor",
     "locked": "false",
     "features":{
-        "Black_Tome":{
-            "name":"Black_Tome",
+        "Black Tome":{
+            "name":"Black Tome",
             "description":"This black tome changes something for the hero."
         },
-        "Red_Tome":{
-            "name":"Red_Tome",
+        "Red Tome":{
+            "name":"Red Tome",
             "description":"This red tome presents something to the hero."
         }
         ,
