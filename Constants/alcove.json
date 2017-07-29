@@ -19,7 +19,8 @@
     "items":{
         "Sword":{
             "name":"Sword",
-            "description":"Used for fighting"
+            "description":"Used for fighting",
+            "hidden": "true"
         }
     }
 }

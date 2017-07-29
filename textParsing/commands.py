@@ -138,9 +138,14 @@ def use_feature(character, object_key):
         elif object_key == 'Skylight':
             print "You stare up at the skylight and see light from the moon gently lighting the room."
         elif object_key == 'Display Case':
-            swordCasePuzzle()
-            if take_item(character, 'Sword', character.get_current_room().get_items()['Sword']):
-                print "You took the sword out of the case! Now you're starting to look like a real hero!"
+            if "Sword" in current_room.get_items():
+                print "There is a sword in the display case."
+                current_room.get_items()['Sword'].set_hidden(False)
+            else:
+                print "The display case is empty"
+            # swordCasePuzzle()
+            # if take_item(character, 'Sword', character.get_current_room().get_items()['Sword']):
+                # print "You took the sword out of the case! Now you're starting to look like a real hero!"
         elif object_key == 'Mirrors':
             print "You look at yourself in a mirror and check out your inventory: "
             display_inventory(character)
@@ -220,14 +225,16 @@ def save_game(character, game_map):
         for item in game_map[room].get_items():
             json_game_map[room_name][item] = {
                 'Name': game_map[room].get_items()[item].get_name(),
-                'Description': game_map[room].get_items()[item].get_description()
+                'Description': game_map[room].get_items()[item].get_description(),
+                'Hidden': game_map[room].get_items()[item].get_hidden()
             }
 
     # Add items to inventory
     for item in inventory:
         json_inventory[item] = {
             'Name': inventory[item].get_name(),
-            'Description': inventory[item].get_description()
+            'Description': inventory[item].get_description(),
+            'Hidden': inventory[item].get_hidden()
         }
 
     # Create game state object to save

@@ -25,11 +25,11 @@ class Character(object):
         print "The room contains the following items"
         for item in current_room.items:
             if not current_room.items[item].get_hidden():
-                print "     " + current_room.items[item].get_name() + ": ", current_room.items[item].get_description()
+                print "     " + current_room.items[item].get_name() + ": ", current_room.items[item].get_description(), current_room.items[item].get_hidden()
         self.current_room = current_room
 
     def set_potential_room(self, potential_room):
-        '''Sets a potential room to check for locked features'''
+        """Sets a potential room to check for locked features"""
         self.potential_room = potential_room
 
     def add_to_inventory(self, item_key, item):
@@ -49,7 +49,7 @@ class Character(object):
         return self.current_room
 
     def get_potential_room(self):
-        '''Returns potential room'''
+        """Returns potential room"""
         return self.potential_room
 
     def get_inventory(self):
