@@ -106,6 +106,15 @@ class Room(object):
         """Gets items in a room"""
         return self.items
 
+    def get_adjacent_rooms(self):
+        """Gets the room's adjacent rooms"""
+        return {
+            self.get_north(): "north",
+            self.get_south(): "south",
+            self.get_east(): "east",
+            self.get_west(): "west"
+        }
+
 class Neighbor(Room):
     """Neighbor Class"""
     def __init__(self):

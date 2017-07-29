@@ -47,6 +47,9 @@ def create_map(json_game_map):
                 new_item = Item.Item()
                 new_item.set_name(json_game_map[room][item]['Name'])
                 new_item.set_description(json_game_map[room][item]['Description'])
+                if "Hidden" in json_game_map[room][item]:
+                    if json_game_map[room][item]["Hidden"]:
+                        new_item.set_hidden(True)
                 room_hash[room].add_item(new_item)
    
     return room_hash
