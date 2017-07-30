@@ -3,6 +3,7 @@ import Room.Room as Room
 import Character.Character as Character
 import Feature.Feature as Feature
 import Item.Item as Item
+import Monster.Monster as Monster
 from puzzles import *
 
 def display_help():
@@ -52,6 +53,8 @@ def examine_room(character):
     for item in current_room.items:
         if not current_room.items[item].get_hidden():
             print "     " + current_room.items[item].get_name() + ": ", current_room.items[item].get_description()
+    for monster in current_room.monsters:
+        print current_room.monsters[monster].get_name() + " ", current_room.monsters[monster].get_description()
 
 def look_at_item(character, item):
     """Look at an item"""
@@ -203,7 +206,7 @@ def use_feature(character, object_key):
         elif object_key == 'Odd Book':
             print "You use odd book"
     elif object_key in character.get_inventory():
-        print "use the", object_key 
+        print "use the", object_key
     else:
         print "That feature does not appear to be in this room or is not in inventory"
 

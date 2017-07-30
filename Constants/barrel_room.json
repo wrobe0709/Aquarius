@@ -6,10 +6,11 @@
     "east":"Armory",
     "west":"None",
     "locked": "false",
-    "enemies": {
-        "Level 1":{
-          "name": "Unknown Level 1",
-          "description": "tbd"
+    "monsters": {
+        "Armored Skeleton":{
+          "name": "Armored Skeleton",
+          "lvl": "2",
+          "description": "An armored skeleton lumbers towards you, a large broadsword in its seketal hand, it means to end your existence."
         }
     },
     "features":{

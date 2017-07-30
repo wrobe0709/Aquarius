@@ -6,6 +6,13 @@
     "east":"None",
     "west":"Barrel Room",
     "locked": "false",
+    "monsters": {
+        "Animated Armor":{
+          "name": "Animated Armor",
+          "lvl": "3",
+          "description": "An entire suit of daunting armor with one purpose, eliminate threats to its master."
+        }
+    },
     "features":{
         "Door":{
             "name":"Door",

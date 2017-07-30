@@ -6,6 +6,7 @@
     "east":"Gear Room",
     "west":"None",
     "locked": "false",
+    "monsters": "None",
     "features":{
         "Chair":{
             "name":"Chair",

@@ -1,19 +1,22 @@
 {
-    "long_description": "You've reached the room with the BOSS!  You must defeat him!",
-    "short_description": "The room with the Boss that needs to be defeated.",
+    "long_description": "You enter into a large circular room, that's cold with just a few flickering candles. On the floor you notice markings in the shape of a summoning circle. As you draw near to inspect your breath leaves you, the room becomes unbearably cold and a Lich appears!",
+    "short_description": "The final room with the Lich.",
     "north":"Armory",
     "south":"None",
     "east":"None",
     "west":"None",
     "locked": "true",
+    "monsters": {
+        "Lich":{
+          "name": "Lich",
+          "lvl": "4",
+          "description": "A floating skeleton enveloped in a tattered mage's robe, eyes glow with hatred, it points its staff at you as it becons you to join it in undeath."
+        }
+    },
     "features":{
         "Wizard":{
             "name":"Wizard",
             "description":"If the Boss is defeated, this special Wizard appears before hero and restores dungeon into a palace full of people."
-        },
-        "Boss":{
-            "name":"Boss",
-            "description":"The main enemy that must be defeated."
         }
     },
     "items":{}

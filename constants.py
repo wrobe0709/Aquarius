@@ -13,6 +13,7 @@ def get_room_json(room):
         room_dict['east'] = room_data['east']
         room_dict['west'] = room_data['west']
         room_dict['locked'] = room_data['locked']
+        room_dict['monsters'] = room_data['monsters']
         room_dict['features'] = room_data['features']
         room_dict['items'] = room_data['items']
         return room_dict

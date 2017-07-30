@@ -6,6 +6,7 @@
     "east":"None",
     "west":"None",
     "locked": "true",
+    "monsters": "None",
     "features":{
         "Lantern":{
             "name":"Lantern",
