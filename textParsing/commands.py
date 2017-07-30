@@ -54,8 +54,6 @@ def examine_room(character):
         if not current_room.items[item].get_hidden():
             print "     " + current_room.items[item].get_name() + ": ", current_room.items[item].get_description()
     for monster in current_room.monsters:
-        #if monster.get_defeated_status == False:
-            #print "Prepare yourself! A monster approaches!"
         print current_room.monsters[monster].get_name() + " ", current_room.monsters[monster].get_description()
 
 def look_at_item(character, item):
