@@ -6,10 +6,11 @@
     "east":"None",
     "west":"None",
     "locked": "false",
-    "enemies": {
-        "Level 1":{
-          "Monsters": "Unknown Level 1",
-          "description": "If the hero does not have a particular item, these monsters will attack"
+    "monsters": {
+        "Skeleton":{
+          "name": "Skeleton",
+          "lvl": "1",
+          "description": "A skeleton springs at you, you notice a dagger in its hand, its time to test your metal."
         }
     },
     "features":{
