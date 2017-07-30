@@ -16,11 +16,6 @@
             "name":"Red Tome",
             "description":"This red tome presents something to the hero."
         }
-        ,
-        "Monster":{
-            "name":"Monster",
-            "description":"If red tome has been interacted with, these monsters appear and begin to attack you."
-        }
     },
     "items":{}
 }
