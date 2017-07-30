@@ -53,7 +53,7 @@ class Room(object):
 
     def add_monster(self, monster):
         """Adds a monster to the room"""
-        self.monster[monster.get_name()] = monster
+        self.monsters[monster.get_name()] = monster
 
     def add_feature(self, feature):
         """Adds a feature to the room"""
@@ -119,6 +119,10 @@ class Room(object):
             self.get_east(): "east",
             self.get_west(): "west"
         }
+    
+    def get_monsters(self):
+        """Gets the monsters in a room"""
+        return self.monsters
 
 class Neighbor(Room):
     """Neighbor Class"""
