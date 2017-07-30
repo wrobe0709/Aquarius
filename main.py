@@ -32,7 +32,9 @@ def create_map(json_game_map):
 
         #Set monsters in the room
         for monster in constants.ROOMS[room]['monsters']:
-            if "monsters" in constants.ROOMS[room]:
+            if "None" in constants.ROOMS[room]['monsters']:
+                pass
+            else:
                 new_monster = Monster.Monster()
                 new_monster.set_name(constants.ROOMS[room]['monsters'][monster]['name'])
                 new_monster.set_lvl(constants.ROOMS[room]['monsters'][monster]['lvl'])

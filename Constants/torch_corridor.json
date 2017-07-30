@@ -6,6 +6,7 @@
     "east":"Gaseous Room",
     "west":"None",
     "locked": "false",
+    "monsters": "None",
     "features":{
         "Torches":{
             "name":"Torches",

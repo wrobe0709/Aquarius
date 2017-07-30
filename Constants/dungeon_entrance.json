@@ -6,6 +6,7 @@
     "east":"Southeast Corridor",
     "west":"Southwest Corridor",
     "locked": "false",
+    "monsters": "None",
     "features":{
         "Lantern":{
             "name":"Lantern",
