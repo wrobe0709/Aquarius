@@ -6,6 +6,7 @@
     "east":"Northeast Corridor",
     "west":"Northwest Corridor",
     "locked": "false",
+    "monsters": "None",
     "features":{
         "Black Tome":{
             "name":"Black Tome",

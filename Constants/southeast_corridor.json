@@ -6,6 +6,7 @@
     "east":"Alcove",
     "west":"Dungeon Entrance",
     "locked": "false",
+    "monsters": "None",
     "features":{
         "Staircase":{
             "name":"Staircase",

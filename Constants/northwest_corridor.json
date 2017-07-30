@@ -6,6 +6,7 @@
     "east":"Shadow Corridor",
     "west":"None",
     "locked": "false",
+    "monsters": "None",
     "features":{
         "Lantern":{
             "name":"Lantern",

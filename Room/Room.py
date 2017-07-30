@@ -11,6 +11,7 @@ class Room(object):
         self.west = ''
         self.locked = ''
         self.visited = False
+        self.monsters = {}
         self.features = {}
         self.items = {}
 
@@ -49,6 +50,10 @@ class Room(object):
     def set_visited(self, visited):
         """Sets the room as visited"""
         self.visited = visited
+
+    def add_monster(self, monster):
+        """Adds a monster to the room"""
+        self.monster[monster.get_name()] = monster
 
     def add_feature(self, feature):
         """Adds a feature to the room"""

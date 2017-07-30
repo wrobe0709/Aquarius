@@ -6,6 +6,7 @@
     "east":"Dungeon Entrance",
     "west":"None",
     "locked": "false",
+    "monsters": "None",
     "features":{
         "Leak":{
             "name":"Leak",

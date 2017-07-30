@@ -6,6 +6,7 @@
     "east":"None",
     "west":"Torch Corridor",
     "locked": "true",
+    "monsters": "None",
     "features":{
         "Puzzle":{
             "name":"Puzzle",

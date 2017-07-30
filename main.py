@@ -3,6 +3,7 @@ import Room.Room as Room
 import Character.Character as Character
 import Feature.Feature as Feature
 import Item.Item as Item
+import Monster.Monster as Monster
 import constants
 from textParsing.textParsing import handle_commands, user_input, load_game
 
@@ -29,6 +30,16 @@ def create_map(json_game_map):
             new_feature.set_description(constants.ROOMS[room]['features'][feature]['description'])
             room_hash[room].add_feature(new_feature)
 
+        #Set monsters in the room
+        for monster in constants.ROOMS[room]['monsters']:
+            if "None" in constants.ROOMS[room]['monsters']:
+                pass
+            else:
+                new_monster = Monster.Monster()
+                new_monster.set_name(constants.ROOMS[room]['monsters'][monster]['name'])
+                new_monster.set_lvl(constants.ROOMS[room]['monsters'][monster]['lvl'])
+                new_monster.set_description(constants.ROOMS[room]['monsters'][monster]['description'])
+
         # If it is not a loaded game
         if not json_game_map:
             # Set items in the room
@@ -51,7 +62,7 @@ def create_map(json_game_map):
                     if json_game_map[room][item]["Hidden"]:
                         new_item.set_hidden(True)
                 room_hash[room].add_item(new_item)
-   
+
     return room_hash
 
 def main():
@@ -70,10 +81,10 @@ def main():
         # Initialize character and map
         character = Character.Character()
         game_map = create_map(None)
-        
+
         # Setup the starting room
         current_room = game_map['Dungeon Entrance']
-        
+
         # Setup the character
         character_name = raw_input('Enter character name > ')
         character.set_name(character_name)

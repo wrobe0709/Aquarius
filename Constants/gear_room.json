@@ -6,6 +6,7 @@
     "east":"None",
     "west":"Diamond Room",
     "locked": "false",
+    "monsters": "None",
     "features":{
         "Puzzle":{
             "name":"Puzzle",
