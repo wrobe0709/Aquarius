@@ -94,22 +94,23 @@ def key_puzzle():
         print "Your actions are futile...give up..."
 
 #This puzzle
-def gear_room_puzzle():
+def gear_room_puzzle(character):
+    """Handles gear room puzzle"""
     print'''
     You enter the gear room and notice this on the wall.
-       _         _
+    _         _
     /\_| |_/\    | |
     \       / /\/   \/\
-   _/       \_\       /
-  |_    _    _|   _   |_
-   _|  (_)  |_   (_)   _|
-  |_         _|       |
+_/       \_\       /
+|_    _    _|   _   |_
+_|  (_)  |_   (_)   _|
+|_         _|       |
     \       / /       \
     / _   _ \ \/\   /\/
     \/ |_| \/    |_|
     Should you interact with it?
     '''
-    user_command = raw_input('> ')
+    user_command = raw_input('  (yes or no) > ')
     if user_command == 'yes':
         print '''
         You move the gears and it reveals...
@@ -141,6 +142,7 @@ def gear_room_puzzle():
         user_command = raw_input('> ')
         if user_command == 'up left down right down left up right up left up right down right down left up left down right up right down left':
             print "The gears in the room move and reveal the bow room!"
+            character.get_game_map()['Bow Room'].set_locked("false")
         else:
             print "The gears grind to a halt in the room. Nothing more happens."
     else:

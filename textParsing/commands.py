@@ -107,19 +107,22 @@ def drop_item(character, item_key):
 def change_room(character, game_map, direction):
     """Changes a player's room"""
     usr_choice = getattr(game_map[character.current_room.get_name()], direction)
-    #make sure it's a valid choice within the game map
+    # Check for valid choice
     if usr_choice in game_map:
         character.set_potential_room(game_map[usr_choice])
         potential_room = character.get_potential_room()
-        #make sure the path isn't locked
+        # Check for unlocked route
+        print potential_room.get_name(), potential_room.get_visited()
         if potential_room.get_locked_status() == 'false':
-            character.set_current_room(game_map[usr_choice])
+            character.set_current_room(game_map[usr_choice]) 
         elif potential_room.get_locked_status() == 'true':
             if potential_room.get_name() == "End Room":
                 if 'End Room Key' in character.get_inventory():
                     character.set_current_room(game_map[usr_choice])
                 else:
                     print " That way seems to be locked at the moment...perhaps there is a way to open it..."
+            else:
+                print " That way seems to be locked at the moment...perhaps there is a way to open it..."
     else:
         print "There is no way..."
 
@@ -185,7 +188,7 @@ def use_feature(character, object_key):
         elif object_key == 'Boss':
             print "You use boss"
         elif object_key == 'Puzzle':
-            print "You use puzzle"
+            gear_room_puzzle(character)
         elif object_key == 'Puzzle Case':
             print "You use puzzle case"
         elif object_key == 'Passageway':
@@ -226,12 +229,15 @@ def save_game(character, game_map):
     for room in game_map:
         room_name = game_map[room].get_name()
         json_game_map[room_name] = {}
+        json_game_map[room_name]["locked"] = game_map[room].get_locked_status()
+        json_game_map[room_name]["visited"] = game_map[room].get_visited()
         for item in game_map[room].get_items():
             json_game_map[room_name][item] = {
                 'Name': game_map[room].get_items()[item].get_name(),
                 'Description': game_map[room].get_items()[item].get_description(),
                 'Hidden': game_map[room].get_items()[item].get_hidden()
             }
+        # print game_map[room].get_name(), game_map[room].get_locked_status()
 
     # Add items to inventory
     for item in inventory:
