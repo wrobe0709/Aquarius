@@ -20,7 +20,8 @@
     "items":{
         "Key":{
             "name":"End Room Key",
-            "description":"Unlocks End Room from Armory"
+            "description":"Unlocks End Room from Armory",
+            "hidden": "true"
         }
     }
 }

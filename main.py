@@ -6,6 +6,7 @@ import Item.Item as Item
 import Monster.Monster as Monster
 import constants
 from textParsing.textParsing import handle_commands, user_input, load_game
+from textParsing.puzzles import *
 
 def create_map(json_game_map):
     """Creates map for Aquarius Game"""
@@ -54,14 +55,18 @@ def create_map(json_game_map):
         else:
             # Set items in the room
             for item in json_game_map[room]:
-                new_item = Item.Item()
-                new_item.set_name(json_game_map[room][item]['Name'])
-                new_item.set_description(json_game_map[room][item]['Description'])
-                if "Hidden" in json_game_map[room][item]:
-                    if json_game_map[room][item]["Hidden"]:
-                        new_item.set_hidden(True)
-                room_hash[room].add_item(new_item)
-
+                if item == "visited":
+                    room_hash[room].set_visited(json_game_map[room][item])
+                elif item == "locked":
+                    room_hash[room].set_locked(json_game_map[room][item])
+                else:
+                    new_item = Item.Item()
+                    new_item.set_name(json_game_map[room][item]['Name'])
+                    new_item.set_description(json_game_map[room][item]['Description'])
+                    if "Hidden" in json_game_map[room][item]:
+                        if json_game_map[room][item]["Hidden"]:
+                            new_item.set_hidden(True)
+                    room_hash[room].add_item(new_item)
     return room_hash
 
 def main():

@@ -1,3 +1,4 @@
+from textParsing.puzzles import *
 """Character docstring"""
 class Character(object):
     """Character Class"""
@@ -16,6 +17,8 @@ class Character(object):
         """Sets the description of a room"""
         print "\nEntering", current_room.get_name(), "...\n"
         if current_room.visited is False:
+            if current_room.get_name() == "Gear Room":
+                gear_room_puzzle(self)
             current_room.set_visited(True)
             print current_room.get_long_description(), "\n"
         else:
@@ -26,7 +29,7 @@ class Character(object):
         print "The room contains the following items"
         for item in current_room.items:
             if not current_room.items[item].get_hidden():
-                print "     " + current_room.items[item].get_name() + ": ", current_room.items[item].get_description(), current_room.items[item].get_hidden()
+                print "     " + current_room.items[item].get_name() + ": ", current_room.items[item].get_description()
         print "The room contains the following monsters"
         for monster in current_room.monsters:
             print "     " + current_room.monsters[monster].get_name() + ": ", current_room.monsters[monster].get_description()

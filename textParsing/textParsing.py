@@ -99,11 +99,11 @@ def handle_commands(command_list, character, game_map):
                 for item_word in command_list[1:]:
                     item_key += item_word + ' '
                 item_key = item_key[:-1].title()
-                if item_key in character.get_current_room().get_items():
+                if item_key in character.get_current_room().get_items() and not character.get_current_room().get_items()[item_key].get_hidden():
                     take_item(character, item_key, character.get_current_room().get_items()[item_key])
                     break
                 else:
-                    print "You can't pick that up"
+                    print " You can't pick that up"
                     break
         elif command_list[word] == 'take':
             if len(command_list) == 1:
@@ -114,11 +114,11 @@ def handle_commands(command_list, character, game_map):
                 for item_word in command_list[1:]:
                     item_key += item_word + ' '
                 item_key = item_key[:-1].title()
-                if item_key in character.get_current_room().get_items():
+                if item_key in character.get_current_room().get_items() and not character.get_current_room().get_items()[item_key].get_hidden():
                     take_item(character, item_key, character.get_current_room().get_items()[item_key])
                     break
                 else:
-                    print "You can't take that"
+                    print " You can't take that"
                     break
         elif command_list[word] == 'grab':
             if len(command_list) == 1:
@@ -128,11 +128,11 @@ def handle_commands(command_list, character, game_map):
                 for item_word in command_list[1:]:
                     item_key += item_word + ' '
                 item_key = item_key[:-1].title()
-                if item_key in character.get_current_room().get_items():
+                if item_key in character.get_current_room().get_items() and not character.get_current_room().get_items()[item_key].get_hidden():
                     take_item(character, item_key, character.get_current_room().get_items()[item_key])
                     break
                 else:
-                    print "You can't grab that"
+                    print " You can't grab that"
                     break
         elif command_list[word] == 'help':
             display_help()
