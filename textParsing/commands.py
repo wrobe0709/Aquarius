@@ -245,7 +245,6 @@ def save_game(character, game_map):
                 'Description': game_map[room].get_items()[item].get_description(),
                 'Hidden': game_map[room].get_items()[item].get_hidden()
             }
-        # print game_map[room].get_name(), game_map[room].get_locked_status()
 
     # Add items to inventory
     for item in inventory:
