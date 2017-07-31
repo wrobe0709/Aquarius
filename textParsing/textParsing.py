@@ -11,7 +11,6 @@ def user_input():
     command_list = user_command.split(" ")
     return command_list
 
-
 #This function will take the command_list produced by user_input, it will
 #then
 def handle_commands(command_list, character, game_map):

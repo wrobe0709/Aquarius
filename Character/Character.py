@@ -6,6 +6,7 @@ class Character(object):
         self.current_room = ''
         self.potential_room = ''
         self.inventory = {}
+        self.game_map = ''
 
     def set_name(self, name):
         """Sets the name of a character"""
@@ -35,6 +36,10 @@ class Character(object):
         """Sets a potential room to check for locked features"""
         self.potential_room = potential_room
 
+    def set_game_map(self, game_map):
+        """Sets game map"""
+        self.game_map = game_map
+
     def add_to_inventory(self, item_key, item):
         """Adds an item to inventory"""
         self.inventory[item_key] = item
@@ -58,3 +63,9 @@ class Character(object):
     def get_inventory(self):
         """Gets the character's inventroy"""
         return self.inventory
+
+    def get_game_map(self):
+        """Gets the game map"""
+        return self.game_map
+
+

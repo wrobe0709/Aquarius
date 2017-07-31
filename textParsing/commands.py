@@ -53,8 +53,9 @@ def examine_room(character):
     for item in current_room.items:
         if not current_room.items[item].get_hidden():
             print "     " + current_room.items[item].get_name() + ": ", current_room.items[item].get_description()
+    print "The room contains the following monsters"
     for monster in current_room.monsters:
-        print current_room.monsters[monster].get_name() + " ", current_room.monsters[monster].get_description()
+        print "     " + current_room.monsters[monster].get_name() + ": ", current_room.monsters[monster].get_description()
 
 def look_at_item(character, item):
     """Look at an item"""
@@ -114,8 +115,11 @@ def change_room(character, game_map, direction):
         if potential_room.get_locked_status() == 'false':
             character.set_current_room(game_map[usr_choice])
         elif potential_room.get_locked_status() == 'true':
-            print "That way seems to be locked at the moment...perhaps there is a way to open it..."
-
+            if potential_room.get_name() == "End Room":
+                if 'End Room Key' in character.get_inventory():
+                    character.set_current_room(game_map[usr_choice])
+                else:
+                    print " That way seems to be locked at the moment...perhaps there is a way to open it..."
     else:
         print "There is no way..."
 
@@ -128,39 +132,36 @@ def use_feature(character, object_key):
         if object_key == 'Closet':
             if "Arrows" in current_room.get_items():
                 current_room.get_items()['Arrows'].set_hidden(False)
-                print "You see some arrows, these might be of use later..."
+                print " You see some arrows, these might be of use later..."
             else:
-                print "The closet is empty"
+                print " The closet is empty"
         elif object_key == 'Lantern':
             if 'Torch' in character.get_inventory():
-                print "You light the lantern with your torch."
+                print " You light the lantern with your torch."
             else:
-                print "This looks like it could be lit with a torch."
+                print " This looks like it could be lit with a torch."
         elif object_key == 'Staircase':
-            print "You descend the staircase."
+            print " You descend the staircase."
         elif object_key == 'Skylight':
-            print "You stare up at the skylight and see light from the moon gently lighting the room."
+            print " You stare up at the skylight and see light from the moon gently lighting the room."
         elif object_key == 'Display Case':
             if "Sword" in current_room.get_items():
-                print "There is a sword in the display case."
+                print " There is a sword in the display case."
                 current_room.get_items()['Sword'].set_hidden(False)
             else:
-                print "The display case is empty"
-            # swordCasePuzzle()
-            # if take_item(character, 'Sword', character.get_current_room().get_items()['Sword']):
-                # print "You took the sword out of the case! Now you're starting to look like a real hero!"
+                print " The display case is empty"
         elif object_key == 'Mirrors':
             print "You look at yourself in a mirror and check out your inventory: "
             display_inventory(character)
         elif object_key == 'Small Mirror':
-            print "You look into the mirror and see yourself battling a great and mighty beast!"
-            print "Is this a sign of things yet to come?"
+            print " You look into the mirror and see yourself battling a great and mighty beast!"
+            print " Is this a sign of things yet to come?"
         elif object_key == 'Torches':
-            print "The torches are all light and burning bright...you feel drawn towards the blue one..."
+            print " The torches are all light and burning bright...you feel drawn towards the blue one..."
         elif object_key == 'Blue Torch':
             gaseous_room_entry(character)
         elif object_key == 'Puzzle Case':
-            keyPuzzle()
+            key_puzzle()
         elif object_key == 'Door':
             print "You use the door"
         elif object_key == 'Weapons':
