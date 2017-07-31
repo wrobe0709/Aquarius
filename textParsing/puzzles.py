@@ -6,7 +6,7 @@ import csv
 #A function that will require the user to guess and properly input the
 #missing words (wind, wood, fire, mountain), in order, to gain access
 #to the sword within the case
-def swordCasePuzzle():
+def sword_case_puzzle():
     print'''
     *****************************************************
     Move swift as the ___ and closely-formed as the ___.
@@ -30,7 +30,7 @@ def swordCasePuzzle():
 
 #This puzzle will have a prompt and a picture, if the player correctly guesses what
 #it is the case will open revealing the key
-def keyPuzzle():
+def key_puzzle():
     print "Vanity of vanities, all is vanity."
     print '''
                                 ...----....
@@ -94,7 +94,7 @@ def keyPuzzle():
         print "Your actions are futile...give up..."
 
 #This puzzle
-def gearRoomPuzzle():
+def gear_room_puzzle():
     print'''
     You enter the gear room and notice this on the wall.
        _         _
@@ -147,21 +147,22 @@ def gearRoomPuzzle():
         print "You decide not to bother with the gear."
 
 def gaseous_room_entry(character):
+    """Handles entering the gaseous room"""
     if 'Bow' in character.get_inventory():
-        print """You take out your bow and draw an arrow. You approach the lit blue torch and
+        print """        You take out your bow and draw an arrow. You approach the lit blue torch and
         light your arrow. Drawing the string back you face the entrance to the gaseous room
         and loose your arrow! It's blue flame flys into the gaseous room and a brilliant flash
         of light englufs the room and corridor! As your eyes adjust you notice that the gas is gone
         and it's safe to enter in."""
         #need a way to make it so that the gaseous room is able to be entered.
+        character.get_game_map()['Gaseous Room'].set_locked("false")
     else:
-        print """This flame's proximity to the gaseous room would probably be useful if there was a way
-        to light it and shoot it in there..."""
+        print """   This flame's proximity to the gaseous room would probably be useful if there was a way to light it and shoot it in there..."""
 
 
 
 
 #testing purposes
-#swordCasePuzzle()
-#keyPuzzle()
+#sword_case_puzzle()
+#key_puzzle()
 #gearRoomPuzzle()

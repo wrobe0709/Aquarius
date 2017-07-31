@@ -88,6 +88,7 @@ def main():
         character_name = raw_input('Enter character name > ')
         character.set_name(character_name)
         character.set_current_room(current_room)
+        character.set_game_map(game_map)
 
     elif game_start == '2':
         # Initialize character and map
@@ -100,6 +101,7 @@ def main():
         character_name = saved_game_data['character_name']
         character.set_name(character_name)
         character.set_current_room(current_room)
+        character.set_game_map(game_map)
 
         # Add correct items to inventory
         for item in saved_game_data['json_inventory']:
