@@ -112,7 +112,6 @@ def change_room(character, game_map, direction):
         character.set_potential_room(game_map[usr_choice])
         potential_room = character.get_potential_room()
         # Check for unlocked route
-        print potential_room.get_name(), potential_room.get_visited()
         if potential_room.get_locked_status() == 'false':
             character.set_current_room(game_map[usr_choice]) 
         elif potential_room.get_locked_status() == 'true':
@@ -149,8 +148,8 @@ def use_feature(character, object_key):
             print " You stare up at the skylight and see light from the moon gently lighting the room."
         elif object_key == 'Display Case':
             if "Sword" in current_room.get_items():
-                print " There is a sword in the display case."
-                current_room.get_items()['Sword'].set_hidden(False)
+                print " There is a sword in the display case. You must solve the riddle to gake it out."
+                sword_case_puzzle(character)
             else:
                 print " The display case is empty"
         elif object_key == 'Mirrors':
@@ -162,9 +161,18 @@ def use_feature(character, object_key):
         elif object_key == 'Torches':
             print " The torches are all light and burning bright...you feel drawn towards the blue one..."
         elif object_key == 'Blue Torch':
-            gaseous_room_entry(character)
+            if not character.get_game_map()['Gaseous Room'].get_visited():
+                gaseous_room_entry(character)
+            else:
+                print " You already used the blue torch to clear the gaseous chamber."
         elif object_key == 'Puzzle Case':
-            key_puzzle()
+            if "End Room Key" in current_room.get_items():
+                if current_room.get_items()["End Room Key"].get_hidden():
+                    key_puzzle(character)
+                else:
+                    print "The puzzle has already been solved"
+            else:
+                print "The puzzle has already been solved"
         elif object_key == 'Door':
             print "You use the door"
         elif object_key == 'Weapons':

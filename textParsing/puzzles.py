@@ -6,7 +6,8 @@ import csv
 #A function that will require the user to guess and properly input the
 #missing words (wind, wood, fire, mountain), in order, to gain access
 #to the sword within the case
-def sword_case_puzzle():
+def sword_case_puzzle(character):
+    """Handles sword case puzzle"""
     print'''
     *****************************************************
     Move swift as the ___ and closely-formed as the ___.
@@ -24,13 +25,15 @@ def sword_case_puzzle():
                     if command_list[word+3] == 'mountain':
                         print "Your knowledge of The Art of War has proven True."
                         print "The sword case opens slowly...revealing a mighty sword."
+                        character.get_current_room().get_items()['Sword'].set_hidden(False)
                         #add something that interacts with the room feature (case)
         elif command_list[0] != 'wind':
             print "Hmm that doesn't seem to be right, perhaps Sun Tzu would know..."
 
 #This puzzle will have a prompt and a picture, if the player correctly guesses what
 #it is the case will open revealing the key
-def key_puzzle():
+def key_puzzle(character):
+    """Handles puzzle to unlock end room key"""
     print "Vanity of vanities, all is vanity."
     print '''
                                 ...----....
@@ -84,14 +87,14 @@ def key_puzzle():
                      "V::... . .I::IHHMMV"'
                        '"VHVHHHAHHHHMMV:"'
     '''
-    print "For ___ thou art, and unto ___ shalt thou return."
+    print " For ___ thou art, and unto ___ shalt thou return."
     user_command = raw_input('> ')
     if user_command == 'dust':
-        print "But you are not dust, you still draw breath, and thus, have a chance..."
-        print "The chest opens and reveals a key."
-        #something here to interact with the chest's feature and unlock's it
+        print " But you are not dust, you still draw breath, and thus, have a chance..."
+        print " The chest opens and reveals a key."
+        character.get_current_room().get_items()['End Room Key'].set_hidden(False)
     else:
-        print "Your actions are futile...give up..."
+        print " Your actions are futile...give up..."
 
 #This puzzle
 def gear_room_puzzle(character):
