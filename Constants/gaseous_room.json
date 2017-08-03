@@ -8,10 +8,6 @@
     "locked": "true",
     "monsters": "None",
     "features":{
-        "Puzzle":{
-            "name":"Puzzle",
-            "description":"This puzzle must be solved in order to gain access to display case."
-        },
         "Puzzle Case":{
             "name":"Puzzle Case",
             "description":"This display case contains an item."

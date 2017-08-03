@@ -17,10 +17,5 @@
             "description":"This pile of skeletons appears to have a shiny object lying beneath it."
         }
     },
-    "items":{
-        "Shield":{
-            "name":"Shield",
-            "description":"Protects the character"
-        }
-    }
+    "items":{}
 }

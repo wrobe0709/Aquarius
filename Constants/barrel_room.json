@@ -23,5 +23,16 @@
             "description":"If smashed, hero gains item."
         }
     },
-    "items":{}
+    "items":{
+        "Helmet":{
+            "name":"Helmet",
+            "description":"Protects the character",
+            "hidden": "true"
+        },
+        "Shield":{
+            "name":"Shield",
+            "description":"Protects the character",
+            "hidden": "true"
+        }
+    }
 }
