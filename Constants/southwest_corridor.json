@@ -10,11 +10,11 @@
     "features":{
         "Leak":{
             "name":"Leak",
-            "description":"This is a pool of water on the floor."
+            "description":"This is a pool of liquid near the north wall"
         },
         "Odd Book":{
             "name":"Odd Book",
-            "description":"This is an oddly shaped book.  If the hero interacts with it, it may reveal a passageway."
+            "description":"This is an oddly shaped book. Maybe it has some hints."
         }
     },
     "items":{}
