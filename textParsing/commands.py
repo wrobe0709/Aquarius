@@ -171,7 +171,7 @@ def use_feature(character, object_key):
                 else:
                     print "The puzzle has already been solved"
             else:
-                print "The puzzle has already been solved"
+                print " The puzzle has already been solved"
         elif object_key == 'Door':
             if "End Room Key" in character.get_inventory():
                 print " You used the End Room Key to enter the room!"
@@ -218,12 +218,12 @@ def use_feature(character, object_key):
                 print " You can't reach the switch. Maybe you can move something in the room and stand on it..."
             else:
                 print " Use the switch!"
-        elif object_key == 'Diamonds':
-            print "You use diamonds"
         elif object_key == 'Wizard':
-            print "You use wizard"
-        elif object_key == 'Boss':
-            print "You use boss"
+            if not current_room.get_features()['Wizard'].get_interacted_with():
+                print " The magestic wizard has refurbished the dungeon into a beatiful palace!"
+                current_room.get_features()['Wizard'].set_interacted_with(True)
+            else:
+                print " The wizard did is job."
         elif object_key == 'Puzzle':
             gear_room_puzzle(character)
         elif object_key == 'Passageway':
