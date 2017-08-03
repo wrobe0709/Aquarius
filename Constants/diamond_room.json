@@ -16,11 +16,6 @@
             "name":"Switch",
             "description":"This is a switch on the wall, which may reveal a passageway."
         }
-        ,
-        "Diamonds":{
-            "name":"Diamonds",
-            "description":"If hero has lit all lanterns up until this point, then these diamonds have now begun to illuminate the room with light."
-        }
     },
     "items":{
         "Rune":{

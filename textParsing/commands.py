@@ -188,15 +188,36 @@ def use_feature(character, object_key):
             else:
                 print " You don't have the key to use with this door..."
         elif object_key == 'Barrel 1':
-            print "You use barrel 1"
+            if 'Helmet' in character.get_game_map()['Barrel Room'].get_items():
+                if character.get_game_map()['Barrel Room'].get_items()['Helmet'].get_hidden():
+                    print " You smash Barrel 1 and see a shiny new helmet inside."
+                    character.get_game_map()['Barrel Room'].get_items()['Helmet'].set_hidden(False)
+                else:
+                    print " You've already smashed Barrel 1. Did you take the helmet from inside?"
+            else:
+                print " You've already smashed Barrel 1. Did you take the helmet from inside?"
         elif object_key == 'Barrel 2':
-            print "You use barrel 2"
+            if 'Shield' in character.get_game_map()['Barrel Room'].get_items():
+                if character.get_game_map()['Barrel Room'].get_items()['Shield'].get_hidden():
+                    print " You smash Barrel 2 and see a shiny new shield inside."
+                    character.get_game_map()['Barrel Room'].get_items()['Shield'].set_hidden(False)
+                else:
+                    print " You've already smashed Barrel 2. Did you take the shield from inside?"
+            else:
+                print " You've already smashed Barrel 2. Did you take the shield from inside?"
         elif object_key == 'Quiver':
             print " It's an old quiver left by a past warrior to hold arrows. Arrows would be helpful to a bow..."
         elif object_key == 'Chair':
-            print "You use chair"
+            if not current_room.get_features()['Chair'].get_interacted_with():
+                print " You move the chair near the wall in order to stand on it."
+                current_room.get_features()['Chair'].set_interacted_with(True)
+            else:
+                print   " You already moved the chair. It's up against the wall maybe there's a switch you can reach now..."
         elif object_key == 'Switch':
-            print "You use switch"
+            if not current_room.get_features()['Chair'].get_interacted_with():
+                print " You can't reach the switch. Maybe you can move something in the room and stand on it..."
+            else:
+                print " Use the switch!"
         elif object_key == 'Diamonds':
             print "You use diamonds"
         elif object_key == 'Wizard':

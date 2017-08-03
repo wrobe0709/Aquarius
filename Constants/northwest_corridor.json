@@ -17,10 +17,5 @@
             "description":"This skeleton has something on it's head, looks like a helmet."
         }
     },
-    "items":{
-        "Helmet":{
-            "name":"Helmet",
-            "description":"Protects the character"
-        }
-    }
+    "items":{}
 }
