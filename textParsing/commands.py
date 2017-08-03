@@ -115,7 +115,7 @@ def change_room(character, game_map, direction):
         # Check for unlocked route
         if potential_room.get_locked_status() == 'false':
             character.set_current_room(game_map[usr_choice])
-            battle(game_map[usr_choice])
+            battle(game_map[usr_choice], character)
         elif potential_room.get_locked_status() == 'true':
             if potential_room.get_name() == "End Room":
                 if 'End Room Key' in character.get_inventory():
