@@ -8,9 +8,9 @@
     "locked": "true",
     "monsters": "None",
     "features":{
-        "Lantern":{
-            "name":"Lantern",
-            "description":"This can be lit with hero's torch."
+        "Map":{
+            "name":"Map",
+            "description":"An old map is hanging on the wall."
         },
         "Quiver":{
             "name":"Quiver",

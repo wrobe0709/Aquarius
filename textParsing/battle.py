@@ -16,7 +16,7 @@ def battle(room, character):
     #monster_lvl = getattr(room.get_monsters()[current_room_monster].get_lvl())
     if current_room_monster:
         if 'Armored Skeleton' in current_room_monster:
-            print "The Armored Skeleton attacks!"
+            print " The Armored Skeleton attacks!"
             if 'Sword' and 'Bow' in character.get_inventory():
                 print "You pull out your bow and quickly fire off an arrow at the Armored Skeleton, loosening its armor."
                 print "As it draws near you switch to your sword and cut it down where your arrows loosened the armor."
@@ -32,9 +32,9 @@ def battle(room, character):
                 print "You charge at the Animated Armor and strike it. You immediately realize the mistake you've made"
                 print "by coming unprepared. The Armor reaches down and grabs you with its metal gauntlets, crushing your unprotected skull."
         elif 'Skeleton' in current_room_monster:
-            print "The Skeleton attacks!"
+            print " The Skeleton attacks!"
             if 'Sword' in character.get_inventory():
-                print "As the Skeleton lunges you deftly pull out your sword and decimate its feable undeath."
+                print " As the Skeleton lunges you deftly pull out your sword and decimate its feable undeath."
             else:
                 print "The Skeleton lunges at you and catches you entirely off guard. It sinks its dagger into you"
                 print "while its bones chatter away and its empty sockets look at you, you descend into oblivion."

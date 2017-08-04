@@ -229,23 +229,39 @@ def use_feature(character, object_key):
         elif object_key == 'Puzzle':
             gear_room_puzzle(character)
         elif object_key == 'Passageway':
-            print "You use passageway"
+            if character.get_game_map()['Bow Room'].get_locked_status() != "false":
+                print " The passageway is locked. Maybe solving the puzzle will let you pass..."
+            else:
+                change_room(character, character.get_game_map(), 'south')
         elif object_key == 'Skeleton Pile':
-            print "You use skeleton pile"
+            print " Examining the skeleton pile further you notice none of the skeletons were wearing a helmet..."
         elif object_key == 'Skeleton':
-            print "You use skeleton"
+            print " A closer look at the skeleton and you notice his helmet but he is missing a shield..."
         elif object_key == 'Black Tome':
-            print "You use black tome"
+            print " You read through the black tome and see hints from previous warriors. They all say to use your bow with a blue torch..."
         elif object_key == 'Red Tome':
-            print "You use red tome"
+            print " Reading the red tome leaves you with one thought. Find the key or die..."
         elif object_key == 'Monster':
             print "You use monster"
         elif object_key == 'Ceiling Skylight':
-            print "You use ceiling skylight"
+            print " You gaze through the ceiling skylight and see a turret to the east. There must be another room to the east..."
         elif object_key == 'Leak':
-            print "You use leak"
+            print " Looking at the leak closer you realize the liquid is blood. It's coming from a door on the north wall."
+            print " Might not be safe to go that way without the proper equipmnt..."
         elif object_key == 'Odd Book':
-            print "You use odd book"
+            print " You open the book and don't see much. The only thing worthwhile you find is a hint."
+            print " It reads: to the north do not go, unless sword and bow are in tow..."
+        elif object_key == 'Map':
+            print " The map has rotted away a bit but you can make out the basics."
+            print " To get to the final room you'll need to be south of your current location..."
+        elif object_key == 'Scroll':
+            print " The scroll cointains a strange message:"
+            print " To slay the beast you'll need the the weapon from the room farthest to the east..."
+        elif object_key == 'Broken Armor':
+            print " There are only broken pieces of the armor left. It looks like it was used in a batlle recently..."
+        elif object_key == 'Broken Sword':
+            print " By examining the sword it is clear the warrior had given their best effort to win its battle."
+            print " Perhaps the warrior did not have anything to shield itself from its attackers blows..."
     elif object_key in character.get_inventory():
         print "use the", object_key
     else:

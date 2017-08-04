@@ -12,10 +12,6 @@
             "name":"Staircase",
             "description":"This staircase leads downstairs to the Great Hall."
         },
-        "Switch":{
-            "name":"Switch",
-            "description":"This switch on the wall may reveal a hidden section of the room."
-        },
         "Ceiling Skylight":{
             "name":"Ceiling Skylight",
             "description":"This ceiling skylight gradually becomes darker as the hero progresses."
