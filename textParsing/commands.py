@@ -251,6 +251,17 @@ def use_feature(character, object_key):
         elif object_key == 'Odd Book':
             print " You open the book and don't see much. The only thing worthwhile you find is a hint."
             print " It reads: to the north do not go, unless sword and bow are in tow..."
+        elif object_key == 'Map':
+            print " The map has rotted away a bit but you can make out the basics."
+            print " To get to the final room you'll need to be south of your current location..."
+        elif object_key == 'Scroll':
+            print " The scroll cointains a strange message:"
+            print " To slay the beast you'll need the the weapon from the room farthest to the east..."
+        elif object_key == 'Broken Armor':
+            print " There are only broken pieces of the armor left. It looks like it was used in a batlle recently..."
+        elif object_key == 'Broken Sword':
+            print " By examining the sword it is clear the warrior had given their best effort to win its battle."
+            print " Perhaps the warrior did not have anything to shield itself from its attackers blows..."
     elif object_key in character.get_inventory():
         print "use the", object_key
     else:

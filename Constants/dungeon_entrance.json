@@ -8,9 +8,9 @@
     "locked": "false",
     "monsters": "None",
     "features":{
-        "Lantern":{
-            "name":"Lantern",
-            "description":"This can be lit with player's torch."
+        "Scroll":{
+            "name":"Scroll",
+            "description":"An old scroll is laying on the ground."
         },
         "Closet":{
             "name":"Closet",

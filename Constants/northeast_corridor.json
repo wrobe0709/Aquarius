@@ -8,9 +8,9 @@
     "locked": "false",
     "monsters": "None",
     "features":{
-        "Lantern":{
-            "name":"Lantern",
-            "description":"This can be lit with hero's torch."
+        "Broken Sword":{
+            "name":"Broken Sword",
+            "description":"A warrior's broken sword lies on the ground."
         },
         "Skeleton Pile":{
             "name":"Skeleton Pile",
