@@ -120,6 +120,7 @@ def change_room(character, game_map, direction):
             if potential_room.get_name() == "End Room":
                 if 'End Room Key' in character.get_inventory():
                     character.set_current_room(game_map[usr_choice])
+                    battle(game_map[usr_choice], character)
                 else:
                     print " That way seems to be locked at the moment...perhaps there is a way to open it..."
             else:
