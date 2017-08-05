@@ -18,6 +18,7 @@ def display_help():
             load or loadgame - will load a previous game session
             look - shows the description of the room along with items that
             are currently visible/available in the room
+            look at <feature/object> - shows description of feature/item
             go (noth, south, east, west) - will move the player to a
             room in that direction if possible
             examine - the player will be offered the chance to examine an
