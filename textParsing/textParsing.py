@@ -192,7 +192,8 @@ def handle_commands(command_list, character, game_map):
                     print "That does not appear to be a feature or in your inventory"
                     break
         elif command_list[word] == 'quit':
-            return 'quit'
+            #return 'quit'
+            exit()
         else:
             room_key = ''
             for room_word in command_list:
