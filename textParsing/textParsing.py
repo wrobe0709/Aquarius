@@ -88,8 +88,21 @@ def handle_commands(command_list, character, game_map):
             change_room(character, game_map, 'west')
             break
         #handle item manipulation
-        #elif command_list[word] == 'examine':
-            #look_at_item(character)
+        elif command_list[word] == 'examine':
+            if len(command_list) == 1:
+                print 'You must specify an item to examine'
+                break
+            else:
+                item_key = ''
+                for item_word in command_list[1:]:
+                    item_key += item_word + ' '
+                item_key = item_key[:-1].title()
+                if item_key in character.get_current_room().get_items() and not character.get_current_room().get_items()[item_key].get_hidden():
+                    look_at_item(character, item_key)
+                    break
+                else:
+                    print " You can't examine that"
+                    break
         elif command_list[word] == 'pickup':
             if len(command_list) == 1:
                 print 'You must specify an item to take with you'
