@@ -239,9 +239,9 @@ def use_feature(character, object_key):
         elif object_key == 'Skeleton':
             print " A closer look at the skeleton and you notice his helmet but he is missing a shield..."
         elif object_key == 'Black Tome':
-            print " You read through the black tome and see hints from previous warriors. They all say to use your bow with a blue torch..."
+            print "Flipping through the pages of the Black Tome there are many drawings that look like they're for a summoning ritual of some sort."
         elif object_key == 'Red Tome':
-            print " Reading the red tome leaves you with one thought. Find the key or die..."
+            print "This Tome seems to have ancient writings and drawings that involve human sacrifice, you quickly close it."
         elif object_key == 'Monster':
             print "You use monster"
         elif object_key == 'Ceiling Skylight':
@@ -267,6 +267,31 @@ def use_feature(character, object_key):
         print "use the", object_key
     else:
         print "That feature does not appear to be in this room or is not in inventory"
+
+def read_something(character, object_key):
+    """Attempts to read a feature or inventory item"""
+    current_room = character.get_current_room()
+    if object_key in current_room.get_features():
+        if object_key == 'Red Tome':
+            print "This Tome seems to have ancient writings and drawings that involve human sacrifice, you quickly close it."
+        elif object_key == 'Black Tome':
+            print "Flipping through the pages of the Black Tome there are many drawings that look like they're for a summoning ritual of some sort."
+        elif object_key == 'Map':
+            print "You examine the map closely, it's of the surrounding woods and the castle. The castle seems quite large."
+        elif object_key == 'Scroll':
+            print " The scroll cointains a strange message:"
+            print " To slay the beast you'll need the the weapon from the room farthest to the east..."
+        elif object_key == 'Odd Book':
+            print " You open the book and don't see much. The only thing worthwhile you find is a hint."
+            print " It reads: to the north do not go, unless sword and bow are in tow..."
+        else:
+            print "You can't really read that, perhaps using it would prove more fruitful."
+    elif object_key in character.get_inventory():
+        print "You can't really read that, perhaps using it would prove more fruitful."
+    else:
+        print "That feature does not appear to be in this room or is not in inventory"
+
+
 
 def save_game(character, game_map):
     """Save a game to JSON"""
