@@ -1,6 +1,6 @@
 {
-    "long_description": "You've uncovered the Alcove.  It is dark but there are carvings on the wall of various shapes, such as skulls, bones, shields and flames.  Along the recess there is a display case that contains something.  On the right corner there is an unlit lantern.",
-    "short_description": "Recess in the wall with a lantern and a display case with something inside.",
+    "long_description": "You've uncovered the Alcove.  It is dark but there are carvings on the wall of various shapes, such as skulls, bones, shields and flames.  Along the recess there is a display case that contains something.  On the right corner there is an unlit lantern.\n\nThere is an opening on the west end of the Alcove you can go through.",
+    "short_description": "Recess in the wall with a lantern and a display case with something inside.\nThere is an opening(exit) on west end.",
     "north":"None",
     "south":"None",
     "east":"None",

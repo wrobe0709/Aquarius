@@ -1,6 +1,6 @@
 {
-    "long_description": "This chamber served as an armory and also an area to store weapons.  There are shields, swords, armor, weapons along the wall.  But wait!  You are being ATTACKED by a suit of armor!",
-    "short_description": "Room with suit of armor that has come to life, along with doorway that leads to End Room.",
+    "long_description": "This chamber served as an armory and also an area to store weapons.  There are shields, swords, armor, weapons along the wall.  But wait!  You are being ATTACKED by a suit of armor!\n\nThere is a large door on the south end of the room.  There is a door on the west side of the room.",
+    "short_description": "Room with suit of armor that has come to life, along with doorway that leads to End Room.\nThere is a doorway(exit) on south end.  There is a door(exit) on west side.",
     "north":"None",
     "south":"End Room",
     "east":"None",
