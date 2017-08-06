@@ -5,7 +5,7 @@ import Character.Character as Character
 import Feature.Feature as Feature
 import Item.Item as Item
 import Monster.Monster as Monster
-
+from companionText import *
 
 #This function first checks to make sure the room has a monster, then it will
 #make sure the monster is not already defeated. Lastly it will compare the items
@@ -47,6 +47,7 @@ def battle(room, character):
                 a devastating blow against the Lich. As your sword penatrates its etheral form it screams in agony!
                 A burst of light fills the room and the darkness of the Lich condenses into an orb and vanishes.
                 You slowly raise yourself off the ground and stand -- VICTORIUS.'''
+                game_conclusion()
             else:
                 '''You've gotten so far, but your ambition has gotten the best of you. The Lich summons a ball of magic
                 from its staff, points it at you, and then a stream of dark malignant energy races towards you. It
