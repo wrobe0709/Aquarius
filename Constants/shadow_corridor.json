@@ -1,6 +1,6 @@
 {
-    "long_description": "Upon entering there are a dozen statues standing and kneeling in this room, each creating several shadows across the room as faint light filters in from all corners of the ceiling.  In between the 2 statues in the center are a black tome and a red tome, stood up on it's own on the floor. ",
-    "short_description": "Room covered in shadows and statues, containing a black and red tome.",
+    "long_description": "Upon entering there are a dozen statues standing and kneeling in this room, each creating several shadows across the room as faint light filters in from all corners of the ceiling.  In between the 2 statues in the center are a black tome and a red tome, stood up on it's own on the floor.\n\nThere is a door on the east end of the corridor.  There is a door on the west end of the corridor.  There is a passageway on the south end of the corridor.",
+    "short_description": "Room covered in shadows and statues, containing a black and red tome.\nThere is a door(exit) on the west, a door(exit) on the east end, and a passageway(exit) on the south end of the corridor.",
     "north":"None",
     "south":"Gear Room",
     "east":"Northeast Corridor",
@@ -10,11 +10,11 @@
     "features":{
         "Black Tome":{
             "name":"Black Tome",
-            "description":"This black tome changes something for the hero."
+            "description":"A book of summoning rituals."
         },
         "Red Tome":{
             "name":"Red Tome",
-            "description":"This red tome presents something to the hero."
+            "description":"A book of sacrifice rituals."
         }
     },
     "items":{}

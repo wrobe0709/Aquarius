@@ -1,6 +1,6 @@
  {
-    "long_description": "You are now in a narrow pillared hall.  It is dim and decrepit.  There is a crack in the ceiling towards the far west end, allowing water to trickle down to a pool on the floor.  At the end of the hall is an overfilled bookshelf containing one oddly shaped book.",
-    "short_description": "Pillared hall with a pool of water on the floor & oddly shaped book on a bookshelf.",
+    "long_description": "You are now in a narrow pillared hall.  It is dim and decrepit.  There is a crack in the ceiling towards the far west end, allowing water to trickle down to a pool on the floor.  At the end of the hall is an overfilled bookshelf containing one oddly shaped book.\n\nThere is a door on the east end of the corridor.  There is a doorway on the north end of the corridor.",
+    "short_description": "Pillared hall with a pool of water on the floor & oddly shaped book on a bookshelf.\nThere is a door(exit) on the east end and doorway(exit) on the north end of the corridor.",
     "north":"Barrel Room",
     "south":"None",
     "east":"Dungeon Entrance",

@@ -1,6 +1,6 @@
 {
-    "long_description": "At first glance there is a short hall in which there is an observable skylight above the ceiling; the moon is visible.  The closer you walk towards the end of the hall to the far east end it gradually seems to get darker.  At the end of the short hall when you turn the corner to a longer hall, the walls are covered in mold spotted draperies.  In between two sections of drapes on the right wall, there is a switch.  At the end of this longer hall looks like there is a staircase that leads down to a lower level.",
-    "short_description": "L-shaped hallway with ceiling skylight in first portion.  In the second portion there is a switch on the wall and a staircase leading downstairs.",
+    "long_description": "At first glance there is a short hall in which there is an observable skylight above the ceiling; the moon is visible.  The closer you walk towards the end of the hall to the far east end it gradually seems to get darker.  At the end of the short hall when you turn the corner to a longer hall, the walls are covered in mold spotted draperies.  In between two sections of drapes on the right wall, there is a switch.  At the end of this longer hall looks like there is a staircase that leads down to a lower level.\n\nThere is a door on the west most end of the corridor.  There is an area on the east end of the corridor that can be visited.",
+    "short_description": "L-shaped hallway with ceiling skylight in first portion.  In the second portion there is a switch on the wall and a staircase leading downstairs.\nThere is a door(exit) on the west end, an area(exit) that can be visited to the east, and a staircase(exit) on the north end of the corridor.",
     "north":"Great Hall",
     "south":"None",
     "east":"Alcove",

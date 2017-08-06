@@ -78,6 +78,22 @@ def handle_commands(command_list, character, game_map):
         elif command_list[word] == 'west' and command_list[word-1] != 'go':
             change_room(character, game_map, 'west')
             break
+        #handle item manipulation
+        elif command_list[word] == 'examine':
+            if len(command_list) == 1:
+                print 'You must specify an item to examine'
+                break
+            else:
+                item_key = ''
+                for item_word in command_list[1:]:
+                    item_key += item_word + ' '
+                item_key = item_key[:-1].title()
+                if item_key in character.get_current_room().get_items() and not character.get_current_room().get_items()[item_key].get_hidden():
+                    look_at_item(character, item_key)
+                    break
+                else:
+                    print " You can't examine that"
+                    break
         elif command_list[word] == 'pickup':
             if len(command_list) == 1:
                 print 'You must specify an item to take with you'
@@ -167,7 +183,28 @@ def handle_commands(command_list, character, game_map):
                     print "That does not appear to be a feature or in your inventory"
                     break
         elif command_list[word] == 'quit':
-            return 'quit'
+            #return 'quit'
+            exit()
+        elif command_list[word] == 'read':
+            if len(command_list) == 1:
+                print "Please specify a feature or item to read."
+                break
+            else:
+                object_key = ''
+                for item_word in command_list[1:]:
+                    object_key += item_word + ' '
+                object_key = object_key[:-1].title()
+                # check if is an item
+                if object_key in character.get_inventory():
+                    read_something(character, object_key)
+                    break
+                # check it is a feature
+                elif object_key in character.get_current_room().get_features():
+                    read_something(character, object_key)
+                    break
+                else:
+                    print "That does not appear to be a feature in this room or an itme in your inventory"
+                    break
         else:
             room_key = ''
             for room_word in command_list:
