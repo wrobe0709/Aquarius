@@ -1,6 +1,6 @@
  {
-    "long_description": "This dark, narrow, L-Shaped corridor is covered in dust and cobwebs on the ceilings and floor.  There are several piles of skeletons along the walls.  There seems to be a shiny object underneath the pile on the east most end, but will require some digging.",
-    "short_description": "Corridor with piles of skeletons, containing a shiny object beneath them.  There is also a lantern in the middle of the hall.",
+    "long_description": "This dark, narrow, L-Shaped corridor is covered in dust and cobwebs on the ceilings and floor.  There are several piles of skeletons along the walls.  There seems to be a shiny object underneath the pile on the east most end, but will require some digging.\n\nThere is a door on the west end of the corridor.  There is a doorway on the east end of the corridor.",
+    "short_description": "Corridor with piles of skeletons, containing a shiny object beneath them.  There is also a lantern in the middle of the hall.\nThere is a door(exit) on west and doorway(exit) on east end of the corridor.",
     "north":"None",
     "south":"Torch Corridor",
     "east":"None",

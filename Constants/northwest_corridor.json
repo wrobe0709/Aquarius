@@ -1,6 +1,6 @@
 {
-    "long_description": "This dark, narrow, L-Shaped corridor is covered in several metal plates along the walls.  There are a few niches in the wall which each contain a clay urn placed on the floor.  There is a horrendous overwhelming stench.  In the far northwest corner, there lies a single skeleton dressed in aged clothing and rusted armor.  On his head is a rusted, yet sturdy helmet.",
-    "short_description": "This is the hallway containing a lantern and clothed skeleton that has something on it's head.",
+    "long_description": "This dark, narrow, L-Shaped corridor is covered in several metal plates along the walls.  There are a few niches in the wall which each contain a clay urn placed on the floor.  There is a horrendous overwhelming stench.  In the far northwest corner, there lies a single skeleton dressed in aged clothing and rusted armor.  On his head is a rusted, yet sturdy helmet.\n\nThere is a door on the east end of the corridor.  There is a door on the south end of the corridor.",
+    "short_description": "This is the hallway containing a lantern and clothed skeleton that has something on it's head.\nThere is a door(exit) on the east and door(exit) on the south end of the corridor.",
     "north":"None",
     "south":"Diamond Room",
     "east":"Shadow Corridor",

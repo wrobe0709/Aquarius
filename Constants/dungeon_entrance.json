@@ -1,6 +1,6 @@
 {
-    "long_description": "The door creaks open and a chill wind blows as you enter this first room. There is an absence of light with the exception of a few small cracks in the ceiling in the corner of the room, covered by cobwebs. It appears to be shining on an unlit lantern in the middle of the room shrouded in dust. This room is clearly a prison with small barred cells lining the walls. Along the northeast wall, framed by a cluster of grinning skeletons, lies what appears to be a closet.",
-    "short_description": "There are prison cells lining the walls, a lantern in the center and a closet on the northeast wall.",
+    "long_description": "The door creaks open and a chill wind blows as you enter this first room. There is an absence of light with the exception of a few small cracks in the ceiling in the corner of the room, covered by cobwebs. It appears to be shining on an unlit lantern in the middle of the room shrouded in dust. This room is clearly a prison with small barred cells lining the walls. Along the northeast wall, framed by a cluster of grinning skeletons, lies what appears to be a closet.\n\nThere is a doorway on the west end.  There is a large door on the east end.",
+    "short_description": "There are prison cells lining the walls, a lantern in the center and a closet on the northeast wall.\nThere is a doorway(exit) on west end & door(exit) on east end.",
     "north":"None",
     "south":"None",
     "east":"Southeast Corridor",
