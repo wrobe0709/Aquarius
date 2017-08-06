@@ -1,29 +1,21 @@
-#This file will be used to handle parsing command line
-#user input. It will then call on appropriate functions
-#from other commands and pass through information as needed
+"""Handles user commands"""
 from commands import *
 
-#Used for testing user input, update once
-#integrated with the player object
 def user_input():
     """Handles user input"""
     user_command = raw_input('> ')
     command_list = user_command.split(" ")
     return command_list
 
-#This function will take the command_list produced by user_input, it will
-#then
 def handle_commands(command_list, character, game_map):
     """Handles commands"""
-    #Iterate through the commands and look for keywords to execute commands
-    #based on the keywords from the command_list
+    
+    # Itereate over user input and handle command
     for word in range(len(command_list)):
-        #first handle file saving & loading
         if command_list[word] == 'savegame':
             print "Saving game."
             save_game(character, game_map)
             break
-        #next handle observing the room
         elif command_list[word] == 'look':
             if len(command_list) == 1:
                 examine_room(character)
@@ -32,11 +24,11 @@ def handle_commands(command_list, character, game_map):
                 for item_word in command_list[2:]:
                     object_key += item_word + ' '
                 object_key = object_key[:-1].title()
-                # check if is an item
+                # Check if is an item
                 if object_key in character.get_current_room().get_items():
                     look_at_item(character, object_key)
                     break
-                # check it is a feature
+                # Check it is a feature
                 elif object_key in character.get_current_room().get_features():
                     look_at_feature(character, object_key)
                     break
@@ -46,7 +38,6 @@ def handle_commands(command_list, character, game_map):
             else:
                 print "You can either 'look' or 'look at <feature or object>'"
                 break
-        #handle location movement commands
         elif command_list[word] == 'go':
             if len(command_list) == 1:
                 print " You must specify a specific direction."
@@ -87,9 +78,6 @@ def handle_commands(command_list, character, game_map):
         elif command_list[word] == 'west' and command_list[word-1] != 'go':
             change_room(character, game_map, 'west')
             break
-        #handle item manipulation
-        #elif command_list[word] == 'examine':
-            #look_at_item(character)
         elif command_list[word] == 'pickup':
             if len(command_list) == 1:
                 print 'You must specify an item to take with you'
@@ -167,11 +155,11 @@ def handle_commands(command_list, character, game_map):
                 for item_word in command_list[1:]:
                     object_key += item_word + ' '
                 object_key = object_key[:-1].title()
-                # check if is an item
+                # check if is an Item
                 if object_key in character.get_inventory():
                     use_feature(character, object_key)
                     break
-                # check it is a feature
+                # check it is a Feature
                 elif object_key in character.get_current_room().get_features():
                     use_feature(character, object_key)
                     break

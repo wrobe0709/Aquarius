@@ -1,11 +1,5 @@
-#This file will contain the various puzzles found in the game world that
-#the user will be able to interact with
-import sys
-import csv
+"""Handles puzzles withing Aquarius"""
 
-#A function that will require the user to guess and properly input the
-#missing words (wind, wood, fire, mountain), in order, to gain access
-#to the sword within the case
 def sword_case_puzzle(character):
     """Handles sword case puzzle"""
     print'''
@@ -14,10 +8,9 @@ def sword_case_puzzle(character):
     Attack like ___ and be still as the ___.
     ****************************************************
     '''
+    # Get input and make sure it is in order
     user_command = raw_input('> ')
     command_list = user_command.split(" ")
-    #iterate through and make sure the user selected the
-    #proper words and in order
     for word in range(len(command_list)):
         if command_list[word] == 'wind':
             if command_list[word+1] == 'wood':
@@ -26,12 +19,9 @@ def sword_case_puzzle(character):
                         print "Your knowledge of The Art of War has proven True."
                         print "The sword case opens slowly...revealing a mighty sword."
                         character.get_current_room().get_items()['Sword'].set_hidden(False)
-                        #add something that interacts with the room feature (case)
         elif command_list[0] != 'wind':
             print "Hmm that doesn't seem to be right, perhaps Sun Tzu would know..."
 
-#This puzzle will have a prompt and a picture, if the player correctly guesses what
-#it is the case will open revealing the key
 def key_puzzle(character):
     """Handles puzzle to unlock end room key"""
     print "Vanity of vanities, all is vanity."
@@ -88,6 +78,7 @@ def key_puzzle(character):
                        '"VHVHHHAHHHHMMV:"'
     '''
     print " For ___ thou art, and unto ___ shalt thou return."
+    # Check for correct puzzle solution
     user_command = raw_input('> ')
     if user_command == 'dust':
         print " But you are not dust, you still draw breath, and thus, have a chance..."
@@ -96,7 +87,6 @@ def key_puzzle(character):
     else:
         print " Your actions are futile...give up..."
 
-#This puzzle
 def gear_room_puzzle(character):
     """Handles gear room puzzle"""
     print'''
@@ -113,6 +103,7 @@ _|  (_)  |_   (_)   _|
     \/ |_| \/    |_|
     Should you interact with it?
     '''
+    # Check if user wants to take on puzzle
     user_command = raw_input('  (yes or no) > ')
     if user_command == 'yes':
         print '''
@@ -142,6 +133,7 @@ _|  (_)  |_   (_)   _|
         Use keywords up, down, left, or right. Do not include commas.
         Keep it lower case, it must be exactly correct.
         '''
+        # Take and check user input
         user_command = raw_input('> ')
         if user_command == 'up left down right down left up right up left up right down right down left up left down right up right down left':
             print "The gears in the room move and reveal the bow room!"
@@ -153,21 +145,14 @@ _|  (_)  |_   (_)   _|
 
 def gaseous_room_entry(character):
     """Handles entering the gaseous room"""
+    # Enter gaseous room and unlock it if user has bow
     if 'Bow' in character.get_inventory():
         print """        You take out your bow and draw an arrow. You approach the lit blue torch and
         light your arrow. Drawing the string back you face the entrance to the gaseous room
         and loose your arrow! It's blue flame flys into the gaseous room and a brilliant flash
         of light englufs the room and corridor! As your eyes adjust you notice that the gas is gone
         and it's safe to enter in."""
-        #need a way to make it so that the gaseous room is able to be entered.
         character.get_game_map()['Gaseous Room'].set_locked("false")
     else:
         print """   This flame's proximity to the gaseous room would probably be useful if there was a way to light it and shoot it in there..."""
 
-
-
-
-#testing purposes
-#sword_case_puzzle()
-#key_puzzle()
-#gearRoomPuzzle()

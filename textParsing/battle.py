@@ -1,23 +1,13 @@
 """This file will handle the battle related functions"""
-import json
-import Room.Room as Room
-import Character.Character as Character
-import Feature.Feature as Feature
-import Item.Item as Item
-import Monster.Monster as Monster
+import helpers
 
-
-#This function first checks to make sure the room has a monster, then it will
-#make sure the monster is not already defeated. Lastly it will compare the items
-#in the players inventory to see if they have the requisite ones to defeat the monster
-#and will either slay the monster or the player will be defeated
+# Handles battles with monsters
 def battle(room, character):
     """Handle battles"""
+    # Check if the room has a monster and only attack if the monster has not been defeated
     current_room_monster = room.get_monsters()
-    #monster_lvl = getattr(room.get_monsters()[current_room_monster].get_lvl())
     if current_room_monster:
         if 'Armored Skeleton' in current_room_monster:
-            # Only attack if it has not been defeated
             if not current_room_monster['Armored Skeleton'].get_defeated_status():
                 print " The Armored Skeleton attacks!"
                 if 'Sword' and 'Bow' in character.get_inventory():
@@ -27,6 +17,9 @@ def battle(room, character):
                 else:
                     print "You flail helplessly against the might of the Armored Skeleton. As it closes in on you its"
                     print "large broadsword is swung down and cleaves you in two."
+                    print "\n"
+                    print "\n"
+                    helpers.play_game()
         elif 'Animated Armor' in current_room_monster:
             if not current_room_monster['Animated Armor'].get_defeated_status():
                 print "The Animated Armor attacks!"
@@ -37,8 +30,10 @@ def battle(room, character):
                 else:
                     print "You charge at the Animated Armor and strike it. You immediately realize the mistake you've made"
                     print "by coming unprepared. The Armor reaches down and grabs you with its metal gauntlets, crushing your unprotected skull."
+                    print "\n"
+                    print "\n"
+                    helpers.play_game()
         elif 'Skeleton' in current_room_monster:
-            # Only attack if it has not been defeated
             if not current_room_monster['Skeleton'].get_defeated_status():
                 print " The Skeleton attacks!"
                 if 'Sword' in character.get_inventory():
@@ -47,6 +42,9 @@ def battle(room, character):
                 else:
                     print "The Skeleton lunges at you and catches you entirely off guard. It sinks its dagger into you"
                     print "while its bones chatter away and its empty sockets look at you, you descend into oblivion."
+                    print "\n"
+                    print "\n"
+                    helpers.play_game()
         elif 'Lich' in current_room_monster:
             if not current_room_monster['Lich'].get_defeated_status():
                 print "The Lich attacks!"
@@ -66,3 +64,6 @@ def battle(room, character):
                     hate. As your senses begin to fail you just barely see the Lich's skeletal mouth moving, an incantation?
                     You crumple to the ground, your final breath leaves your body and you die...And then you rise up off the
                     ground, as you rise your flesh and innards dissapte into dust as the Lich's newest champion bows to its master!'''
+                    print "\n"
+                    print "\n"
+                    helpers.play_game()

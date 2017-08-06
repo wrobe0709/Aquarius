@@ -1,9 +1,3 @@
-import json
-import Room.Room as Room
-import Character.Character as Character
-import Feature.Feature as Feature
-import Item.Item as Item
-import Monster.Monster as Monster
 from puzzles import *
 from battle import *
 
