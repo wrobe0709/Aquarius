@@ -216,7 +216,8 @@ def use_feature(character, object_key):
             if not current_room.get_features()['Chair'].get_interacted_with():
                 print " You can't reach the switch. Maybe you can move something in the room and stand on it..."
             else:
-                print " Use the switch!"
+                print " Flipping the switch unlocks a door on the south wall."
+                character.get_game_map()['Barrel Room'].set_locked("false")
         elif object_key == 'Wizard':
             if not current_room.get_features()['Wizard'].get_interacted_with():
                 print " The magestic wizard has refurbished the dungeon into a beatiful palace!"

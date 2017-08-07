@@ -5,7 +5,7 @@
     "south":"Southwest Corridor",
     "east":"Armory",
     "west":"None",
-    "locked": "false",
+    "locked": "true",
     "monsters": {
         "Armored Skeleton":{
           "name": "Armored Skeleton",
