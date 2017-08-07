@@ -38,9 +38,10 @@ def game_menu():
     print """
     ***************************************************************************
                     Welcome to The Aquarius Adventure Game!
-                    Enter 1 to start a new game,
-                    2 to load a previously saved game,
-                    Or 3 to see the walkthrough.
+                    To start enter one of the following:
+                    newgame - starts a new game
+                    loadgame - loads the latest saved game
+                    walkthrough - displays Aquarius walkthrough
     ***************************************************************************
     """
     game_start = raw_input('> ')
