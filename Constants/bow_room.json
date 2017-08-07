@@ -1,6 +1,6 @@
 {
-    "long_description": "The walls are lined with bows on a rack.  Most are broken and worn down as they have not been used in a long time, except for one.  Unlike the other bows, this one gleams in the light, untarnished.  There is also an unlit lantern at the southern end of the room.\n\nThere is a door sandwiched by bow adorned walls, on the north end of the room.",
-    "short_description": "A room full of old bows, and one unique untarnished bow.\nThere is a door(exit) on north end.",
+    "long_description": "The walls are lined with bows on a rack.  Most are broken and worn down as they have not been used in a long time, except for one.  Unlike the other bows, this one gleams in the light, untarnished.  There is also an unlit lantern at the southern end of the room.\n\nThere is a door sandwiched by bow adorned walls, on the north end of the room which leads to the Gear Room.",
+    "short_description": "A room full of old bows, and one unique untarnished bow.\nThere is a door(exit) on north end leading to the Gear Room.",
     "north":"Gear Room",
     "south":"None",
     "east":"None",

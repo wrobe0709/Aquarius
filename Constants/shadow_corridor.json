@@ -1,6 +1,6 @@
 {
-    "long_description": "Upon entering there are a dozen statues standing and kneeling in this room, each creating several shadows across the room as faint light filters in from all corners of the ceiling.  In between the 2 statues in the center are a black tome and a red tome, stood up on it's own on the floor.\n\nThere is a door on the east end of the corridor.  There is a door on the west end of the corridor.  There is a passageway on the south end of the corridor.",
-    "short_description": "Room covered in shadows and statues, containing a black and red tome.\nThere is a door(exit) on the west, a door(exit) on the east end, and a passageway(exit) on the south end of the corridor.",
+    "long_description": "Upon entering there are a dozen statues standing and kneeling in this room, each creating several shadows across the room as faint light filters in from all corners of the ceiling.  In between the 2 statues in the center are a black tome and a red tome, stood up on it's own on the floor.\n\nThere is a door on the east end of the corridor, taking you to the Northeast Corridor.  There is a door on the west end of the corridor, taking you to the Northwest Corridor.  There is a passageway on the south end of the corridor, taking you to the Gear Room.",
+    "short_description": "Room covered in shadows and statues, containing a black and red tome.\nThere is a door(exit) on the west that takes you to the Northwest Corridor, a door(exit) on the east end that takes you to the Northeast Corridor, and a passageway(exit) on the south end of the corridor that takes you to the Gear Room.",
     "north":"None",
     "south":"Gear Room",
     "east":"Northeast Corridor",

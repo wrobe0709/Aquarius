@@ -1,6 +1,6 @@
 {
-    "long_description": "This room contains pyramids of barrel fixtures lining each side of the room along the walls.  It's possible that something inside these barrels could be valuable.  There is a small visible gap between two barrel pyramids where it looks like there is a small opening, the size of the palm of your hand, on the wall.\n\nThere is a door to the north.  There is a passageway on the east wall.  There is an opening, looks like the end of a chute, on the south end.",
-    "short_description": "Room full of barrels that you can smash.  There is also an open slot in the wall.\nThere is a door(exit) to the north, passageway(exit) on east wall, and opening(exit) on south end.",
+    "long_description": "This room contains pyramids of barrel fixtures lining each side of the room along the walls.  It's possible that something inside these barrels could be valuable.  There is a small visible gap between two barrel pyramids where it looks like there is a small opening, the size of the palm of your hand, on the wall.\n\nThere is a door to the north which leads to the Diamond Room.  There is a passageway on the east wall leading to the Armory.  There is an opening, looks like the end of a chute, on the south end leading to the Southwest Corridor.",
+    "short_description": "Room full of barrels that you can smash.  There is also an open slot in the wall.\nThere is a door(exit) to the north which leads to the Diamond Room, passageway(exit) on east wall that leads to the Armory, and opening(exit) on south end leading to the Southwest Corridor.",
     "north":"Diamond Room",
     "south":"Southwest Corridor",
     "east":"Armory",
