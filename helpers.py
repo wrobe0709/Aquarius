@@ -7,6 +7,7 @@ import Monster.Monster as Monster
 import constants
 from textParsing.textParsing import handle_commands, user_input, load_game
 from textParsing.puzzles import *
+from companionText import *
 
 def create_map(json_game_map):
     """Creates map for Aquarius Game"""
@@ -73,17 +74,17 @@ def play_game():
     """Execution of Aquarius Game"""
 
     # Welcome character
-    print "Welcome to The Aquarius Adventure Game!"
-    print " 1.) Start a new game"
-    print " 2.) Load a game"
-    game_start = raw_input('> ')
+    game_start = game_menu()
     while game_start != '1' and game_start != '2':
-        print " Please choose 1 or 2"
-        game_start = raw_input('> ')
+        if game_start == '3':
+            game_walkthrough()
+        print " Please choose 1 or 2 to being the game."
+        game_start = game_menu()
 
     if game_start == '1':
         # Initialize character and map
         character = Character.Character()
+        game_intro()
         game_map = create_map(None)
 
         # Setup the starting room
