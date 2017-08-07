@@ -75,13 +75,13 @@ def play_game():
 
     # Welcome character
     game_start = game_menu()
-    while game_start != '1' and game_start != '2':
-        if game_start == '3':
+    while game_start != 'newgame' and game_start != 'loadgame':
+        if game_start == 'walkthrough':
             game_walkthrough()
-        print " Please choose 1 or 2 to being the game."
+        print " Please enter newgame, loadgame, or walkthrough"
         game_start = game_menu()
 
-    if game_start == '1':
+    if game_start == 'newgame':
         # Initialize character and map
         character = Character.Character()
         game_intro()
@@ -96,7 +96,7 @@ def play_game():
         character.set_current_room(current_room)
         character.set_game_map(game_map)
 
-    elif game_start == '2':
+    elif game_start == 'loadgame':
         # Initialize character and map
         character = Character.Character()
         saved_game_data = load_game()
