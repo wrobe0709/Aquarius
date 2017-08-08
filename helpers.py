@@ -32,14 +32,15 @@ def create_map(json_game_map):
             new_feature.set_description(constants.ROOMS[room]['features'][feature]['description'])
             room_hash[room].add_feature(new_feature)
 
+        #MOVED THIS BELOW - JB
         #Set monsters in the room
-        for monster in constants.ROOMS[room]['monsters']:
-            if constants.ROOMS[room]['monsters'] != "None":
-                new_monster = Monster.Monster()
-                new_monster.set_name(constants.ROOMS[room]['monsters'][monster]['name'])
-                new_monster.set_lvl(constants.ROOMS[room]['monsters'][monster]['lvl'])
-                new_monster.set_description(constants.ROOMS[room]['monsters'][monster]['description'])
-                room_hash[room].add_monster(new_monster)
+        #for monster in constants.ROOMS[room]['monsters']:
+            #if constants.ROOMS[room]['monsters'] != "None":
+                #new_monster = Monster.Monster()
+                #new_monster.set_name(constants.ROOMS[room]['monsters'][monster]['name'])
+                #new_monster.set_lvl(constants.ROOMS[room]['monsters'][monster]['lvl'])
+                #new_monster.set_description(constants.ROOMS[room]['monsters'][monster]['description'])
+                #room_hash[room].add_monster(new_monster)
 
         # If it is not a loaded game
         if not json_game_map:
@@ -52,6 +53,16 @@ def create_map(json_game_map):
                     if constants.ROOMS[room]['items'][item]["hidden"] == "true":
                         new_item.set_hidden(True)
                 room_hash[room].add_item(new_item)
+            
+            #Set monsters in the room
+            for monster in constants.ROOMS[room]['monsters']:
+                if constants.ROOMS[room]['monsters'] != "None":
+                    new_monster = Monster.Monster()
+                    new_monster.set_name(constants.ROOMS[room]['monsters'][monster]['name'])
+                    new_monster.set_lvl(constants.ROOMS[room]['monsters'][monster]['lvl'])
+                    new_monster.set_description(constants.ROOMS[room]['monsters'][monster]['description'])
+                    room_hash[room].add_monster(new_monster)
+
         # If it is a loaded game
         else:
             # Set items in the room
@@ -60,6 +71,35 @@ def create_map(json_game_map):
                     room_hash[room].set_visited(json_game_map[room][item])
                 elif item == "locked":
                     room_hash[room].set_locked(json_game_map[room][item])
+                #Set undefeated monster in the room
+                elif item == "Lich":
+                    new_monster = Monster.Monster()
+                    new_monster.set_name(json_game_map[room][item]['Name'])
+                    new_monster.set_lvl(json_game_map[room][item]['Lvl'])
+                    new_monster.set_description(json_game_map[room][item]['Description'])
+                    new_monster.set_defeated_status(json_game_map[room][item]['Defeated'])
+                    room_hash[room].add_monster(new_monster)
+                elif item == "Armored Skeleton":
+                    new_monster = Monster.Monster()
+                    new_monster.set_name(json_game_map[room][item]['Name'])
+                    new_monster.set_lvl(json_game_map[room][item]['Lvl'])
+                    new_monster.set_description(json_game_map[room][item]['Description'])
+                    new_monster.set_defeated_status(json_game_map[room][item]['Defeated'])
+                    room_hash[room].add_monster(new_monster)
+                elif item == "Animated Armor":
+                    new_monster = Monster.Monster()
+                    new_monster.set_name(json_game_map[room][item]['Name'])
+                    new_monster.set_lvl(json_game_map[room][item]['Lvl'])
+                    new_monster.set_description(json_game_map[room][item]['Description'])
+                    new_monster.set_defeated_status(json_game_map[room][item]['Defeated'])
+                    room_hash[room].add_monster(new_monster)
+                elif item == "Skeleton":
+                    new_monster = Monster.Monster()
+                    new_monster.set_name(json_game_map[room][item]['Name'])
+                    new_monster.set_lvl(json_game_map[room][item]['Lvl'])
+                    new_monster.set_description(json_game_map[room][item]['Description'])
+                    new_monster.set_defeated_status(json_game_map[room][item]['Defeated'])
+                    room_hash[room].add_monster(new_monster)
                 else:
                     new_item = Item.Item()
                     new_item.set_name(json_game_map[room][item]['Name'])
@@ -68,6 +108,7 @@ def create_map(json_game_map):
                         if json_game_map[room][item]["Hidden"]:
                             new_item.set_hidden(True)
                     room_hash[room].add_item(new_item)
+
     return room_hash
 
 def play_game():
