@@ -45,14 +45,22 @@ def examine_room(character):
     print current_room.get_short_description() + "\n"
     print "The room contains the following features"
     for feature in current_room.features:
-        print "     " + current_room.features[feature].get_name() + ": ", current_room.features[feature].get_description()
-    print "The room contains the following item"
-    for item in current_room.items:
-        if not current_room.items[item].get_hidden():
-            print "     " + current_room.items[item].get_name() + ": ", current_room.items[item].get_description()
-    print "The room contains the following monsters"
-    for monster in current_room.monsters:
-        print "     " + current_room.monsters[monster].get_name() + ": ", current_room.monsters[monster].get_description()
+        print "     " + current_room.features[feature].get_name()
+    if len(current_room.items) > 0:
+        print "The room contains the following items"
+        for item in current_room.items:
+            if not current_room.items[item].get_hidden():
+                print "     " + current_room.items[item].get_name()
+    if len(current_room.monsters) > 0:
+        contains_monster = False
+        for monster in current_room.monsters:
+            if not current_room.monsters[monster].get_defeated_status():
+                contains_monster = True
+        if contains_monster:
+            print "The room contains the following monsters", len(current_room.monsters)
+            for monster in current_room.monsters:
+                if not current_room.monsters[monster].get_defeated_status():
+                    print "     " + current_room.monsters[monster].get_name()
 
 def look_at_item(character, item):
     """Look at an item"""
