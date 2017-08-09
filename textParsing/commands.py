@@ -130,7 +130,9 @@ def use_feature(character, object_key):
     current_room = character.get_current_room()
     if object_key in current_room.get_features():
         # Go through and handle the various differing features
-        if object_key == 'Closet':
+        if object_key == 'Painting':
+            print " The painting is of someone closely examining a key..."
+        elif object_key == 'Closet':
             if "Arrows" in current_room.get_items():
                 current_room.get_items()['Arrows'].set_hidden(False)
                 print " You see some arrows, these might be of use later..."
