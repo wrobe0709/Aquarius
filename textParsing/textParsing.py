@@ -13,7 +13,7 @@ def handle_commands(command_list, character, game_map):
     # Itereate over user input and handle command
     for word in range(len(command_list)):
         if command_list[word] == 'savegame':
-            print "Saving game."
+            print " Saving game."
             save_game(character, game_map)
             break
         elif command_list[word] == 'look':
@@ -33,10 +33,10 @@ def handle_commands(command_list, character, game_map):
                     look_at_feature(character, object_key)
                     break
                 else:
-                    print "That does not appear to be a feature or object in this room"
+                    print " That does not appear to be a feature or object in this room"
                     break
             else:
-                print "You can either 'look' or 'look at <feature or object>'"
+                print " You can either 'look' or 'look at <feature or object>'"
                 break
         elif command_list[word] == 'go':
             if len(command_list) == 1:
@@ -64,7 +64,7 @@ def handle_commands(command_list, character, game_map):
                     change_room(character, game_map, character.get_current_room().get_adjacent_rooms()[room_key])
                     break
                 else:
-                    print "That is not an adjacent room"
+                    print " That is not an adjacent room"
                     break
         elif command_list[word] == 'north' and command_list[word-1] != 'go':
             change_room(character, game_map, 'north')
@@ -176,7 +176,7 @@ def handle_commands(command_list, character, game_map):
                     break
         elif command_list[word] == 'use':
             if len(command_list) == 1:
-                print "You must specify a feature to use/interact with."
+                print " You must specify a feature to use/interact with."
                 break
             else:
                 object_key = ''
@@ -192,7 +192,7 @@ def handle_commands(command_list, character, game_map):
                     use_feature(character, object_key)
                     break
                 else:
-                    print "That does not appear to be a feature or in your inventory"
+                    print " That does not appear to be a feature or in your inventory"
                     break
         elif command_list[word] == 'smash':
             if len(command_list) == 1:
@@ -239,7 +239,7 @@ def handle_commands(command_list, character, game_map):
             exit()
         elif command_list[word] == 'read':
             if len(command_list) == 1:
-                print "Please specify a feature or item to read."
+                print " Please specify a feature or item to read."
                 break
             else:
                 object_key = ''
@@ -255,7 +255,7 @@ def handle_commands(command_list, character, game_map):
                     read_something(character, object_key)
                     break
                 else:
-                    print "That does not appear to be a feature in this room or an itme in your inventory"
+                    print " That does not appear to be a feature in this room or an itme in your inventory"
                     break
         elif command_list[word] == 'flip':
             if len(command_list) == 1:
@@ -283,5 +283,5 @@ def handle_commands(command_list, character, game_map):
                 change_room(character, game_map, character.get_current_room().get_adjacent_rooms()[room_key])
                 break
             else:
-                print "That is not an adjacent room"
+                print " That is not an adjacent room"
                 break

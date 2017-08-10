@@ -42,10 +42,15 @@ def examine_room(character):
     for feature in current_room.features:
         print "     " + current_room.features[feature].get_name()
     if len(current_room.items) > 0:
-        print "The room contains the following items"
+        visible_items = False
         for item in current_room.items:
             if not current_room.items[item].get_hidden():
-                print "     " + current_room.items[item].get_name()
+                visible_items = True
+        if visible_items:
+            print "The room contains the following items"
+            for item in current_room.items:
+                if not current_room.items[item].get_hidden():
+                    print "     " + current_room.items[item].get_name()
     if len(current_room.monsters) > 0:
         contains_monster = False
         for monster in current_room.monsters:
@@ -66,7 +71,7 @@ def look_at_item(character, item):
         if not current_room_items[item].get_looked_at():
             current_room_items[item].set_looked_at(True)
     else:
-        print "That item doesn't appear to be in this room."
+        print " That item doesn't appear to be in this room."
 
 def look_at_feature(character, feature):
     """Look at a feature"""
@@ -77,7 +82,7 @@ def look_at_feature(character, feature):
         if not current_room_features[feature].get_looked_at():
             current_room_features[feature].set_looked_at(True)
     else:
-        print "That item doesn't appear to be in this room."
+        print " That item doesn't appear to be in this room."
 
 def display_inventory(character):
     """Display a player's inventory"""
@@ -96,7 +101,7 @@ def take_item(character, item_key, item):
         character.add_to_inventory(item_key, item)
         current_room.remove_item(item_key)
     else:
-        print "That item doesn't appear to be in this room."
+        print " That item doesn't appear to be in this room."
 
 def drop_item(character, item_key):
     """Removes an item from inventory and leaves it in a room"""
@@ -125,7 +130,7 @@ def change_room(character, game_map, direction):
             else:
                 print " That way seems to be locked at the moment...perhaps there is a way to open it..."
     else:
-        print "There is no way..."
+        print " There is no way..."
 
 # Need to add in a way to handle whether or not the feature has been used before
 def use_feature(character, object_key):
@@ -155,7 +160,7 @@ def use_feature(character, object_key):
             else:
                 print " The display case is empty"
         elif object_key == 'Mirrors':
-            print "You look at yourself in a mirror and check out your inventory: "
+            print " You look at yourself in a mirror and check out your inventory: "
             display_inventory(character)
         elif object_key == 'Small Mirror':
             print " You look into the mirror and see yourself battling a great and mighty floating skeleton!"
@@ -216,7 +221,7 @@ def use_feature(character, object_key):
                 print " You move the chair near the wall in order to stand on it."
                 current_room.get_features()['Chair'].set_interacted_with(True)
             else:
-                print   " You already moved the chair. It's up against the wall maybe there's a switch you can reach now..."
+                print " You already moved the chair. It's up against the wall maybe there's a switch you can reach now..."
         elif object_key == 'Switch':
             if not current_room.get_features()['Chair'].get_interacted_with():
                 print " You can't reach the switch. Maybe you can move something in the room and stand on it..."
@@ -241,11 +246,9 @@ def use_feature(character, object_key):
         elif object_key == 'Skeleton':
             print " A closer look at the skeleton and you notice his helmet but he is missing a shield..."
         elif object_key == 'Black Tome':
-            print "Flipping through the pages of the Black Tome there are many drawings that look like they're for a summoning ritual of some sort."
+            print " Flipping through the pages of the Black Tome there are many drawings that look like they're for a summoning ritual of some sort."
         elif object_key == 'Red Tome':
-            print "This Tome seems to have ancient writings and drawings that involve human sacrifice, you quickly close it."
-        elif object_key == 'Monster':
-            print "You use monster"
+            print " This Tome seems to have ancient writings and drawings that involve human sacrifice, you quickly close it."
         elif object_key == 'Ceiling Skylight':
             print " You gaze through the ceiling skylight and see a turret to the east. There must be another room to the east..."
         elif object_key == 'Leak':
@@ -276,7 +279,7 @@ def use_feature(character, object_key):
             else:
                 print " This would be a lot more useful with a bow..."
         elif object_key == 'Sword':
-            print "You unsheath your sword and ready yourself for what may lie ahead."
+            print " You unsheath your sword and ready yourself for what may lie ahead."
         elif object_key == 'Bow':
             if 'Arrows' in character.get_inventory() and 'Torch Corridor' in current_room:
                 print " You pull out your bow and some arrows, you light an arrow with the flame from the blue torch and loose an arrow into the gaseous room."
@@ -309,18 +312,18 @@ def use_feature(character, object_key):
             else:
                 print "This key has a use, just not here..."
     else:
-        print "That feature does not appear to be in this room or is not in inventory"
+        print " That feature does not appear to be in this room or is not in inventory"
 
 def read_something(character, object_key):
     """Attempts to read a feature or inventory item"""
     current_room = character.get_current_room()
     if object_key in current_room.get_features():
         if object_key == 'Red Tome':
-            print "This Tome seems to have ancient writings and drawings that involve human sacrifice, you quickly close it."
+            print " This Tome seems to have ancient writings and drawings that involve human sacrifice, you quickly close it."
         elif object_key == 'Black Tome':
-            print "Flipping through the pages of the Black Tome there are many drawings that look like they're for a summoning ritual of some sort."
+            print " Flipping through the pages of the Black Tome there are many drawings that look like they're for a summoning ritual of some sort."
         elif object_key == 'Map':
-            print "You examine the map closely, it's of the surrounding woods and the castle. The castle seems quite large."
+            print " You examine the map closely, it's of the surrounding woods and the castle. The castle seems quite large."
         elif object_key == 'Scroll':
             print " The scroll cointains a strange message:"
             print " To slay the beast you'll need the the weapon from the room farthest to the east..."
@@ -328,11 +331,11 @@ def read_something(character, object_key):
             print " You open the book and don't see much. The only thing worthwhile you find is a hint."
             print " It reads: to the north do not go, unless sword and bow are in tow..."
         else:
-            print "You can't really read that, perhaps using it would prove more fruitful."
+            print " You can't really read that, perhaps using it would prove more fruitful."
     elif object_key in character.get_inventory():
-        print "You can't really read that, perhaps using it would prove more fruitful."
+        print " You can't really read that, perhaps using it would prove more fruitful."
     else:
-        print "That feature does not appear to be in this room or is not in inventory"
+        print " That feature does not appear to be in this room or is not in inventory"
 
 
 
