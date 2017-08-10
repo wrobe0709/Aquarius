@@ -90,7 +90,7 @@ def display_inventory(character):
         print ' Inventory is empty'
     else:
         for item in character.get_inventory():
-            print "     " + character.get_inventory()[item].get_name() + ": ", character.get_inventory()[item].get_description()
+            print "     " + character.get_inventory()[item].get_name()
 
 def take_item(character, item_key, item):
     """Adds an item to a player's inventory"""
