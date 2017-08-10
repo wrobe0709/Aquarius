@@ -359,6 +359,16 @@ def save_game(character, game_map):
                 'Description': game_map[room].get_items()[item].get_description(),
                 'Hidden': game_map[room].get_items()[item].get_hidden()
             }
+        #Add correct monsters to rooms (if they have not been defeated)
+        for monster in game_map[room].get_monsters():
+            if not game_map[room].get_monsters()[monster].get_defeated_status():
+                json_game_map[room_name][monster] = {
+                    'Name': game_map[room].get_monsters()[monster].get_name(),
+                    'Lvl':  game_map[room].get_monsters()[monster].get_lvl(),
+                    'Description': game_map[room].get_monsters()[monster].get_description(),
+                    'Defeated': game_map[room].get_monsters()[monster].get_defeated_status(),
+                }
+
 
     # Add items to inventory
     for item in inventory:
