@@ -1,6 +1,6 @@
  {
-    "long_description": "This dark, narrow, L-Shaped corridor is covered in dust and cobwebs on the ceilings and floor.  There are several piles of skeletons along the walls.  There seems to be a shiny object underneath the pile on the east most end, but will require some digging.\n\nThere is a door on the west end of the corridor, which takes you to the Shadow Corridor.  There is a doorway on the south end of the corridor, which takes you to the Torch Corridor.",
-    "short_description": "Corridor with piles of skeletons, containing a shiny object beneath them.  There is also a lantern in the middle of the hall.\nThere is a door(exit) on west which can take you to Shadow Corridor and doorway(exit) on south end of the corridor, which leads to the Torch Corridor.",
+    "long_description": "This dark, narrow, L-Shaped corridor is covered in dust and cobwebs on the ceilings and floor.  There are several piles of skeletons along the walls.  There seems to be a shiny object underneath the pile on the east most end, but will require some digging.  There is a door on the west end of the corridor, which takes you to the Shadow Corridor.  There is a doorway on the south end of the corridor, which takes you to the Torch Corridor.",
+    "short_description": "Corridor with piles of skeletons, containing a shiny object beneath them.  There is also a lantern in the middle of the hall.  There is a door(exit) on west which can take you to Shadow Corridor and doorway(exit) on south end of the corridor, which leads to the Torch Corridor.",
     "north":"None",
     "south":"Torch Corridor",
     "east":"None",
