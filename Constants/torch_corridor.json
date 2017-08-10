@@ -1,6 +1,6 @@
 {
-    "long_description": "As you enter, the walls are symmetrically covered with torches.  The room smells of smoke and there are ash piles on the floor.  When you hang a right at the corner towards the east end, there is a torch that looks different from all the rest; the material is more of a blue color rather than brown.\n\nThere is a door on the south end of the corridor.  There is a doorway on the east end of the corridor.  There is a door on the north end of the corridor.",
-    "short_description": "All of torches are light including a distinct blue torch on the east end.\nThere is a door(exit) on the south end, a doorway(exit) on the east end, and a door(exit) on the north end of the corridor.",
+    "long_description": "As you enter, the walls are symmetrically covered with torches.  The room smells of smoke and there are ash piles on the floor.  When you hang a right at the corner towards the east end, there is a torch that looks different from all the rest; the material is more of a blue color rather than brown.\n\nThere is a door on the south end of the corridor which takes you back to the Great Hall.  There is a doorway on the east end of the corridor that takes you to the Gaseous Room.  There is a door on the north end of the corridor that takes you to the Northeast Corridor.",
+    "short_description": "All of torches are light including a distinct blue torch on the east end.\nThere is a door(exit) on the south end that takes you to the Great Hall, a doorway(exit) on the east end that takes you to the Gaseous Room, and a door(exit) on the north end of the corridor that takes you to the Northeast Corridor.",
     "north":"Northeast Corridor",
     "south":"Great Hall",
     "east":"Gaseous Room",

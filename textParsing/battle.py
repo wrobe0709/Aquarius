@@ -58,6 +58,7 @@ def battle(room, character):
                     You slowly raise yourself off the ground and stand -- VICTORIUS.'''
                     current_room_monster['Lich'].set_defeated_status(True)
                     game_conclusion()
+                    exit()
                 else:
                     print '''You've gotten so far, but your ambition has gotten the best of you. The Lich summons a ball of magic
                     from its staff, points it at you, and then a stream of dark malignant energy races towards you. It

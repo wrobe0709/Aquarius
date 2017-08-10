@@ -75,13 +75,13 @@ def play_game():
 
     # Welcome character
     game_start = game_menu()
-    while game_start != '1' and game_start != '2':
-        if game_start == '3':
+    while game_start != 'newgame' and game_start != 'loadgame':
+        if game_start == 'walkthrough':
             game_walkthrough()
-        print " Please choose 1 or 2 to continue."
-        game_start = game_menu
+        print " Please enter newgame, loadgame, or walkthrough"
+        game_start = game_menu()
 
-    if game_start == '1':
+    if game_start == 'newgame':
         # Initialize character and map
         character = Character.Character()
         game_intro()
@@ -96,25 +96,29 @@ def play_game():
         character.set_current_room(current_room)
         character.set_game_map(game_map)
 
-    elif game_start == '2':
-        # Initialize character and map
-        character = Character.Character()
-        saved_game_data = load_game()
-        game_map = create_map(saved_game_data['json_game_map'])
+    elif game_start == 'loadgame':
+        confirm_load = raw_input('Are you sure? (y or n) > ')
+        if confirm_load == 'y':
+            # Initialize character and map
+            character = Character.Character()
+            saved_game_data = load_game()
+            game_map = create_map(saved_game_data['json_game_map'])
 
-        # Set current room and character name based on saved JSON
-        current_room = game_map[saved_game_data['current_room']]
-        character_name = saved_game_data['character_name']
-        character.set_name(character_name)
-        character.set_current_room(current_room)
-        character.set_game_map(game_map)
+            # Set current room and character name based on saved JSON
+            current_room = game_map[saved_game_data['current_room']]
+            character_name = saved_game_data['character_name']
+            character.set_name(character_name)
+            character.set_current_room(current_room)
+            character.set_game_map(game_map)
 
-        # Add correct items to inventory
-        for item in saved_game_data['json_inventory']:
-            new_item = Item.Item()
-            new_item.set_name(saved_game_data['json_inventory'][item]['Name'])
-            new_item.set_description(saved_game_data['json_inventory'][item]['Description'])
-            character.add_to_inventory(item, new_item)
+            # Add correct items to inventory
+            for item in saved_game_data['json_inventory']:
+                new_item = Item.Item()
+                new_item.set_name(saved_game_data['json_inventory'][item]['Name'])
+                new_item.set_description(saved_game_data['json_inventory'][item]['Description'])
+                character.add_to_inventory(item, new_item)
+        else:
+            play_game()
 
     #handle commands
     new_command = user_input()

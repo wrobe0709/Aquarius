@@ -1,6 +1,6 @@
  {
-    "long_description": "There are twinkling sparkles of light all across the dim room.  It seems there is something not illuminated here at the moment but once has been.  There does not appear to be a lantern in this room to uncover what's in the darkness.\n\nThere is a door on the north end amidst the sparkling light.  There is a doorway on the south end in the darkness.  There is an unsuspecting passageway on the east wall.",
-    "short_description": "This is diamond illuminated room.  There is a method to bring light to the room.  There is a switch and chair in this room.\nThere is a door(exit) on north wall, doorway(exit) on south wall, and passageway(exit) on east wall.",
+    "long_description": "There are twinkling sparkles of light all across the dim room.  It seems there is something not illuminated here at the moment but once has been.  There does not appear to be a lantern in this room to uncover what's in the darkness.\n\nThere is a door on the north end amidst the sparkling light which leads to the Northwest Corridor.  There is a doorway on the south end in the darkness, which leads to the Barrel Room.  There is an unsuspecting passageway on the east wall which leads to the Gear Room.",
+    "short_description": "This is diamond illuminated room.  There is a method to bring light to the room.  There is a switch and chair in this room.\nThere is a door(exit) on north wall leading to the Northwest Corridor, doorway(exit) on south wall leading to the Barrel Room, and passageway(exit) on east wall leading to the Gear Room.",
     "north":"Northwest Corridor",
     "south":"Barrel Room",
     "east":"Gear Room",

@@ -1,6 +1,6 @@
 {
-    "long_description": "You enter into a large circular room, that's cold with just a few flickering candles. On the floor you notice markings in the shape of a summoning circle. As you draw near to inspect your breath leaves you, the room becomes unbearably cold and a Lich appears!\n\nThere is a doorway to the north end of the room.",
-    "short_description": "The final room with the Lich.\nThere is a doorway(exit) to the north.",
+    "long_description": "You enter into a large circular room, that's cold with just a few flickering candles. On the floor you notice markings in the shape of a summoning circle. As you draw near to inspect your breath leaves you, the room becomes unbearably cold and a Lich appears!\n\nThere is a doorway to the north end of the room leading back to the Armory.",
+    "short_description": "The final room with the Lich.\nThere is a doorway(exit) to the north leading back to the Armory.",
     "north":"Armory",
     "south":"None",
     "east":"None",

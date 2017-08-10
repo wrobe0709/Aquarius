@@ -40,14 +40,22 @@ def examine_room(character):
     print current_room.get_short_description() + "\n"
     print "The room contains the following features"
     for feature in current_room.features:
-        print "     " + current_room.features[feature].get_name() + ": ", current_room.features[feature].get_description()
-    print "The room contains the following item"
-    for item in current_room.items:
-        if not current_room.items[item].get_hidden():
-            print "     " + current_room.items[item].get_name() + ": ", current_room.items[item].get_description()
-    print "The room contains the following monsters"
-    for monster in current_room.monsters:
-        print "     " + current_room.monsters[monster].get_name() + ": ", current_room.monsters[monster].get_description()
+        print "     " + current_room.features[feature].get_name()
+    if len(current_room.items) > 0:
+        print "The room contains the following items"
+        for item in current_room.items:
+            if not current_room.items[item].get_hidden():
+                print "     " + current_room.items[item].get_name()
+    if len(current_room.monsters) > 0:
+        contains_monster = False
+        for monster in current_room.monsters:
+            if not current_room.monsters[monster].get_defeated_status():
+                contains_monster = True
+        if contains_monster:
+            print "The room contains the following monsters", len(current_room.monsters)
+            for monster in current_room.monsters:
+                if not current_room.monsters[monster].get_defeated_status():
+                    print "     " + current_room.monsters[monster].get_name()
 
 def look_at_item(character, item):
     """Look at an item"""
@@ -125,7 +133,9 @@ def use_feature(character, object_key):
     current_room = character.get_current_room()
     if object_key in current_room.get_features():
         # Go through and handle the various differing features
-        if object_key == 'Closet':
+        if object_key == 'Painting':
+            print " The painting is of someone closely examining a key..."
+        elif object_key == 'Closet':
             if "Arrows" in current_room.get_items():
                 current_room.get_items()['Arrows'].set_hidden(False)
                 print " You see some arrows, these might be of use later..."
@@ -148,7 +158,7 @@ def use_feature(character, object_key):
             print "You look at yourself in a mirror and check out your inventory: "
             display_inventory(character)
         elif object_key == 'Small Mirror':
-            print " You look into the mirror and see yourself battling a great and mighty beast!"
+            print " You look into the mirror and see yourself battling a great and mighty floating skeleton!"
             print " Is this a sign of things yet to come?"
         elif object_key == 'Torches':
             print " You attempt to grab a torch from the wall but unable to loosen it."
@@ -211,7 +221,8 @@ def use_feature(character, object_key):
             if not current_room.get_features()['Chair'].get_interacted_with():
                 print " You can't reach the switch. Maybe you can move something in the room and stand on it..."
             else:
-                print " Use the switch!"
+                print " Flipping the switch unlocks a door on the south wall."
+                character.get_game_map()['Barrel Room'].set_locked("false")
         elif object_key == 'Wizard':
             if not current_room.get_features()['Wizard'].get_interacted_with():
                 print " The magestic wizard has refurbished the dungeon into a beatiful palace!"
@@ -255,7 +266,48 @@ def use_feature(character, object_key):
             print " By examining the sword it is clear the warrior had given their best effort to win its battle."
             print " Perhaps the warrior did not have anything to shield itself from its attackers blows..."
     elif object_key in character.get_inventory():
-        print "use the", object_key
+        if object_key == 'Torch':
+            print " You pull out and light your torch, and the room fills with light."
+            if "Lantern" in current_room.get_features():
+                print " You light the lantern with your torch."
+        elif object_key == 'Arrows':
+            if 'Bow' in character.get_inventory():
+                print " You pull out an arrow and notch it in your bow."
+            else:
+                print " This would be a lot more useful with a bow..."
+        elif object_key == 'Sword':
+            print "You unsheath your sword and ready yourself for what may lie ahead."
+        elif object_key == 'Bow':
+            if 'Arrows' in character.get_inventory() and 'Torch Corridor' in current_room:
+                print " You pull out your bow and some arrows, you light an arrow with the flame from the blue torch and loose an arrow into the gaseous room."
+                if not character.get_game_map()['Gaseous Room'].get_visited():
+                    gaseous_room_entry(character)
+                else:
+                    print " You already used the blue torch to clear the gaseous chamber."
+            elif 'Arrows' in character.get_inventory():
+                print " You loose an arrow in the room, too bad a monster didn't get hit."
+            else:
+                print "This would be a lot more useful with arrows, I wonder if I missed those somewhere I've already been..."
+        elif object_key == 'Armor Suit':
+            print " You put on the piece of armor, it's quite comfortable and exudes power."
+        elif object_key == 'Helmet':
+            print " You place the helm on your head, you feel ready to take on whatever's next!"
+        elif object_key == 'Shield':
+            print " The sheild slides onto your arm, it'll definitely help you take on some tough opponents."
+        elif object_key == 'Rune':
+            if 'Sword' in character.get_inventory():
+                print """
+                Taking the rune and pulling your sword out, the rune seems to pulse with energy, as it draws near
+                the sword the pulsing increases and it's form liquifies. Then the rune melds into the sword! Your
+                sword now pulses with the energy of the rune!"""
+            else:
+                print " This could be of use with the sword..."
+        elif object_key == 'Key':
+            if current_room == 'Armory':
+                print " You used the End Room Key to enter the room!"
+                change_room(character, character.get_game_map(), 'south')
+            else:
+                print "This key has a use, just not here..."
     else:
         print "That feature does not appear to be in this room or is not in inventory"
 
