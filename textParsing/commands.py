@@ -14,29 +14,24 @@ def display_help():
             look - shows the description of the room along with items that
             are currently visible/available in the room
             look at <feature/object> - shows description of feature/item
-            go (noth, south, east, west) - will move the player to a
-            room in that direction if possible
-            examine - the player will be offered the chance to examine an
-            item in the current room
+            go (noth, south, east, west, or <room name>) - will move the player
+            to a room in that direction if possible, or into the designated room
+            examine <item>- the player examines an item in the current room
             take/grab/pickup <object> - will put the selected item in the
             player's inventory and remove it from the room
-            drop <object> - will drop selected item from the player's
-            inventory
+            drop/discard <object> - will drop the selected item from the
+            player's inventory
             use <object> - the player will interact with the object
             inventory - will display the items in the player's inventory
             help - displays this menu
-            attack <opponent> - will use the currently equipped weapon to
-            attack the indicated opponent
+            smash/break - will smash or break open certain items in the
+            game world
+            read <item>/<feature> - will read an item in the player's inventory
+            or a feature in the room
+            flip - will flip a certain feature between on and off
             quit - will exit the game
-            --------------------------------------------------------
-            Prepositions (used in conjunction with some commands above):
-            above - used with look (look above <object>)
-            into - used with look (look into <room>)
-            on - used with look or drop (look/drop on <object>)
-            behind - used with look (look behind <room/object>)
-            through - used with look (look through <room/object>)
-            under - used with look (look under <object>)
             **********************************************************
+
             '''
 
 def examine_room(character):

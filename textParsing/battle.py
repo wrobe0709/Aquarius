@@ -1,5 +1,6 @@
 """This file will handle the battle related functions"""
 import helpers
+from companionText import *
 
 # Handles battles with monsters
 def battle(room, character):
@@ -56,6 +57,7 @@ def battle(room, character):
                     A burst of light fills the room and the darkness of the Lich condenses into an orb and vanishes.
                     You slowly raise yourself off the ground and stand -- VICTORIUS.'''
                     current_room_monster['Lich'].set_defeated_status(True)
+                    game_conclusion()
                 else:
                     print '''You've gotten so far, but your ambition has gotten the best of you. The Lich summons a ball of magic
                     from its staff, points it at you, and then a stream of dark malignant energy races towards you. It
