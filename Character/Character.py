@@ -27,10 +27,15 @@ class Character(object):
         for feature in current_room.features:
             print "     " + current_room.features[feature].get_name()
         if len(current_room.items) > 0:
-            print "The room contains the following items"
+            visible_items = False
             for item in current_room.items:
                 if not current_room.items[item].get_hidden():
-                    print "     " + current_room.items[item].get_name()
+                    visible_items = True
+            if visible_items:
+                print "The room contains the following items"
+                for item in current_room.items:
+                    if not current_room.items[item].get_hidden():
+                        print "     " + current_room.items[item].get_name()
         if len(current_room.monsters) > 0:
             contains_monster = False
             for monster in current_room.monsters:

@@ -16,11 +16,11 @@ def sword_case_puzzle(character):
             if command_list[word+1] == 'wood':
                 if command_list[word+2] == 'fire':
                     if command_list[word+3] == 'mountain':
-                        print "Your knowledge of The Art of War has proven True."
-                        print "The sword case opens slowly...revealing a mighty sword."
+                        print " Your knowledge of The Art of War has proven True."
+                        print " The sword case opens slowly...revealing a mighty sword."
                         character.get_current_room().get_items()['Sword'].set_hidden(False)
         elif command_list[0] != 'wind':
-            print "Hmm that doesn't seem to be right, perhaps Sun Tzu would know..."
+            print " Hmm that doesn't seem to be right, perhaps Sun Tzu would know..."
 
 def key_puzzle(character):
     """Handles puzzle to unlock end room key"""
@@ -136,12 +136,12 @@ _|  (_)  |_   (_)   _|
         # Take and check user input
         user_command = raw_input('> ')
         if user_command == 'up left down right down left up right up left up right down right down left up left down right up right down left':
-            print "The gears in the room move and reveal the bow room!"
+            print " The gears in the room move and reveal the bow room!"
             character.get_game_map()['Bow Room'].set_locked("false")
         else:
-            print "The gears grind to a halt in the room. Nothing more happens."
+            print " The gears grind to a halt in the room. Nothing more happens."
     else:
-        print "You decide not to bother with the gear."
+        print " You decide not to bother with the gear."
 
 def gaseous_room_entry(character):
     """Handles entering the gaseous room"""
