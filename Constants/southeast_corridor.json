@@ -5,7 +5,7 @@
     "south":"None",
     "east":"Alcove",
     "west":"Dungeon Entrance",
-    "locked": "false",
+    "locked": "true",
     "monsters": "None",
     "features":{
         "Staircase":{
