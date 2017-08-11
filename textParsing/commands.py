@@ -226,8 +226,12 @@ def use_feature(character, object_key):
             if not current_room.get_features()['Chair'].get_interacted_with():
                 print " You can't reach the switch. Maybe you can move something in the room and stand on it..."
             else:
-                print " Flipping the switch unlocks a door on the south wall."
-                character.get_game_map()['Barrel Room'].set_locked("false")
+                if not current_room.get_features()['Switch'].get_interacted_with():
+                    print " Flipping the switch unlocks a door on the south wall."
+                    current_room.get_features()['Switch'].set_interacted_with(True)
+                    character.get_game_map()['Barrel Room'].set_locked("false")
+                else:
+                    print " You already flipped the switch. The door on the south wall is now open."
         elif object_key == 'Wizard':
             if not current_room.get_features()['Wizard'].get_interacted_with():
                 print " The magestic wizard has refurbished the dungeon into a beatiful palace!"
@@ -372,7 +376,6 @@ def save_game(character, game_map):
                     'Defeated': game_map[room].get_monsters()[monster].get_defeated_status(),
                 }
 
-
     # Add items to inventory
     for item in inventory:
         json_inventory[item] = {
@@ -380,6 +383,12 @@ def save_game(character, game_map):
             'Description': inventory[item].get_description(),
             'Hidden': inventory[item].get_hidden()
         }
+
+    # Check feature state in diamond room
+    json_game_map['Diamond Room']['Features'] = {}
+    for feature in game_map['Diamond Room'].get_features():
+        json_game_map['Diamond Room']['Features'][feature] = {}
+        json_game_map['Diamond Room']['Features'][feature]['Interacted With'] = game_map['Diamond Room'].get_features()[feature].get_interacted_with()    
 
     # Create game state object to save
     game_state = {

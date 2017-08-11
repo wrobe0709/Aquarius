@@ -32,16 +32,6 @@ def create_map(json_game_map):
             new_feature.set_description(constants.ROOMS[room]['features'][feature]['description'])
             room_hash[room].add_feature(new_feature)
 
-        #MOVED THIS BELOW - JB
-        #Set monsters in the room
-        #for monster in constants.ROOMS[room]['monsters']:
-            #if constants.ROOMS[room]['monsters'] != "None":
-                #new_monster = Monster.Monster()
-                #new_monster.set_name(constants.ROOMS[room]['monsters'][monster]['name'])
-                #new_monster.set_lvl(constants.ROOMS[room]['monsters'][monster]['lvl'])
-                #new_monster.set_description(constants.ROOMS[room]['monsters'][monster]['description'])
-                #room_hash[room].add_monster(new_monster)
-
         # If it is not a loaded game
         if not json_game_map:
             # Set items in the room
@@ -100,6 +90,9 @@ def create_map(json_game_map):
                     new_monster.set_description(json_game_map[room][item]['Description'])
                     new_monster.set_defeated_status(json_game_map[room][item]['Defeated'])
                     room_hash[room].add_monster(new_monster)
+                elif item == "Features":
+                    for feature in json_game_map[room][item]:
+                        room_hash[room].get_features()[feature].set_interacted_with(json_game_map[room][item][feature]['Interacted With'])
                 else:
                     new_item = Item.Item()
                     new_item.set_name(json_game_map[room][item]['Name'])
