@@ -127,6 +127,12 @@ def change_room(character, game_map, direction):
                     battle(game_map[usr_choice], character)
                 else:
                     print " That way seems to be locked at the moment...perhaps there is a way to open it..."
+            elif potential_room.get_name() == "Southeast Corridor":
+                if 'Torch' in character.get_inventory():
+                    character.set_current_room(game_map[usr_choice])
+                    battle(game_map[usr_choice], character)
+                else:
+                    print " It's too dark to see how to go that way. Maybe some light would help..."
             else:
                 print " That way seems to be locked at the moment...perhaps there is a way to open it..."
     else:
@@ -166,7 +172,7 @@ def use_feature(character, object_key):
             print " You look into the mirror and see yourself battling a great and mighty floating skeleton!"
             print " Is this a sign of things yet to come?"
         elif object_key == 'Torches':
-            print " You attempt to grab a torch from the wall but unable to loosen it."
+            print " You attempt to grab a torch from the wall but are unable to loosen it."
             print " Perhaps the blue torch can be used..."
         elif object_key == 'Blue Torch':
             if not character.get_game_map()['Gaseous Room'].get_visited():
