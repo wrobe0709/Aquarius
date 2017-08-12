@@ -36,7 +36,7 @@ def handle_commands(command_list, character, game_map):
                     print " That does not appear to be a feature or object in this room"
                     break
             else:
-                print " You can either 'look' or 'look at <feature or object>'"
+                print " You can either 'look' or 'look at <feature or object>'."
                 break
         elif command_list[word] == 'go':
             if len(command_list) == 1:
@@ -64,7 +64,7 @@ def handle_commands(command_list, character, game_map):
                     change_room(character, game_map, character.get_current_room().get_adjacent_rooms()[room_key])
                     break
                 else:
-                    print " That is not an adjacent room"
+                    print " That is not an adjacent room."
                     break
         elif command_list[word] == 'north' and command_list[word-1] != 'go':
             change_room(character, game_map, 'north')
@@ -81,7 +81,7 @@ def handle_commands(command_list, character, game_map):
         #handle item manipulation
         elif command_list[word] == 'examine':
             if len(command_list) == 1:
-                print ' You must specify an item to examine'
+                print ' You must specify an item to examine.'
                 break
             else:
                 item_key = ''
@@ -96,7 +96,7 @@ def handle_commands(command_list, character, game_map):
                     break
         elif command_list[word] == 'pickup':
             if len(command_list) == 1:
-                print ' You must specify an item to take with you'
+                print ' You must specify an item to take with you.'
                 break
             else:
                 item_key = ''
@@ -107,11 +107,11 @@ def handle_commands(command_list, character, game_map):
                     take_item(character, item_key, character.get_current_room().get_items()[item_key])
                     break
                 else:
-                    print " You can't pick that up"
+                    print " You can't pick that up."
                     break
         elif command_list[word] == 'take':
             if len(command_list) == 1:
-                print ' You must specify an item to take with you'
+                print ' You must specify an item to take with you.'
                 break
             else:
                 item_key = ''
@@ -126,7 +126,7 @@ def handle_commands(command_list, character, game_map):
                     break
         elif command_list[word] == 'grab':
             if len(command_list) == 1:
-                print ' You must specify an item to take with you'
+                print ' You must specify an item to take with you.'
             else:
                 item_key = ''
                 for item_word in command_list[1:]:
@@ -136,7 +136,7 @@ def handle_commands(command_list, character, game_map):
                     take_item(character, item_key, character.get_current_room().get_items()[item_key])
                     break
                 else:
-                    print " You can't grab that"
+                    print " You can't grab that."
                     break
         elif command_list[word] == 'help':
             display_help()
@@ -146,7 +146,7 @@ def handle_commands(command_list, character, game_map):
             break
         elif command_list[word] == 'discard':
             if len(command_list) == 1:
-                print ' You must specify an item to discard'
+                print ' You must specify an item to discard.'
                 break
             else:
                 item_key = ''
@@ -157,11 +157,11 @@ def handle_commands(command_list, character, game_map):
                     drop_item(character, item_key)
                     break
                 else:
-                    print ' That item is not in your inventory'
+                    print ' That item is not in your inventory.'
                     break
         elif command_list[word] == 'drop':
             if len(command_list) == 1:
-                print ' You must specify an item to drop'
+                print ' You must specify an item to drop.'
                 break
             else:
                 item_key = ''
@@ -172,7 +172,7 @@ def handle_commands(command_list, character, game_map):
                     drop_item(character, item_key)
                     break
                 else:
-                    print ' That item is not in your inventory'
+                    print ' That item is not in your inventory.'
                     break
         elif command_list[word] == 'use':
             if len(command_list) == 1:
@@ -192,7 +192,7 @@ def handle_commands(command_list, character, game_map):
                     use_feature(character, object_key)
                     break
                 else:
-                    print " That does not appear to be a feature or in your inventory"
+                    print " That does not appear to be a feature or in your inventory."
                     break
         elif command_list[word] == 'smash':
             if len(command_list) == 1:
@@ -232,10 +232,9 @@ def handle_commands(command_list, character, game_map):
                         use_feature(character, object_key)
                         break
                     else:
-                        print "You can't break that. Perhaps something wooden would be more fun to smash."
+                        print " You can't break that. Perhaps something wooden would be more fun to smash."
                         break
         elif command_list[word] == 'quit':
-            #return 'quit'
             exit()
         elif command_list[word] == 'read':
             if len(command_list) == 1:
