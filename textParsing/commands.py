@@ -107,7 +107,7 @@ def drop_item(character, item_key):
     """Removes an item from inventory and leaves it in a room"""
     current_room = character.get_current_room()
     if item_key == 'Torch':
-        print "You reconsider dropping the torch, it'd be awfully dark around without it."
+        print " You reconsider dropping the torch, it'd be awfully dark around without it."
     else:
         current_room.add_item(character.get_inventory()[item_key])
         character.remove_from_inventory(item_key)

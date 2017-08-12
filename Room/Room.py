@@ -123,17 +123,3 @@ class Room(object):
     def get_monsters(self):
         """Gets the monsters in a room"""
         return self.monsters
-
-class Neighbor(Room):
-    """Neighbor Class"""
-    def __init__(self):
-        super(Neighbor, self).__init__()
-        self.far_off_description = ''
-
-    def set_far_off_description(self, far_off_description):
-        """Sets the description of a room"""
-        self.far_off_description = far_off_description
-
-    def get_far_off_description(self):
-        """Gets the description of a room"""
-        return self.far_off_description
