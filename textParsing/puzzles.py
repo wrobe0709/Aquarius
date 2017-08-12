@@ -147,11 +147,12 @@ def gaseous_room_entry(character):
     """Handles entering the gaseous room"""
     # Enter gaseous room and unlock it if user has bow
     if 'Bow' in character.get_inventory():
-        print """        You take out your bow and draw an arrow. You approach the lit blue torch and
-        light your arrow. Drawing the string back you face the entrance to the gaseous room
-        and loose your arrow! It's blue flame flys into the gaseous room and a brilliant flash
-        of light englufs the room and corridor! As your eyes adjust you notice that the gas is gone
-        and it's safe to enter in."""
+        print """ 
+ You take out your bow and draw an arrow. You approach the lit blue torch and
+ light your arrow. Drawing the string back you face the entrance to the gaseous room
+ and loose your arrow! It's blue flame flys into the gaseous room and a brilliant flash
+ of light englufs the room and corridor! As your eyes adjust you notice that the gas is gone
+ and it's safe to enter in.\n"""
         character.get_game_map()['Gaseous Room'].set_locked("false")
     else:
         print """   This flame's proximity to the gaseous room would probably be useful if there was a way to light it and shoot it in there..."""
