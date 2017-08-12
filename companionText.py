@@ -1,3 +1,4 @@
+# coding: utf-8
 #This file has the game intro, conclusion, and a help guide to beat the game
 import Character.Character as Character
 

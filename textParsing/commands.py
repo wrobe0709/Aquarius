@@ -106,8 +106,12 @@ def take_item(character, item_key, item):
 def drop_item(character, item_key):
     """Removes an item from inventory and leaves it in a room"""
     current_room = character.get_current_room()
-    current_room.add_item(character.get_inventory()[item_key])
-    character.remove_from_inventory(item_key)
+    if item_key == 'Torch':
+        print "You reconsider dropping the torch, it'd be awfully dark around without it."
+    else:
+        current_room.add_item(character.get_inventory()[item_key])
+        character.remove_from_inventory(item_key)
+
 
 def change_room(character, game_map, direction):
     """Changes a player's room"""
@@ -394,7 +398,7 @@ def save_game(character, game_map):
     json_game_map['Diamond Room']['Features'] = {}
     for feature in game_map['Diamond Room'].get_features():
         json_game_map['Diamond Room']['Features'][feature] = {}
-        json_game_map['Diamond Room']['Features'][feature]['Interacted With'] = game_map['Diamond Room'].get_features()[feature].get_interacted_with()    
+        json_game_map['Diamond Room']['Features'][feature]['Interacted With'] = game_map['Diamond Room'].get_features()[feature].get_interacted_with()
 
     # Create game state object to save
     game_state = {
