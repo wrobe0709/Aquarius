@@ -122,7 +122,7 @@ def handle_commands(command_list, character, game_map):
                     take_item(character, item_key, character.get_current_room().get_items()[item_key])
                     break
                 else:
-                    print " You can't take that"
+                    print " You can't take that."
                     break
         elif command_list[word] == 'grab':
             if len(command_list) == 1:
@@ -271,7 +271,7 @@ def handle_commands(command_list, character, game_map):
                         use_feature(character, object_key)
                         break
                     else:
-                        print "You can't flip that."
+                        print " You can't flip that."
                         break
         else:
             room_key = ''
