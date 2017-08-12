@@ -1,4 +1,5 @@
 import json
+import os
 from puzzles import *
 from battle import *
 
@@ -414,6 +415,9 @@ def save_game(character, game_map):
 
 def load_game():
     """Loads data"""
-    with open("saved_game.json") as saved_game_file:
-        game_data = json.load(saved_game_file)
-    return game_data
+    if os.path.isfile("saved_game.json") : 
+        with open("saved_game.json") as saved_game_file:
+            game_data = json.load(saved_game_file)
+        return game_data
+    else:
+        return False
