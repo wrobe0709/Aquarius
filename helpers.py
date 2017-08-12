@@ -136,21 +136,25 @@ def play_game():
             # Initialize character and map
             character = Character.Character()
             saved_game_data = load_game()
-            game_map = create_map(saved_game_data['json_game_map'])
+            if saved_game_data != False:
+                game_map = create_map(saved_game_data['json_game_map'])
 
-            # Set current room and character name based on saved JSON
-            current_room = game_map[saved_game_data['current_room']]
-            character_name = saved_game_data['character_name']
-            character.set_name(character_name)
-            character.set_current_room(current_room)
-            character.set_game_map(game_map)
+                # Set current room and character name based on saved JSON
+                current_room = game_map[saved_game_data['current_room']]
+                character_name = saved_game_data['character_name']
+                character.set_name(character_name)
+                character.set_current_room(current_room)
+                character.set_game_map(game_map)
 
-            # Add correct items to inventory
-            for item in saved_game_data['json_inventory']:
-                new_item = Item.Item()
-                new_item.set_name(saved_game_data['json_inventory'][item]['Name'])
-                new_item.set_description(saved_game_data['json_inventory'][item]['Description'])
-                character.add_to_inventory(item, new_item)
+                # Add correct items to inventory
+                for item in saved_game_data['json_inventory']:
+                    new_item = Item.Item()
+                    new_item.set_name(saved_game_data['json_inventory'][item]['Name'])
+                    new_item.set_description(saved_game_data['json_inventory'][item]['Description'])
+                    character.add_to_inventory(item, new_item)
+            else:
+                print "\nERROR: saved_game.json does not exist. You must start a new game."
+                play_game()
         else:
             play_game()
 
